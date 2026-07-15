@@ -1,0 +1,42 @@
+using System;
+using YG;
+
+public class LocationLevel : ILocationLevel, ILocationLevelUpped
+{
+    private int _value;
+    
+    public event Action<int> Changed;
+
+    public LocationLevel()
+    {
+        _value = YG2.saves.LocationLevel;
+    }
+    
+    public int Value
+    {
+        get => _value;
+
+        private set
+        {
+            _value = Math.Clamp(value, 0, int.MaxValue);
+            Changed?.Invoke(_value);
+            
+            YG2.saves.LocationLevel = _value;
+        }
+    }
+    
+    public void Update()
+    {
+        Changed?.Invoke(_value);
+    }
+
+    public void UpLevel()
+    {
+        Value++;
+    }
+    
+    public void Reset()
+    {
+        Value = 0;
+    }
+}

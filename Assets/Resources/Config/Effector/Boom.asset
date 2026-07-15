@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cff4af310d26894a96a95a32d227d99, type: 3}
+  m_Name: Boom
+  m_EditorClassIdentifier: 
+  <Type>k__BackingField: 1
+  <Effector>k__BackingField: {fileID: 7810725665286259922, guid: 156a31b8b4167784899197ef37a6b995, type: 3}

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee5bb3e8478a824aaf4ae3b7ae9ab23, type: 3}
+  m_Name: DarkFortress
+  m_EditorClassIdentifier: 
+  <Skybox>k__BackingField: {fileID: 2100000, guid: 51b74d7bad397457d883c5940f7664d8, type: 2}
+  <Units>k__BackingField:
+  - {fileID: 3652129525899202870, guid: 30a7ecee25edfaf48a9b11c98e966866, type: 3}
+  - {fileID: 8257555084065757912, guid: 52c5ac94fd2e14442a8c92889a7bbf0a, type: 3}
+  - {fileID: 761861252912116553, guid: 1b34d4565b660de4ab6f013364bd59bf, type: 3}
+  - {fileID: 5194909736946618753, guid: d9e74421f97e0e642bc1929f67a10c1d, type: 3}
+  - {fileID: 1872351039616545093, guid: 91d46f084d43499429eb5954119b15ae, type: 3}
+  <Maps>k__BackingField:
+  - {fileID: 825942343711627158, guid: 2224d0b3530a41e4e8f57d1af0a47e31, type: 3}
+  - {fileID: 6020588145145506023, guid: b1e3fb1398c22584980a900166539baa, type: 3}
+  - {fileID: 9187575067828443067, guid: 73d98a23063a4734ea1c0a920be40e5e, type: 3}
+  <Obstacles>k__BackingField:
+  - {fileID: 4015723763432665075, guid: 722044ff16125ce4b935474d9ef6e972, type: 3}
+  - {fileID: -4081833457173460389, guid: 95a9e319789346c4a8e45f94d8c6050a, type: 3}
+  - {fileID: -92797394816174832, guid: d954bbfedb3f4f34cbb371723ca73461, type: 3}
+  - {fileID: 736001083290993087, guid: 25e6e3f1e37611b4fa3918474de043dd, type: 3}
+  - {fileID: -2221204576459331813, guid: 70b18c948b7b2704db771693aefaaf38, type: 3}
+  <FogMode>k__BackingField: 2
+  <FogColor>k__BackingField: {r: 0.16470589, g: 0.16862746, b: 0.21960784, a: 1}
+  <FogDensity>k__BackingField: 0.1
+  <SkyboxIntensityMultiplier>k__BackingField: 5
