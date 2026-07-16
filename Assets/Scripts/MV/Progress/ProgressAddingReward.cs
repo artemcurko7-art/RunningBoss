@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProgressAddingReward
 {
-    private readonly Dictionary<ProgressType, bool> _receivedData = new();
+    private readonly Dictionary<ProgressType, bool> _receivedData = new ();
     
     public ProgressAddingReward()
     {

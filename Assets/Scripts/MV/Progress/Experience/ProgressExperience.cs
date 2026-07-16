@@ -2,16 +2,16 @@ using System;
 
 public class ProgressExperience
 {
-    private int _value;
     private readonly int _multiplierMaxValue;
-    
-    public event Action<int> Changed;
+    private int _value;
 
     public ProgressExperience(int maxValue, int multiplierMaxValue)
     {
         MaxValue = maxValue;
         _multiplierMaxValue = multiplierMaxValue;
     }
+    
+    public event Action<int> Changed;
 
     public int MaxValue { get; private set; }
     

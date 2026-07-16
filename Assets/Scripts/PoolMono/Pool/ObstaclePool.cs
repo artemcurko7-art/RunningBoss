@@ -2,7 +2,8 @@ using Zenject;
 
 public class ObstaclePool : PoolMono<Obstacle>
 {
-    public ObstaclePool(DiContainer container) : base(container) {}
+    public ObstaclePool(DiContainer container) 
+        : base(container) { }
     
     protected override void ActionOnGet(Obstacle obstacle)
     {

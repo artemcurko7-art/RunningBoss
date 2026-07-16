@@ -4,5 +4,5 @@ public enum BackgroundMusicType
     Menu,
     Waiting,
     Gameplay,
-    GameEnded
+    GameEnded,
 }

@@ -7,7 +7,7 @@ public class ProgressBar : ProgressExperienceView
     
     protected override void OnValueChanged(int value)
     {
-         if(_filling == null)
+         if (_filling == null)
              return;
          
          _filling.fillAmount = (float)value / Experience.MaxValue;

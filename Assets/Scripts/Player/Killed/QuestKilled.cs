@@ -4,7 +4,8 @@ public class QuestKilled : KilledSubscriber
 {
     private readonly QuestData[] _dates;
     
-    public QuestKilled(IKilled killed, QuestData[] dates) : base(killed)
+    public QuestKilled(IKilled killed, QuestData[] dates) 
+        : base(killed)
     {
         _dates = dates;
     }

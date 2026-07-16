@@ -7,13 +7,13 @@ public class SkillPoint : ISkillPoint, ISubscriber
     private readonly IGameLevelUpped _levelUpped;
     private int _value;
     
-    public event Action<int> Changed;
-    
     public SkillPoint(IGameLevelUpped levelUpped)
     {
         _levelUpped = levelUpped;
         Value = YG2.saves.SkillPoint;
     }
+    
+    public event Action<int> Changed;
 
     public int Value
     {

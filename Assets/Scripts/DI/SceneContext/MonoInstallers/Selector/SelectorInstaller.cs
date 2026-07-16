@@ -1,6 +1,6 @@
 using UnityEngine;
-using Zenject;
 using YG;
+using Zenject;
 
 public class SelectorInstaller : MonoInstaller
 {
@@ -14,7 +14,7 @@ public class SelectorInstaller : MonoInstaller
         _currentContainer = YG2.envir.isMobile ? _mobileContainer : _desktopContainer;
 
         Container.
-            BindInterfacesAndSelfTo<SelectorAnimalViewService>(). 
+            BindInterfacesAndSelfTo<SelectorAnimalViewService>().
             AsSingle().
             WithArguments(_currentContainer);
         

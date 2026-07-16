@@ -2,7 +2,8 @@ public class PlaybackSoundKilled : KilledSubscriber
 {
     private readonly SoundService _service;
 
-    private PlaybackSoundKilled(IKilled killed, SoundService service) : base(killed)
+    private PlaybackSoundKilled(IKilled killed, SoundService service) 
+        : base(killed)
     {
         _service = service;
     }

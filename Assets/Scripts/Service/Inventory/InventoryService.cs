@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryService : IInventoryService
 {
-    private readonly List<ItemCell> _cells = new();
+    private readonly List<ItemCell> _cells = new ();
     private readonly ItemData _data;
     private readonly ItemCellFactory _factory;
     private readonly RectTransform _container;

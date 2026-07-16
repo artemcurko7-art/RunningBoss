@@ -2,7 +2,8 @@ using YG;
 
 public class Armor : Stat
 {
-    public Armor(AnimalType animalType, ImprovementConfig improvementConfig, int value) : base(animalType, improvementConfig, value)
+    public Armor(AnimalType animalType, ImprovementConfig improvementConfig, int value)
+        : base(animalType, improvementConfig, value)
     {
         YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Armor, this);
     }

@@ -1,8 +1,8 @@
 using System;
 using System.Globalization;
 using UnityEngine;
-using Zenject;
 using YG;
+using Zenject;
 
 public class DailyActivities : MonoBehaviour
 {
@@ -36,8 +36,7 @@ public class DailyActivities : MonoBehaviour
             Format,  
             CultureInfo.InvariantCulture, 
             DateTimeStyles.AssumeUniversal, 
-            out var lastRewardDate
-        );
+            out var lastRewardDate);
 
         if (parseSuccess == false)
             lastRewardDate = DateTime.MinValue;

@@ -1,15 +1,16 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using Zenject;
 
 public abstract class StatView : MonoBehaviour
 {
+    private readonly List<AnimalView> _views = new ();
+    
     [SerializeField] private TMP_Text _healthText;
     [SerializeField] private TMP_Text _armorText;
     [SerializeField] private TMP_Text _dexterityText;
     
-    private readonly List<AnimalView> _views = new();
     private IAnimalSelected _selected;
 
     protected IReadOnlyList<AnimalView> Views => _views;

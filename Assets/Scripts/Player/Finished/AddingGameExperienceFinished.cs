@@ -4,7 +4,8 @@ public class AddingGameExperienceFinished : FinishedSubscriber
     private readonly ILocationLevel _locationLevel;
     private readonly ExperienceStats _stats;
     
-    public AddingGameExperienceFinished(IFinished finished, IGameExperience experience, ILocationLevel locationLevel, ExperienceStats stats) : base(finished)
+    public AddingGameExperienceFinished(IFinished finished, IGameExperience experience, ILocationLevel locationLevel, ExperienceStats stats) 
+        : base(finished)
     {
         _experience = experience;
         _locationLevel = locationLevel;

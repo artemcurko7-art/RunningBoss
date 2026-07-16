@@ -1,6 +1,5 @@
-using System;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using YG;
 using Zenject;
 

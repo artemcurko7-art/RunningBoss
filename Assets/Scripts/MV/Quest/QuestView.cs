@@ -1,5 +1,5 @@
-using UnityEngine;    
 using TMPro;
+using UnityEngine;    
 using YG;
 
 public class QuestView : MonoBehaviour

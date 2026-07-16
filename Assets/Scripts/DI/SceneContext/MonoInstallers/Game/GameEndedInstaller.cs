@@ -1,7 +1,6 @@
 using UnityEngine;
-using Zenject;
 using YG;
-using Zenject.Asteroids;
+using Zenject;
 
 public class GameEndedInstaller : MonoInstaller
 {
@@ -27,7 +26,7 @@ public class GameEndedInstaller : MonoInstaller
         _currentObjects = YG2.envir.isMobile ? _mobileObjects : _desktopObjects;
         
         Container.
-            BindInterfacesAndSelfTo<GamePoint>(). // Test
+            BindInterfacesAndSelfTo<GamePoint>().
             AsSingle();
         
         Container.

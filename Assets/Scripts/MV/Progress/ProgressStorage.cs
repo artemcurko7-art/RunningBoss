@@ -4,7 +4,7 @@ namespace YG
 {
     public partial class SavesYG 
     {
-        public Dictionary<ProgressType, ProgressStorageData> Progresses = new();
+        public Dictionary<ProgressType, ProgressStorageData> Progresses = new ();
 
         public void AddProgress(Progress progress)
         {
@@ -21,7 +21,7 @@ namespace YG
 
         private ProgressStorageData Create(Progress progress)
         {
-            ProgressStorageData data = new()
+            ProgressStorageData data = new ()
             {
                 ExperienceValue = progress.Experience.Value,
                 ExperienceMaxValue = progress.Experience.MaxValue,

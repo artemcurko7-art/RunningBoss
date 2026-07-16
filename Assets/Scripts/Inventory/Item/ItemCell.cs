@@ -1,17 +1,17 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using YG;
 
 public class ItemCell : MonoBehaviour
 {
-    [field: SerializeField] public SelectorItemButton Selector { get; private set; }
     [SerializeField] private Image _filling;
     [SerializeField] private Image _empty;
     [SerializeField] private PrefabLocalization _nameLocalization;
     [SerializeField] private float _percent;
     [SerializeField] private float _duration;
     
+    [field: SerializeField] public SelectorItemButton Selector { get; private set; }
     public ItemType Type { get; private set; }
     public float FillAmount { get; private set; }
     

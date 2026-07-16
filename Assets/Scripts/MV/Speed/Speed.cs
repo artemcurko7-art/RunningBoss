@@ -9,13 +9,13 @@ public class Speed : ISpeed, ISubscriber
     private CancellationTokenSource _cancellationTokenSource;
     private float _value;
     
-    public event Action<float> Changed;
-
     public Speed(IGame game, SpeedStats stats)
     {
         _game = game;
         _stats = stats;
     }
+    
+    public event Action<float> Changed;
 
     public float Value
     {

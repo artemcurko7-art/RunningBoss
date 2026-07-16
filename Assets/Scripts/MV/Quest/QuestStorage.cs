@@ -4,7 +4,7 @@ namespace YG
 {
     public partial class SavesYG 
     {
-        public Dictionary<string, QuestStorageData> Quests = new();
+        public Dictionary<string, QuestStorageData> Quests = new ();
 
         public void AddQuest(Quest quest)
         {
@@ -21,11 +21,11 @@ namespace YG
         
         private QuestStorageData Create(Quest quest)
         {
-            QuestStorageData data = new()
+            QuestStorageData data = new ()
             {
                 Key = quest.Config.KeySave,
                 Value = quest.Value,
-                Reward = quest.Reward
+                Reward = quest.Reward,
             };
         
             return data;

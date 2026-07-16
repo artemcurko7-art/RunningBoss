@@ -5,5 +5,5 @@ public enum QuestType
     Distance,
     Money,
     LevelNotDeath,
-    CompletedLevel
+    CompletedLevel,
 }

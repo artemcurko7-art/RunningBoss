@@ -9,14 +9,9 @@ public class SelectorAnimalViewService : ISelectorService, ISetterSelectorAnimal
     private readonly AnimalProvider _provider;
     private readonly AnimalViewFactory _factory;
     private readonly Transform _container;
-    private readonly List<AnimalView> _views = new();
-    private readonly List<AnimalView> _prefabs = new();
+    private readonly List<AnimalView> _views = new ();
+    private readonly List<AnimalView> _prefabs = new ();
     private int _index;
-
-    public event Action<AnimalView> Selected;
-    public event Action<AnimalView> Created;
-    public event Action<bool> LeftSelected;
-    public event Action<bool> RightSelected;
 
     public SelectorAnimalViewService(AnimalData data, AnimalProvider provider, AnimalViewFactory factory, Transform container)
     {
@@ -28,6 +23,11 @@ public class SelectorAnimalViewService : ISelectorService, ISetterSelectorAnimal
         _index = YG2.saves.SelectorAnimalViewIndex;
         Create();
     }
+    
+    public event Action<AnimalView> Selected;
+    public event Action<AnimalView> Created;
+    public event Action<bool> LeftSelected;
+    public event Action<bool> RightSelected;
     
     public void OnClickLeft()
     {

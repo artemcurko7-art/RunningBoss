@@ -37,7 +37,7 @@ public class QuestRewardAdsButton : MonoBehaviour
 
     private void OnClick()
     {
-        YG2.RewardedAdvShow("", () =>
+        YG2.RewardedAdvShow(String.Empty, () =>
         {
             _wallet.AddCoin(_quest.Reward);
             _quest.SetValue(int.MaxValue);

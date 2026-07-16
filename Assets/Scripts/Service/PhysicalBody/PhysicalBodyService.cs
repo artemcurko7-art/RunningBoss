@@ -4,7 +4,8 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public abstract class PhysicalBodyService<T> : ISubscriber where T: PhysicalBody<T>
+public abstract class PhysicalBodyService<T> : ISubscriber 
+    where T : PhysicalBody<T>
 {
     private const float RangeHorizontalPosition = 3.6f;
     private readonly PoolMono<T> _pool;

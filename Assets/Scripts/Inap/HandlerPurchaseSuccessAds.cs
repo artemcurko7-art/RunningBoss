@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 using YG;
+using Zenject;
 
 public class HandlerPurchaseSuccessAds : MonoBehaviour
 {

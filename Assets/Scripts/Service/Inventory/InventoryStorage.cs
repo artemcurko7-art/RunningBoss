@@ -4,7 +4,7 @@ namespace YG
 {
     public partial class SavesYG
     {
-        public Dictionary<ItemType, float> InventoryItems = new();
-        public List<ItemType> FilledItemTypes = new();
+        public Dictionary<ItemType, float> InventoryItems = new ();
+        public List<ItemType> FilledItemTypes = new ();
     }
 }

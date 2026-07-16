@@ -1,4 +1,1 @@
-public class Map : PhysicalBody<Map>
-{
-    
-}
+public class Map : PhysicalBody<Map> { }

@@ -1,7 +1,7 @@
-using UnityEngine;
 using TMPro;
-using Zenject;
+using UnityEngine;
 using YG;
+using Zenject;
 
 public class PrefabLocalization : MonoBehaviour
 {

@@ -18,7 +18,7 @@ public class GlobalLevelInstaller : MonoInstaller
     private void BindLocation()
     {
         Container.
-            BindInterfacesAndSelfTo<LocationLevel>(). 
+            BindInterfacesAndSelfTo<LocationLevel>().
             AsSingle();
     }
 }

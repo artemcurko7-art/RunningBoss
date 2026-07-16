@@ -4,7 +4,7 @@ namespace YG
 {
     public partial class SavesYG 
     {
-        public Dictionary<AnimalType, Dictionary<StatType, StatStorageData>> AnimalStats = new();
+        public Dictionary<AnimalType, Dictionary<StatType, StatStorageData>> AnimalStats = new ();
 
         public void AddAnimalStat(AnimalType animalType, StatType statType)
         {

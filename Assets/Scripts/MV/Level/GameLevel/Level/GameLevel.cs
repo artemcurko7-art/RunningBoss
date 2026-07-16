@@ -4,8 +4,6 @@ using YG;
 public class GameLevel : IGameLevel, ISubscriber
 {
     private readonly IGameLevelUpped _levelUpped;
-
-    public event Action<int> Upped;
     
     public GameLevel(IGameLevelUpped levelUpped)
     {
@@ -13,6 +11,8 @@ public class GameLevel : IGameLevel, ISubscriber
 
         Value = YG2.saves.GameLevel;
     }
+    
+    public event Action<int> Upped;
     
     public int Value { get; private set; }
     

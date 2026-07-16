@@ -6,8 +6,8 @@ public class ItemViewService
 {
     private const float FillAmount = 1f;
     private readonly ItemViewProvider _provider;
-    private readonly Queue<ItemView> _views = new();
-    private readonly Queue<ItemView> _filledViews = new();
+    private readonly Queue<ItemView> _views = new ();
+    private readonly Queue<ItemView> _filledViews = new ();
     
     public ItemViewService(ItemData data, ItemViewProvider provider)
     {

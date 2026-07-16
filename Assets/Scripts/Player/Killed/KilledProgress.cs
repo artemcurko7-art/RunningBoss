@@ -4,7 +4,8 @@ public class KilledProgress : KilledSubscriber
 {
     private readonly IProgressData _data;
     
-    public KilledProgress(IKilled killed, IProgressData data) : base(killed)
+    public KilledProgress(IKilled killed, IProgressData data) 
+        : base(killed)
     {
         _data = data;
     }

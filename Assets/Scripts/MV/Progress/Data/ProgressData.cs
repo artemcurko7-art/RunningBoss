@@ -5,7 +5,7 @@ using YG;
 
 public class ProgressData : IProgressData, IProgressConfigs
 {
-    private readonly Dictionary<ProgressType, Progress> _progresses = new();
+    private readonly Dictionary<ProgressType, Progress> _progresses = new ();
     private readonly ProgressFactory _factory;
 
     public ProgressData(ProgressFactory factory)

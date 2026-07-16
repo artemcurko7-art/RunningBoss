@@ -3,9 +3,6 @@ using System;
 public abstract class Stat 
 {
     private int _value;
-    
-    public event Action<int> Changed;
-    public event Action<int> Upped;
 
     public Stat(AnimalType animalType, ImprovementConfig improvementConfig, int value)
     {
@@ -13,6 +10,9 @@ public abstract class Stat
         ImprovementConfig = improvementConfig;
         Value = value;
     }
+    
+    public event Action<int> Changed;
+    public event Action<int> Upped;
 
     public ImprovementConfig ImprovementConfig { get; }
     protected AnimalType AnimalType { get; }

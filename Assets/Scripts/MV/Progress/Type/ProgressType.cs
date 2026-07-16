@@ -5,5 +5,5 @@ public enum ProgressType
     Death,
     Distance,
     Money,
-    CompletedLevel
+    CompletedLevel,
 }

@@ -1,8 +1,7 @@
-using System;
-using UnityEngine;
-using TMPro;
-using Zenject;
 using DG.Tweening;
+using TMPro;
+using UnityEngine;
+using Zenject;
 
 public class SpeedText : MonoBehaviour
 {
@@ -27,10 +26,14 @@ public class SpeedText : MonoBehaviour
 
     private void OnValueChanged(float value)
     {
-        DOTween.To(() => _oldValue, x => 
+        DOTween.To(
+            () => _oldValue, 
+            x => 
         {
             _oldValue = x;
             _text.text = _oldValue.ToString("0.00");
-        }, value, 0.3f);
+        }, 
+            value, 
+            0.3f);
     }
 }

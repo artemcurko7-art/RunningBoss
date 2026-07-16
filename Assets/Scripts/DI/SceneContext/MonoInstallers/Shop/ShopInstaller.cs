@@ -1,6 +1,6 @@
 using UnityEngine;
-using Zenject;
 using YG;
+using Zenject;
 
 public class ShopInstaller : MonoInstaller
 {

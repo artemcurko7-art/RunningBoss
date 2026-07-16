@@ -3,11 +3,12 @@ using UnityEngine.EventSystems;
 
 public class RotationReviewHorizontal : MonoBehaviour, IPointerMoveHandler
 {
+    private const int MaxAngle = 180;
+    
     [SerializeField] private Transform _model;
     [SerializeField] private float _sensivity;
     [SerializeField] private float _smooth;
 
-    private const int MaxAngle = 180;
     private bool _isDragging;
     private float _targetRotationY;
 

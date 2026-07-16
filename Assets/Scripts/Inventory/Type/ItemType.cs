@@ -12,5 +12,5 @@ public enum ItemType
     MagicanHat,
     WitchHat,
     Hat,
-    CapEarflaps
+    CapEarflaps,
 }

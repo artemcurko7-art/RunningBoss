@@ -28,7 +28,7 @@ public class ProgressRewardAllCompleted : MonoBehaviour
         if (_allCompleted == null)
             return;
         
-        if(_level.Value == _level.MaxValue && rewards.Count == 0)
+        if (_level.Value == _level.MaxValue && rewards.Count == 0)
             _allCompleted.SetActive(true);
     }
 }

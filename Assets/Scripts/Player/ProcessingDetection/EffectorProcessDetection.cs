@@ -3,7 +3,8 @@ public class EffectorProcessDetection : ProcessingDetectionSubscriber
     private readonly EffectorData _data;
     private readonly EffectorPool _pool;
     
-    public EffectorProcessDetection(IProcessingDetected detected, EffectorData data, EffectorPool pool) : base(detected)
+    public EffectorProcessDetection(IProcessingDetected detected, EffectorData data, EffectorPool pool) 
+        : base(detected)
     {
         _data = data;
         _pool = pool;

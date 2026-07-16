@@ -9,9 +9,6 @@ public class GameExperience : IGameExperience, IGameLevelUpped
     private int _value;
     private int _maxValue;
     
-    public event Action<int, int> ValueChanged;
-    public event Action Upped;
-
     public GameExperience(ExperienceStats stats)
     {
         _stats = stats;
@@ -19,6 +16,9 @@ public class GameExperience : IGameExperience, IGameLevelUpped
         _maxValue = YG2.saves.GameExperienceMaxValue;
         Value = YG2.saves.GameExperienceValue;
     }
+    
+    public event Action<int, int> ValueChanged;
+    public event Action Upped;
     
     public int Value
     {

@@ -5,14 +5,14 @@ public class Quest : IQuest
 {
     private int _value;
     
-    public event Action<int> Changed;
-
     public Quest(QuestConfig config)
     {
         Config = config;
         MaxValue = Config.MaxValue;
         Reward = Config.Reward;
     }
+    
+    public event Action<int> Changed;
 
     public int Value
     {

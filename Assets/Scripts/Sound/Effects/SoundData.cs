@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundData 
 {
-    private readonly Dictionary<SoundType, AudioSource> _sounds = new();
+    private readonly Dictionary<SoundType, AudioSource> _sounds = new ();
     
     public SoundData()
     {

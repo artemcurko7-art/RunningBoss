@@ -2,7 +2,8 @@ public class PlaybackSoundDeath : DeathSubscriber
 {
     private readonly SoundService _service;
 
-    public PlaybackSoundDeath(IDeath death, SoundService service) : base(death)
+    public PlaybackSoundDeath(IDeath death, SoundService service) 
+        : base(death)
     {
         _service = service;
     }

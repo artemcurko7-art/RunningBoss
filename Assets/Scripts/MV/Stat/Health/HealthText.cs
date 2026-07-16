@@ -1,6 +1,6 @@
-using UnityEngine;
-using TMPro;
 using DG.Tweening;
+using TMPro;
+using UnityEngine;
 
 public class HealthText : HealthView
 {
@@ -10,10 +10,14 @@ public class HealthText : HealthView
 
     protected override void OnValueChanged(int value)
     {
-        DOTween.To(() => _oldValue, x => 
+        DOTween.To(
+            () => _oldValue, 
+            x => 
         {
             _oldValue = x;
             _text.text = _oldValue.ToString();
-        }, value, 0.3f);
+        }, 
+            value, 
+            0.3f);
     }
 }

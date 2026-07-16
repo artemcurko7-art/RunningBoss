@@ -1,11 +1,10 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using Zenject;
 
 public class MoverHorizontal : MonoBehaviour
 {
+    private const float RangePosition = 3.6f;
+    
     [SerializeField] private Rigidbody _playerBody;
     [SerializeField] private AnimationCurve _accelerationCurve;
     [SerializeField] private AnimationCurve _brakingCurve;
@@ -13,9 +12,7 @@ public class MoverHorizontal : MonoBehaviour
     [SerializeField] private float _brakingTime = 0.3f;
     [SerializeField] private float _stopThreshold = 0.05f; 
 
-    private const float RangePosition = 3.6f;
     private Animal _animal;
-    
     private float _currentSpeed;
     private float _currentDirection;
     private float _targetDirection;

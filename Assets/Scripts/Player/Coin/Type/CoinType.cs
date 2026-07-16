@@ -4,5 +4,5 @@ public enum CoinType
     Killed,
     Finished,
     LevelUpped,
-    Distance
+    Distance,
 }

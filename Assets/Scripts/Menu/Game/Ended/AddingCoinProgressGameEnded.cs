@@ -5,7 +5,8 @@ public class AddingCoinProgressGameEnded : GameEndedSubscriber
     private readonly IProgressData _data;
     private readonly CoinData _coinData;
     
-    public AddingCoinProgressGameEnded(IGame game, IProgressData data, CoinData coinData) : base(game)
+    public AddingCoinProgressGameEnded(IGame game, IProgressData data, CoinData coinData) 
+        : base(game)
     {
         _data = data;
         _coinData = coinData;

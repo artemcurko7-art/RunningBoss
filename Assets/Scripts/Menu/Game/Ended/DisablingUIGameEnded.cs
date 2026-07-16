@@ -4,7 +4,8 @@ public class DisablingUIGameEnded : GameEndedSubscriber
 {
     private readonly GameObject[] _objects;
     
-    public DisablingUIGameEnded(IGame game, GameObject[] objects) : base(game)
+    public DisablingUIGameEnded(IGame game, GameObject[] objects) 
+        : base(game)
     {
         _objects = objects;
     }

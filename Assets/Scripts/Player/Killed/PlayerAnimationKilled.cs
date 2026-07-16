@@ -4,7 +4,8 @@ public class PlayerAnimationKilled : KilledSubscriber
 {
     private readonly Animator _animator;
     
-    public PlayerAnimationKilled(IKilled killed, Animator animator) : base(killed)
+    public PlayerAnimationKilled(IKilled killed, Animator animator) 
+        : base(killed)
     {
         _animator = animator;
     }

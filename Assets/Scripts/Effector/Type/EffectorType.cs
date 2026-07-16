@@ -5,5 +5,5 @@ public enum EffectorType
     Death,
     BloodBurst,
     RunFirework,
-    ShootFirework
+    ShootFirework,
 }

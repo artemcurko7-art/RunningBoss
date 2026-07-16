@@ -4,7 +4,8 @@ public class SwitchingToCardFinished : FinishedSubscriber
 {
     private readonly GameWorldData _gameWorldData;
     
-    public SwitchingToCardFinished(IFinished finished, GameWorldData gameWorldData) : base(finished)
+    public SwitchingToCardFinished(IFinished finished, GameWorldData gameWorldData) 
+        : base(finished)
     {
         _gameWorldData = gameWorldData;
     }

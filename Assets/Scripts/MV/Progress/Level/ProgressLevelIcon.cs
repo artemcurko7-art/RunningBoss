@@ -25,7 +25,7 @@ public class ProgressLevelIcon : MonoBehaviour
 
     private void OnLevelUpped(int currentLevel)
     {
-        if(_level.Value == 0)
+        if (_level.Value == 0)
             return;
 
         if (_fillings[currentLevel - 1] == null)

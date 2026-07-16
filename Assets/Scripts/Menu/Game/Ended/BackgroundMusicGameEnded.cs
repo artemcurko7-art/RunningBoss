@@ -2,7 +2,8 @@ public class BackgroundMusicGameEnded : GameEndedSubscriber
 {
     private readonly BackgroundMusicService _service;
     
-    public BackgroundMusicGameEnded(IGame game, BackgroundMusicService service) : base(game)
+    public BackgroundMusicGameEnded(IGame game, BackgroundMusicService service) 
+        : base(game)
     {
         _service = service;
     }

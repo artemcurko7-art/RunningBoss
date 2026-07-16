@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 public class ProgressReward : IProgressReward
 {
-    private List<int> _rewards = new();
     private readonly int _multiplierValue;
-    
-    public event Action<List<int>> Rewarded;
+    private List<int> _rewards = new ();
     
     public ProgressReward(int reward, int multiplierValue)
     {
         Value = reward;
         _multiplierValue = multiplierValue;
     }
+    
+    public event Action<List<int>> Rewarded;
 
     public List<int> Rewards => _rewards;
     public int Value { get; private set; }

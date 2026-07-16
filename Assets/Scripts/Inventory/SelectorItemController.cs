@@ -3,7 +3,6 @@ using YG;
 
 public class SelectorItemController : ISubscriber
 {
-    private ItemType _type;
     private readonly IAnimalData _animalData;
     private readonly IAnimalSelected _animalSelected;
     private readonly InventoryService _inventoryService;
@@ -11,6 +10,7 @@ public class SelectorItemController : ISubscriber
     private readonly SelectorUIUpdater _uiUpdater;
     private readonly SelectorItemUpdater _itemUpdater;
     private readonly SelectorStorageData _storageData;
+    private ItemType _type;
     private AnimalView _animalView;
     private int _index;
     private int _defaultIndex;

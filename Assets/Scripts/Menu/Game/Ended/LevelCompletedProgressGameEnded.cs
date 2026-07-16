@@ -4,7 +4,8 @@ public class LevelCompletedProgressGameEnded : GameEndedSubscriber
 {
     private readonly IProgressData _data;
     
-    public LevelCompletedProgressGameEnded(IGame game, IProgressData data) : base(game)
+    public LevelCompletedProgressGameEnded(IGame game, IProgressData data)
+        : base(game)
     {
         _data = data;
     }

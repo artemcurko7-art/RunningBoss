@@ -1,13 +1,13 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class VolumeControlingText : MonoBehaviour
 {
+    private const int Percent = 100;
+    
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
-
-    private const int Percent = 100;
     
     private void OnEnable()
     {

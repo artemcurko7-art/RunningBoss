@@ -4,7 +4,8 @@ public class EffectorDeath : DeathSubscriber
     private readonly EffectorPool _pool;
     private readonly AnimalView _animalView;
     
-    public EffectorDeath(IDeath death, EffectorData data, EffectorPool pool, AnimalView animalView) : base(death)
+    public EffectorDeath(IDeath death, EffectorData data, EffectorPool pool, AnimalView animalView) 
+        : base(death)
     {
         _data = data;
         _pool = pool;

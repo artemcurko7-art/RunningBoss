@@ -1,6 +1,5 @@
-using UnityEngine;
 using TMPro;
-using Zenject;
+using UnityEngine;
 
 public class GameExperienceText : GameExperienceView
 {

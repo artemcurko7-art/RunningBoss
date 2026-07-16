@@ -1,5 +1,5 @@
-using Zenject;
 using YG;
+using Zenject;
 
 public class VolumeChangedMusic : VolumeChanged
 {
@@ -21,7 +21,7 @@ public class VolumeChangedMusic : VolumeChanged
     
     protected override void OnValueChanged(float value)
     {
-        foreach(var music in _data.BackgroundMusics.Values)
+        foreach (var music in _data.BackgroundMusics.Values)
             music.volume = value;
 
         foreach (var music in _service.BackgroundMusics.Values)

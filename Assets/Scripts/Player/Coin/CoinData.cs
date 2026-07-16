@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinData : ICoinData
 {
-    private readonly Dictionary<CoinType, Coin> _coins = new();
+    private readonly Dictionary<CoinType, Coin> _coins = new ();
     
     public CoinData()
     {

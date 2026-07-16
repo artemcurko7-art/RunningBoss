@@ -1,17 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using YG;
 using Zenject;
 
 public class AnimalViewShop : MonoBehaviour
 {
-    [field: SerializeField] public GameObject Purchased { get; private set; }
     [SerializeField] private Image _icon;
     [SerializeField] private PrefabLocalization _nameLocalization;
     [SerializeField] private TMP_Text _priceText;
     
     private AnimalService _animalService;
+    
+    [field: SerializeField] public GameObject Purchased { get; private set; }
     
     public AnimalType Type { get; private set; }
     public int Price { get; private set; }

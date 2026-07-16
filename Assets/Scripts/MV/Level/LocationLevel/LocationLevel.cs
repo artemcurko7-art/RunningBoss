@@ -5,12 +5,12 @@ public class LocationLevel : ILocationLevel, ILocationLevelUpped
 {
     private int _value;
     
-    public event Action<int> Changed;
-
     public LocationLevel()
     {
         _value = YG2.saves.LocationLevel;
     }
+    
+    public event Action<int> Changed;
     
     public int Value
     {

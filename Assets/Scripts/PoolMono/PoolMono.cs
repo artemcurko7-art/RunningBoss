@@ -4,7 +4,8 @@ using UnityEngine.Pool;
 using Zenject;
 using Random = UnityEngine.Random;
 
-public abstract class PoolMono <T> where T : PhysicalBody<T>
+public abstract class PoolMono<T> 
+    where T : PhysicalBody<T>
 {
     private readonly DiContainer _container;
     private int _value;

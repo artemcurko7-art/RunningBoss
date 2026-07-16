@@ -2,7 +2,8 @@ using YG;
 
 public class Dexterity : Stat
 {
-    public Dexterity(AnimalType animalType, ImprovementConfig improvementConfig, int value) : base(animalType, improvementConfig, value)
+    public Dexterity(AnimalType animalType, ImprovementConfig improvementConfig, int value) 
+        : base(animalType, improvementConfig, value)
     {
         YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Dexterity, this);
     }

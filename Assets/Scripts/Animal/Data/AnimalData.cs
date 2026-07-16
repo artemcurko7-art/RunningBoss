@@ -5,9 +5,9 @@ using YG;
 
 public class AnimalData : IAnimalData, IAnimalShopConfigs
 {
-    private readonly Dictionary<AnimalType, AnimalView> _views = new();
-    private readonly Dictionary<AnimalType, AnimalConfig> _configs = new();
-    private readonly Dictionary<AnimalType, AnimalShopConfig> _shopConfigs = new();
+    private readonly Dictionary<AnimalType, AnimalView> _views = new ();
+    private readonly Dictionary<AnimalType, AnimalConfig> _configs = new ();
+    private readonly Dictionary<AnimalType, AnimalShopConfig> _shopConfigs = new ();
     private readonly AnimalFactory _factory;
 
     private readonly AnimalConfig[] _loadConfigs;

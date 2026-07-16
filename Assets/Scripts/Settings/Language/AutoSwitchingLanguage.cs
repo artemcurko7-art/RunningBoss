@@ -10,7 +10,7 @@ public class AutoSwitchingLanguage : MonoBehaviour
     [SerializeField] private Image[] _selecteds;
     [SerializeField] private Button[] _buttons;
 
-    LanguageProvider _provider;
+    private LanguageProvider _provider;
     
     [Inject]
     public void Construct(LanguageProvider provider)

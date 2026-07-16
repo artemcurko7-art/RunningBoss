@@ -1,14 +1,14 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DistanceMapPercentText : DistanceMapView
 {
+    private const int Percent = 100;
+    
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _text;
-
-    private const int Percent = 100;
-
+    
     protected override void OnValueChanged(float value)
     {
         float currentValue = Model.MaxValue - value;

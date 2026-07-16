@@ -27,8 +27,8 @@ public class CreationAnimalViewGameEnded : GameEndedSubscriber
         ItemViewFactory itemViewFactory, 
         HandlerChangingLayer handlerChangingLayer,
         Animator animator,
-        RectTransform container) : 
-        base(game)
+        RectTransform container) 
+        : base(game)
     {
         _game = game;
         _data = data;

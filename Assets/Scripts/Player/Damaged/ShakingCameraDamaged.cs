@@ -6,7 +6,8 @@ public class ShakingCameraDamaged : DamagedSubscriber
     private readonly Camera _mainCamera;
     private Tween _tween;
     
-    public ShakingCameraDamaged(IDamaged damaged, Camera mainCamera) : base(damaged)
+    public ShakingCameraDamaged(IDamaged damaged, Camera mainCamera)
+        : base(damaged)
     {
         _mainCamera = mainCamera;
     }

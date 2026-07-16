@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 public class MapService : IMapService
 {
-    private readonly List<Map> _createdMaps = new();
+    private readonly List<Map> _maps = new ();
     
     public MapService(MapPool pool, Map[] maps, ILocationLevel locationLevel, int maxSpawned)
     {
@@ -12,10 +12,10 @@ public class MapService : IMapService
         pool.SetMaxSpawned(maxSpawned);
 
         for (int i = 0; i <= maxSpawned; i++)
-            _createdMaps.Add(pool.Get());
+            _maps.Add(pool.Get());
 
         pool.Get();
     }
     
-    public IReadOnlyList<Map> Maps => _createdMaps;
+    public IReadOnlyList<Map> Maps => _maps;
 }

@@ -4,11 +4,12 @@ using Zenject;
 
 public class EffectorPool : PoolMono<Effector>
 {
-    private readonly List<Effector> _effectors = new();
+    private readonly List<Effector> _effectors = new ();
     private Effector _effector;
     private Transform _transform;
 
-    public EffectorPool(DiContainer container) : base(container) {}
+    public EffectorPool(DiContainer container) 
+        : base(container) { }
 
     public void Spawn(Effector effector, Transform transform)
     {

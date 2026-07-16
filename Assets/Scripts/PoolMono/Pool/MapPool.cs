@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -10,7 +9,8 @@ public class MapPool : PoolMono<Map>
     private Vector3 _currentPosition;
     private int _maxSpawned;
 
-    public MapPool(SettingPosition settingPosition, DiContainer container) : base(container)
+    public MapPool(SettingPosition settingPosition, DiContainer container) 
+        : base(container)
     {
         _settingPosition = settingPosition;
     }

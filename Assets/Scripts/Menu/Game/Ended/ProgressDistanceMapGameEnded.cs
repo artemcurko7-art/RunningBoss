@@ -6,7 +6,8 @@ public class ProgressDistanceMapGameEnded : GameEndedSubscriber
     private readonly IDistanceMap _distanceMap;
     private readonly IProgressData _data;
     
-    public ProgressDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, IProgressData data) : base(game)
+    public ProgressDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, IProgressData data) 
+        : base(game)
     {
         _distanceMap = distanceMap;
         _data = data;

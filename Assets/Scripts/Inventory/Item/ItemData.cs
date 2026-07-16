@@ -6,8 +6,8 @@ using YG;
 public class ItemData 
 {
     private readonly ItemConfig[] _configs;
-    private readonly Dictionary<ItemType, ItemConfig> _itemConfigs = new();
-    private readonly Dictionary<ItemType, ItemView> _views = new();
+    private readonly Dictionary<ItemType, ItemConfig> _itemConfigs = new ();
+    private readonly Dictionary<ItemType, ItemView> _views = new ();
     
     public ItemData()
     {

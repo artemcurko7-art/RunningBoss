@@ -6,7 +6,7 @@ using YG;
 public abstract class QuestData
 {
     private const string Format = "yyyy-MM-dd";
-    private readonly Dictionary<QuestType, Quest> _quests = new();
+    private readonly Dictionary<QuestType, Quest> _quests = new ();
     
     public IReadOnlyDictionary<QuestType, Quest> Quests => _quests;
     public QuestConfig[] Configs { get; private set; }

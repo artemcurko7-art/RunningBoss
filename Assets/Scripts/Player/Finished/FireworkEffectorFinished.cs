@@ -5,7 +5,8 @@ public class FireworkEffectorFinished : FinishedSubscriber
     private readonly EffectorData _data;
     private readonly Transform _transform;
     
-    public FireworkEffectorFinished(IFinished finished, EffectorData data, Transform transform) : base(finished)
+    public FireworkEffectorFinished(IFinished finished, EffectorData data, Transform transform) 
+        : base(finished)
     {
         _data = data;
         _transform = transform;

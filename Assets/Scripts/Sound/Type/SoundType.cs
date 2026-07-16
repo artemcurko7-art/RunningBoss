@@ -9,5 +9,5 @@ public enum SoundType
     Tab,
     GameLevelUp,
     StatLevelUp,
-    Obstacle
+    Obstacle,
 }

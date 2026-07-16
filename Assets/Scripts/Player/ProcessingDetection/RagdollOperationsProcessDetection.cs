@@ -6,12 +6,13 @@ public class RagdollOperationsProcessDetection : ProcessingDetectionSubscriber
     private const int UpForce = 20;
     private readonly ISpeed _speed;
     
-    public RagdollOperationsProcessDetection(IProcessingDetected detected, ISpeed speed) : base(detected)
+    public RagdollOperationsProcessDetection(IProcessingDetected detected, ISpeed speed) 
+        : base(detected)
     {
         _speed = speed;
     }
 
-   protected override void OnDetected(Unit unit)
+    protected override void OnDetected(Unit unit)
     {
         unit.Animator.enabled = false;
         unit.Collider.enabled = false;

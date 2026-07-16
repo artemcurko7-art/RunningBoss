@@ -4,7 +4,8 @@ public class QuestLevelCompletedGameEnded : GameEndedSubscriber
 {
     private readonly QuestData[] _dates;
     
-    public QuestLevelCompletedGameEnded(IGame game, QuestData[] dates) : base(game)
+    public QuestLevelCompletedGameEnded(IGame game, QuestData[] dates) 
+        : base(game)
     {
         _dates = dates;
     }

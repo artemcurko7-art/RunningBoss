@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectorData 
 {
-    private readonly Dictionary<EffectorType, Effector> _effectors = new();
+    private readonly Dictionary<EffectorType, Effector> _effectors = new ();
     private readonly EffectorConfig[] _configs;
     
     public EffectorData()

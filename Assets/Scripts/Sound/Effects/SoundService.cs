@@ -4,7 +4,7 @@ using Zenject;
 
 public class SoundService 
 {
-    private readonly Dictionary<SoundType, AudioSource> _sounds = new();
+    private readonly Dictionary<SoundType, AudioSource> _sounds = new ();
     
     public SoundService(SoundData data, DiContainer container)
     {

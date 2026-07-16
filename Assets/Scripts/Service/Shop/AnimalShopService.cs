@@ -7,7 +7,7 @@ public class AnimalShopService
 {
     private readonly AnimalViewShopFactory _factory;
     private readonly IAnimalShopConfigs _configs;
-    private readonly Dictionary<AnimalType, AnimalViewShop> _views = new();
+    private readonly Dictionary<AnimalType, AnimalViewShop> _views = new ();
     private readonly RectTransform _container;
 
     public AnimalShopService(AnimalViewShopFactory factory, IAnimalShopConfigs configs, RectTransform container)

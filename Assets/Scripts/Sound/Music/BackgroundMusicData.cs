@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundMusicData  
 {
-    private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new();
+    private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new ();
     
     public BackgroundMusicData()
     {

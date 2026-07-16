@@ -4,7 +4,7 @@ using Zenject;
 
 public class BackgroundMusicService 
 {
-    private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new();
+    private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new ();
     
     public BackgroundMusicService(BackgroundMusicData data, DiContainer container)
     {

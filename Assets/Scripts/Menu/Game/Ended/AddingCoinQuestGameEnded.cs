@@ -5,7 +5,8 @@ public class AddingCoinQuestGameEnded : GameEndedSubscriber
     private readonly QuestData[] _dates;
     private readonly ICoinData _coinData;
     
-    public AddingCoinQuestGameEnded(IGame game, QuestData[] dates, ICoinData coinData) : base(game)
+    public AddingCoinQuestGameEnded(IGame game, QuestData[] dates, ICoinData coinData)
+        : base(game)
     {
         _dates = dates;
         _coinData = coinData;

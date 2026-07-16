@@ -3,9 +3,10 @@ using Zenject;
 
 public class AnimalInstaller : MonoInstaller
 {
+    private const float Size = 0.5f;
+    
     [SerializeField] private Transform _spawnPointAnimal;
 
-    private const float Size = 0.5f;
     private AnimalViewFactory _factory;
     private ItemViewFactory _itemFactory;
     private ItemViewProvider _itemProvider;

@@ -5,7 +5,8 @@ public class QuestDistanceMapGameEnded : GameEndedSubscriber
     private readonly QuestData[] _dates;
     private readonly IDistanceMap _distanceMap;
     
-    public QuestDistanceMapGameEnded(IGame game, QuestData[] dates, IDistanceMap distanceMap) : base(game)
+    public QuestDistanceMapGameEnded(IGame game, QuestData[] dates, IDistanceMap distanceMap) 
+        : base(game)
     {
         _dates = dates;
         _distanceMap = distanceMap;

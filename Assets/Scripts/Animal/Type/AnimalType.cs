@@ -13,5 +13,5 @@ public enum AnimalType
     Bear,
     Rhino,
     Tiger,
-    Crocodile
+    Crocodile,
 }

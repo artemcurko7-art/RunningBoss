@@ -1,8 +1,8 @@
-using System.Threading;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
-using Zenject;
 using YG;
+using Zenject;
 
 public class UpdatableTimerLeaderboard : MonoBehaviour
 {

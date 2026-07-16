@@ -3,7 +3,8 @@ public class AddingCoinInWalletGameEnded : GameEndedSubscriber
     private readonly Wallet _wallet;
     private readonly ICoinData[] _coinDates;
     
-    public AddingCoinInWalletGameEnded(IGame game, Wallet wallet, ICoinData[] coinDates) : base(game)
+    public AddingCoinInWalletGameEnded(IGame game, Wallet wallet, ICoinData[] coinDates) 
+        : base(game)
     {
         _wallet = wallet;
         _coinDates = coinDates;

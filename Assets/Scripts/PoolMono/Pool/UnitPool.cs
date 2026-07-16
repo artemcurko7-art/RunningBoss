@@ -7,7 +7,8 @@ public class UnitPool : PoolMono<Unit>
     
     private Vector3 _position;
     
-    public UnitPool(SettingPosition settingPosition, DiContainer container) : base(container)
+    public UnitPool(SettingPosition settingPosition, DiContainer container)
+        : base(container)
     {
         _settingPosition = settingPosition;
     }

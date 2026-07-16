@@ -2,7 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public abstract class PhysicalBody<T>: MonoBehaviour where T : PhysicalBody<T>
+public abstract class PhysicalBody<T> : MonoBehaviour 
+    where T : PhysicalBody<T>
 {
     private const int TimeLife = 10;
     public event Action<T> Disabled;

@@ -1,7 +1,7 @@
-using System.Threading;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using DG.Tweening;
+using System.Threading;
+using UnityEngine;
 
 public class ChangingMaterialDamaged : DamagedSubscriber
 {
@@ -10,7 +10,8 @@ public class ChangingMaterialDamaged : DamagedSubscriber
     private readonly Material _currentMaterial;
     private CancellationTokenSource _cancellationTokenSource;
 
-    public ChangingMaterialDamaged(IDamaged damaged, AnimalView animalView, Material material) : base(damaged)
+    public ChangingMaterialDamaged(IDamaged damaged, AnimalView animalView, Material material)
+        : base(damaged)
     {
         _animalView = animalView;
         _material = material;

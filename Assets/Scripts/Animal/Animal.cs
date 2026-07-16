@@ -3,7 +3,7 @@ using YG;
 
 public class Animal 
 {
-    private readonly Dictionary<StatType, Stat> _stats = new();
+    private readonly Dictionary<StatType, Stat> _stats = new ();
     
     public Animal(AnimalType type, Health health, Armor armor, Dexterity dexterity)
     {

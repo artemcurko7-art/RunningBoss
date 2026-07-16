@@ -1,7 +1,6 @@
-using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
 
 public class SelectedTab : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

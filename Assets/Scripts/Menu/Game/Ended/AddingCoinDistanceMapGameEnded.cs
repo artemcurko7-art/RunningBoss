@@ -3,7 +3,8 @@ public class AddingCoinDistanceMapGameEnded : GameEndedSubscriber
     private readonly IDistanceMap _distanceMap;
     private readonly CoinData _data;
     
-    public AddingCoinDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, CoinData data) : base(game)
+    public AddingCoinDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, CoinData data) 
+        : base(game)
     {
         _distanceMap = distanceMap;
         _data = data;

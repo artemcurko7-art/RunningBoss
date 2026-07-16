@@ -1,11 +1,10 @@
-using UnityEngine;
-
 public class AddingCoinFinished : FinishedSubscriber
 {
     private readonly CoinStats _stats;
     private readonly CoinData _data;
     
-    public AddingCoinFinished(IFinished finished, CoinData data, CoinStats stats) : base(finished)
+    public AddingCoinFinished(IFinished finished, CoinData data, CoinStats stats)
+        : base(finished)
     {
         _stats = stats;
         _data = data;

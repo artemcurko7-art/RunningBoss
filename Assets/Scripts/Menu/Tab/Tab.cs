@@ -4,9 +4,10 @@ using Zenject;
 
 public abstract class Tab : MonoBehaviour
 {
-    [field: SerializeField] protected TabView View { get; private set; }
     [SerializeField] private Button _button;
 
+    [field: SerializeField] protected TabView View { get; private set; }
+    
     protected TabService Service { get; private set; }
     protected AudioSource AudioSource { get; private set; }
     

@@ -4,6 +4,6 @@ namespace YG
 {
     public partial class SavesYG
     {
-        public Dictionary<string, float> Leaderboards = new();
+        public Dictionary<string, float> Leaderboards = new ();
     }
 }

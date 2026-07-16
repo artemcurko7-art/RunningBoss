@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Unit : PhysicalBody<Unit>
 {
-    [field: SerializeField] public UnitDeath Death { get; private set; }
-    [field: SerializeField] public GameObject Root { get; private set; }
-    
     private const int Damage = 25;
     private Coroutine _startTimeLife;
     private Vector3[] _positions;
     private Quaternion[] _rotations;
 
+    [field: SerializeField] public UnitDeath Death { get; private set; }
+    [field: SerializeField] public GameObject Root { get; private set; }
+    
     public Animator Animator { get; private set; }
     public Collider Collider { get; private set; }
     

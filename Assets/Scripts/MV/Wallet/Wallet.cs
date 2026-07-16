@@ -5,12 +5,12 @@ public class Wallet : IWallet
 {
     private int _coin;
     
-    public event Action<int> CoinsChanged;
-
     public Wallet()
     {
         _coin = YG2.saves.Coin;
     }
+    
+    public event Action<int> CoinsChanged;
     
     public int Coin
     {

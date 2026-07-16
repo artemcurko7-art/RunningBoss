@@ -7,12 +7,11 @@ public class MoverHorizontalButton : MonoBehaviour, IPointerDownHandler, IPointe
     [SerializeField] private GameResumedClicked _gameResumed;
     [SerializeField] private bool _isLeft; 
 
+    private bool _isResumed;
     private static bool _isLeftPressed;
     private static bool _isRightPressed;
     private static bool _isLeftQueued;   
     private static bool _isRightQueued;
-    private bool _isResumed;
-    
     private static MoverHorizontalButton _leftButton;
     private static MoverHorizontalButton _rightButton;
     

@@ -4,7 +4,8 @@ public class AddingCoinKilled : KilledSubscriber
     private readonly GamePoint _gamePoint;
     private readonly CoinStats _stats;
     
-    public AddingCoinKilled(IKilled killed, CoinData data, GamePoint gamePoint, CoinStats stats) : base(killed)
+    public AddingCoinKilled(IKilled killed, CoinData data, GamePoint gamePoint, CoinStats stats)
+        : base(killed)
     {
         _data = data;
         _gamePoint = gamePoint;

@@ -5,7 +5,8 @@ public class UnitService : PhysicalBodyService<Unit>
     private readonly ILocationLevel _locationLevel;
     private float _delay;
     
-    public UnitService(UnitPool pool, Unit[] units, ILocationLevel locationLevel, ISpeed speed, IDistanceMap distanceMap, Transform player, float delay) : base(pool, locationLevel, speed, distanceMap, player, delay)
+    public UnitService(UnitPool pool, Unit[] units, ILocationLevel locationLevel, ISpeed speed, IDistanceMap distanceMap, Transform player, float delay) 
+        : base(pool, locationLevel, speed, distanceMap, player, delay)
     {
         _locationLevel = locationLevel;
         _delay = delay;

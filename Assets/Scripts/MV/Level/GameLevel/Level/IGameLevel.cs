@@ -2,7 +2,7 @@ using System;
 
 public interface IGameLevel
 {
-    int Value { get; }
     event Action<int> Upped;
+    int Value { get; }
     void Update();
 }

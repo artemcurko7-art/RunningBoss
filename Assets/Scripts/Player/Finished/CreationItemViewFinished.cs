@@ -10,7 +10,8 @@ public class CreationItemViewFinished : FinishedSubscriber
     private readonly IItemViewProvider _provider;
     private readonly RectTransform _container;
     
-    public CreationItemViewFinished(IFinished finished, ItemData data, ItemViewService service, ItemCellFactory factory, IItemViewProvider provider, RectTransform container) : base(finished)
+    public CreationItemViewFinished(IFinished finished, ItemData data, ItemViewService service, ItemCellFactory factory, IItemViewProvider provider, RectTransform container)
+        : base(finished)
     {
         _data = data;
         _service = service;

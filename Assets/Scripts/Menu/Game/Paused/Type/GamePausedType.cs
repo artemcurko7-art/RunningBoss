@@ -1,5 +1,5 @@
 public enum GamePausedType 
 {
     Play,
-    Pause
+    Pause,
 }

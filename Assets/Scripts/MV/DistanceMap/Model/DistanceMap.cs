@@ -8,16 +8,16 @@ public class DistanceMap : IDistanceMap, IFinished, ISubscriber
     private readonly CalculationDistanceMap _calculation;
     private CancellationTokenSource _cancellationTokenSource;
     private float _value;
-
-    public event Action<float> Changed;
-    public event Action Finished;
-
+    
     public DistanceMap(CalculationDistanceMap calculation)
     {
         _calculation = calculation;
         _value = calculation.GetDistance();
         MaxValue = _value;
     }
+    
+    public event Action<float> Changed;
+    public event Action Finished;
     
     public float MaxValue { get; }
     public float CompletedValue => MaxValue - _value;

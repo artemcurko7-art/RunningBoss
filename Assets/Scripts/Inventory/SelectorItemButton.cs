@@ -5,14 +5,14 @@ using Zenject;
 
 public class SelectorItemButton : MonoBehaviour
 {
-    [field: SerializeField] public Button Button { get; private set; }
-    [field: SerializeField] public Image Selected { get; private set; }
-
     private ItemType _type;
     private SoundService _soundService;
-
+    
     public event Action<ItemType, Button, Image> Clicked;
-
+    
+    [field: SerializeField] public Button Button { get; private set; }
+    [field: SerializeField] public Image Selected { get; private set; }
+    
     [Inject]
     public void Construct(SoundService soundService)
     {
