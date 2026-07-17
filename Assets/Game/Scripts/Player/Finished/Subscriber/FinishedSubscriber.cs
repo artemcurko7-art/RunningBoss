@@ -1,21 +1,26 @@
-public abstract class FinishedSubscriber : ISubscriber
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Player.Finished.Subscriber
 {
-    private readonly IFinished _finished;
-    
-    public FinishedSubscriber(IFinished finished)
+    public abstract class FinishedSubscriber : ISubscriber
     {
-        _finished = finished;
-    }
+        private readonly IFinished _finished;
 
-    public void Subscribe()
-    {
-        _finished.Finished += OnFinished;
-    }
+        public FinishedSubscriber(IFinished finished)
+        {
+            _finished = finished;
+        }
 
-    public void Unsubscribe()
-    {
-        _finished.Finished -= OnFinished;
-    }
+        public void Subscribe()
+        {
+            _finished.Finished += OnFinished;
+        }
 
-    protected abstract void OnFinished();
+        public void Unsubscribe()
+        {
+            _finished.Finished -= OnFinished;
+        }
+
+        protected abstract void OnFinished();
+    }
 }

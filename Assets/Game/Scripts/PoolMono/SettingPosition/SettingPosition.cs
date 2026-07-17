@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class SettingPosition 
+namespace Game.Scripts.PoolMono.SettingPosition
 {
-    public Vector3 GetCalculationOnLength(Transform transform) =>
-       transform.position + transform.forward * transform.localScale.z;
-    
-    public Vector3 GetRandom(Transform spawn)
+    public class SettingPosition
     {
-        int index = Random.Range(0, spawn.childCount);
-        Vector3 position = spawn.GetChild(index).position;
+        public Vector3 GetCalculationOnLength(Transform transform) =>
+            transform.position + transform.forward * transform.localScale.z;
 
-        return position;
+        public Vector3 GetRandom(Transform spawn)
+        {
+            int index = Random.Range(0, spawn.childCount);
+            Vector3 position = spawn.GetChild(index).position;
+
+            return position;
+        }
     }
 }

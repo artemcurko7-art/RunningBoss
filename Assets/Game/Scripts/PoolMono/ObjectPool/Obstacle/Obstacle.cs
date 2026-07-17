@@ -1,35 +1,38 @@
 using UnityEngine;
 
-public class Obstacle : PhysicalBody<Obstacle>
+namespace Game.Scripts.PoolMono.ObjectPool.Obstacle
 {
-    [SerializeField] private Vector3 _rotation;
-    [SerializeField] private int _damage;
-    
-    private Coroutine _startTimeLife;
-
-    private void OnEnable()
+    public class Obstacle : PhysicalBody<Obstacle>
     {
-        _startTimeLife = StartCoroutine(StartTimeLife());
-    }
+        [SerializeField] private Vector3 _rotation;
+        [SerializeField] private int _damage;
 
-    private void OnDisable()
-    {
-        if (_startTimeLife != null)
-            StopCoroutine(_startTimeLife);
-    }
+        private Coroutine _startTimeLife;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.transform.TryGetComponent(out IDamagable damagable))
+        private void OnEnable()
         {
-            damagable.TakeDamage(_damage);
-            OnDisabled();
+            _startTimeLife = StartCoroutine(StartTimeLife());
         }
-    }
 
-    public override void Initialize(Vector3 position)
-    {
-        base.Initialize(position);
-        transform.rotation = Quaternion.Euler(_rotation);
+        private void OnDisable()
+        {
+            if (_startTimeLife != null)
+                StopCoroutine(_startTimeLife);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.transform.TryGetComponent(out IDamagable.IDamagable damagable))
+            {
+                damagable.TakeDamage(_damage);
+                OnDisabled();
+            }
+        }
+
+        public override void Initialize(Vector3 position)
+        {
+            base.Initialize(position);
+            transform.rotation = Quaternion.Euler(_rotation);
+        }
     }
 }

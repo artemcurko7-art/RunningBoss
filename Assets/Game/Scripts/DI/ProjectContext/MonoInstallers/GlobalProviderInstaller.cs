@@ -1,23 +1,27 @@
+using Game.Scripts.Provider;
 using Zenject;
 
-public class GlobalProviderInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalProviderInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<AnimalProvider>()
-            .AsSingle();
-        
-        Container
-            .BindInterfacesAndSelfTo<ItemViewProvider>()
-            .AsSingle();
-        
-        Container
-            .Bind<InterstitialAdsProvider>()
-            .AsSingle();
-        
-        Container
-            .Bind<LanguageProvider>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<AnimalProvider>()
+                .AsSingle();
+
+            Container
+                .BindInterfacesAndSelfTo<ItemViewProvider>()
+                .AsSingle();
+
+            Container
+                .Bind<InterstitialAdsProvider>()
+                .AsSingle();
+
+            Container
+                .Bind<LanguageProvider>()
+                .AsSingle();
+        }
     }
 }

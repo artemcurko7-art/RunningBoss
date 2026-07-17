@@ -1,17 +1,23 @@
-public class ExperienceKilled : KilledSubscriber
+using Game.Scripts.MV.Level.GameLevel.Experience.Model;
+using Game.Scripts.Player.Killed.Subscriber;
+
+namespace Game.Scripts.Player.Killed
 {
-    private readonly IGameExperience _experience;
-    private readonly ExperienceStats _stats;
-
-    public ExperienceKilled(IKilled killed, IGameExperience experience, ExperienceStats stats)
-        : base(killed)
+    public class ExperienceKilled : KilledSubscriber
     {
-        _experience = experience;
-        _stats = stats;
-    }
+        private readonly IGameExperience _experience;
+        private readonly ExperienceStats _stats;
 
-    protected override void OnKilled()
-    {
-        _experience.Add(_stats.Killed);
+        public ExperienceKilled(IKilled killed, IGameExperience experience, ExperienceStats stats)
+            : base(killed)
+        {
+            _experience = experience;
+            _stats = stats;
+        }
+
+        protected override void OnKilled()
+        {
+            _experience.Add(_stats.Killed);
+        }
     }
 }

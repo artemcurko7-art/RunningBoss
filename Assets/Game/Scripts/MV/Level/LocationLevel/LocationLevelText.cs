@@ -2,28 +2,31 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class LocationLevelText : MonoBehaviour
+namespace Game.Scripts.MV.Level.LocationLevel
 {
-    [SerializeField] private TMP_Text _text;
-    
-    private ILocationLevel _model;
-    
-    [Inject]
-    public void Construct(ILocationLevel model)
+    public class LocationLevelText : MonoBehaviour
     {
-        _model = model;
+        [SerializeField] private TMP_Text _text;
 
-        _model.Changed += OnValueChanged;
-        _model.Update();
-    }
+        private ILocationLevel _model;
 
-    private void OnDestroy()
-    {
-        _model.Changed -= OnValueChanged;
-    }
-    
-    private void OnValueChanged(int value)
-    {
-        _text.text = value.ToString();
+        [Inject]
+        public void Construct(ILocationLevel model)
+        {
+            _model = model;
+
+            _model.Changed += OnValueChanged;
+            _model.Update();
+        }
+
+        private void OnDestroy()
+        {
+            _model.Changed -= OnValueChanged;
+        }
+
+        private void OnValueChanged(int value)
+        {
+            _text.text = value.ToString();
+        }
     }
 }

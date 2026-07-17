@@ -1,29 +1,34 @@
+using Game.Scripts.Animal;
+using Game.Scripts.MVC.Stat.Type;
 using UnityEngine;
 
-public class StatUppedText : StatView
+namespace Game.Scripts.MV.Stat
 {
-    [SerializeField] private NotificationStatsDisplay _notification;
-    
-    protected override void OnCreated(AnimalView view)
+    public class StatUppedText : StatView
     {
-        base.OnCreated(view);
-        
-        view.Animal.Stats[StatType.Health].Upped += OnHealthChanged;
-        view.Animal.Stats[StatType.Armor].Upped += OnArmorChanged;
-        view.Animal.Stats[StatType.Dexterity].Upped += OnDexterityChanged;
-        
-        _notification.Initialize(Views);
-    }
+        [SerializeField] private NotificationStatsDisplay _notification;
 
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-
-        foreach (var view in Views)
+        protected override void OnCreated(AnimalView view)
         {
-            view.Animal.Stats[StatType.Health].Upped -= OnHealthChanged;
-            view.Animal.Stats[StatType.Armor].Upped -= OnArmorChanged;
-            view.Animal.Stats[StatType.Dexterity].Upped -= OnDexterityChanged;
+            base.OnCreated(view);
+
+            view.Animal.Stats[StatType.Health].Upped += OnHealthChanged;
+            view.Animal.Stats[StatType.Armor].Upped += OnArmorChanged;
+            view.Animal.Stats[StatType.Dexterity].Upped += OnDexterityChanged;
+
+            _notification.Initialize(Views);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            foreach (var view in Views)
+            {
+                view.Animal.Stats[StatType.Health].Upped -= OnHealthChanged;
+                view.Animal.Stats[StatType.Armor].Upped -= OnArmorChanged;
+                view.Animal.Stats[StatType.Dexterity].Upped -= OnDexterityChanged;
+            }
         }
     }
 }

@@ -1,24 +1,28 @@
+using Game.Scripts.PoolMono.ObjectPool;
 using UnityEngine;
 
-[RequireComponent(typeof(ParticleSystem))]
-public class Effector : PhysicalBody<Effector>
+namespace Game.Scripts.Effector
 {
-    private ParticleSystem _particleSystem;
-    private Coroutine _startTimeLife;
-
-    private void Awake()
+    [RequireComponent(typeof(ParticleSystem))]
+    public class Effector : PhysicalBody<Effector>
     {
-        _particleSystem = GetComponent<ParticleSystem>();
-    }
+        private ParticleSystem _particleSystem;
+        private Coroutine _startTimeLife;
 
-    private void OnEnable()
-    {
-        _startTimeLife = StartCoroutine(StartTimeLife());
-    }
+        private void Awake()
+        {
+            _particleSystem = GetComponent<ParticleSystem>();
+        }
 
-    private void OnDisable()
-    {
-        if (_startTimeLife != null)
-            StopCoroutine(_startTimeLife);
+        private void OnEnable()
+        {
+            _startTimeLife = StartCoroutine(StartTimeLife());
+        }
+
+        private void OnDisable()
+        {
+            if (_startTimeLife != null)
+                StopCoroutine(_startTimeLife);
+        }
     }
 }

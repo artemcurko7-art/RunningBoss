@@ -1,16 +1,19 @@
 using UnityEngine;
 using YG;
 
-public class EnablingCanvas : MonoBehaviour
+namespace Game.Scripts.Canvas
 {
-    [SerializeField] private GameObject _mobile;
-    [SerializeField] private GameObject _desktop;
-    
-    private void Start()
+    public class EnablingCanvas : MonoBehaviour
     {
-        if (YG2.envir.isMobile)
-            _mobile.gameObject.SetActive(true);
-        else
-            _desktop.gameObject.SetActive(true);
+        [SerializeField] private GameObject _mobile;
+        [SerializeField] private GameObject _desktop;
+
+        private void Start()
+        {
+            if (YG2.envir.isMobile)
+                _mobile.gameObject.SetActive(true);
+            else
+                _desktop.gameObject.SetActive(true);
+        }
     }
 }

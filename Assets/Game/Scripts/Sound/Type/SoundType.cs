@@ -1,13 +1,16 @@
-public enum SoundType 
+namespace Game.Scripts.Sound.Type
 {
-    None,
-    Steps,
-    Death,
-    Finished,
-    Killed,
-    Selector,
-    Tab,
-    GameLevelUp,
-    StatLevelUp,
-    Obstacle,
+    public enum SoundType
+    {
+        None,
+        Steps,
+        Death,
+        Finished,
+        Killed,
+        Selector,
+        Tab,
+        GameLevelUp,
+        StatLevelUp,
+        Obstacle,
+    }
 }

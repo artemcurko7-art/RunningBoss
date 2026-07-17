@@ -1,16 +1,20 @@
+using Game.Scripts.Leaderboard;
 using Zenject;
 
-public class GlobalLeaderboardInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalLeaderboardInstaller : MonoInstaller
     {
-        Container
-            .Bind<LeaderboardData>()
-            .AsSingle()
-            .NonLazy();
-        
-        Container
-            .BindInterfacesAndSelfTo<TimerLeaderboard>()
-            .AsCached();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<LeaderboardData>()
+                .AsSingle()
+                .NonLazy();
+
+            Container
+                .BindInterfacesAndSelfTo<TimerLeaderboard>()
+                .AsCached();
+        }
     }
 }

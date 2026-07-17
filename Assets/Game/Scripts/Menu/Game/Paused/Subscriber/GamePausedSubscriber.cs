@@ -1,21 +1,26 @@
-public abstract class GamePausedSubscriber : ISubscriber
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Menu.Game.Paused.Subscriber
 {
-    private readonly IGame _game;
-    
-    public GamePausedSubscriber(IGame game)
+    public abstract class GamePausedSubscriber : ISubscriber
     {
-        _game = game;
-    }
+        private readonly IGame _game;
 
-    public void Subscribe()
-    {
-        _game.Paused += OnGamePaused;
-    }
+        public GamePausedSubscriber(IGame game)
+        {
+            _game = game;
+        }
 
-    public void Unsubscribe()
-    {
-        _game.Paused -= OnGamePaused;
+        public void Subscribe()
+        {
+            _game.Paused += OnGamePaused;
+        }
+
+        public void Unsubscribe()
+        {
+            _game.Paused -= OnGamePaused;
+        }
+
+        protected abstract void OnGamePaused();
     }
-    
-    protected abstract void OnGamePaused();
 }

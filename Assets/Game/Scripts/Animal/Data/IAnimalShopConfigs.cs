@@ -1,6 +1,11 @@
+using Game.Scripts.Animal.Type;
+using Game.Scripts.Configs;
 using System.Collections.Generic;
 
-public interface IAnimalShopConfigs 
+namespace Game.Scripts.Animal.Data
 {
-    IReadOnlyDictionary<AnimalType, AnimalShopConfig> ShopConfigs { get; }
+    public interface IAnimalShopConfigs
+    {
+        IReadOnlyDictionary<AnimalType, AnimalShopConfig> ShopConfigs { get; }
+    }
 }

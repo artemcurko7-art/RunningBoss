@@ -1,54 +1,57 @@
 using System;
 
-public class ProgressExperience
+namespace Game.Scripts.MV.Progress.Experience
 {
-    private readonly int _multiplierMaxValue;
-    private int _value;
-
-    public ProgressExperience(int maxValue, int multiplierMaxValue)
+    public class ProgressExperience
     {
-        MaxValue = maxValue;
-        _multiplierMaxValue = multiplierMaxValue;
-    }
-    
-    public event Action<int> Changed;
+        private readonly int _multiplierMaxValue;
+        private int _value;
 
-    public int MaxValue { get; private set; }
-    
-    public int Value
-    {
-        get => _value;
-
-        private set
+        public ProgressExperience(int maxValue, int multiplierMaxValue)
         {
-            _value = Math.Clamp(value, 0, int.MaxValue);
-            Changed?.Invoke(_value);
+            MaxValue = maxValue;
+            _multiplierMaxValue = multiplierMaxValue;
         }
-    }
 
-    public void Update()
-    {
-        Changed?.Invoke(Value);
-    }
-    
-    public void Add(int value)
-    {
-        Value += value;
-    }
+        public event Action<int> Changed;
 
-    public void SetValue(int value)
-    {
-        Value = value;
-    }
-    
-    public void SetMaxValue(int maxValue)
-    {
-        MaxValue = maxValue;
-    }
-    
-    public void UpMultiplerValue()
-    {
-        MaxValue *= _multiplierMaxValue;
-        Update();
+        public int MaxValue { get; private set; }
+
+        public int Value
+        {
+            get => _value;
+
+            private set
+            {
+                _value = Math.Clamp(value, 0, int.MaxValue);
+                Changed?.Invoke(_value);
+            }
+        }
+
+        public void Update()
+        {
+            Changed?.Invoke(Value);
+        }
+
+        public void Add(int value)
+        {
+            Value += value;
+        }
+
+        public void SetValue(int value)
+        {
+            Value = value;
+        }
+
+        public void SetMaxValue(int maxValue)
+        {
+            MaxValue = maxValue;
+        }
+
+        public void UpMultiplerValue()
+        {
+            MaxValue *= _multiplierMaxValue;
+            Update();
+        }
     }
 }

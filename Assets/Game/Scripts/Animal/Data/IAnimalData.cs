@@ -1,6 +1,10 @@
+using Game.Scripts.Animal.Type;
 using System.Collections.Generic;
 
-public interface IAnimalData 
+namespace Game.Scripts.Animal.Data
 {
-    IReadOnlyDictionary<AnimalType, AnimalView> Views { get; }
+    public interface IAnimalData 
+    {
+        IReadOnlyDictionary<AnimalType, AnimalView> Views { get; }
+    }
 }

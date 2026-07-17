@@ -1,6 +1,9 @@
 using System;
 
-public interface IDeath
+namespace Game.Scripts.Player.Death
 {
-    event Action Died;
+    public interface IDeath
+    {
+        event Action Died;
+    }
 }

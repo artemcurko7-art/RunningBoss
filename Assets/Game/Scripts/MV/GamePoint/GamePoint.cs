@@ -1,25 +1,28 @@
 using System;
 using UnityEngine;
 
-public class GamePoint : IGamePoint
+namespace Game.Scripts.MV.GamePoint
 {
-    private int _value;
-    
-    public event Action<int> Changed;
-    
-    public int Value
+    public class GamePoint : IGamePoint
     {
-        get => _value;
+        private int _value;
 
-        private set
+        public event Action<int> Changed;
+
+        public int Value
         {
-            _value = Mathf.Clamp(value, 0,  int.MaxValue);
-            Changed?.Invoke(_value);
+            get => _value;
+
+            private set
+            {
+                _value = Mathf.Clamp(value, 0, int.MaxValue);
+                Changed?.Invoke(_value);
+            }
         }
-    }
-    
-    public void Add(int amount)
-    {
-        Value += amount;
+
+        public void Add(int amount)
+        {
+            Value += amount;
+        }
     }
 }

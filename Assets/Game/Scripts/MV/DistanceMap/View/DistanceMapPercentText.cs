@@ -2,18 +2,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DistanceMapPercentText : DistanceMapView
+namespace Game.Scripts.MV.DistanceMap.View
 {
-    private const int Percent = 100;
-    
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TMP_Text _text;
-    
-    protected override void OnValueChanged(float value)
+    public class DistanceMapPercentText : DistanceMapView
     {
-        float currentValue = Model.MaxValue - value;
-        float calculationPercent = currentValue / Model.MaxValue * Percent;
+        private const int Percent = 100;
 
-        _text.text = $"{(int)calculationPercent}%";
+        [SerializeField] private Slider _slider;
+        [SerializeField] private TMP_Text _text;
+
+        protected override void OnValueChanged(float value)
+        {
+            float currentValue = Model.MaxValue - value;
+            float calculationPercent = currentValue / Model.MaxValue * Percent;
+
+            _text.text = $"{(int)calculationPercent}%";
+        }
     }
 }

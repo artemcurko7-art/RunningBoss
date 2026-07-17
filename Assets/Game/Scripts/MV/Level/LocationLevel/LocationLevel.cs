@@ -1,42 +1,45 @@
 using System;
 using YG;
 
-public class LocationLevel : ILocationLevel, ILocationLevelUpped
+namespace Game.Scripts.MV.Level.LocationLevel
 {
-    private int _value;
-    
-    public LocationLevel()
+    public class LocationLevel : ILocationLevel, ILocationLevelUpped
     {
-        _value = YG2.saves.LocationLevel;
-    }
-    
-    public event Action<int> Changed;
-    
-    public int Value
-    {
-        get => _value;
+        private int _value;
 
-        private set
+        public LocationLevel()
         {
-            _value = Math.Clamp(value, 0, int.MaxValue);
-            Changed?.Invoke(_value);
-            
-            YG2.saves.LocationLevel = _value;
+            _value = YG2.saves.LocationLevel;
         }
-    }
-    
-    public void Update()
-    {
-        Changed?.Invoke(_value);
-    }
 
-    public void UpLevel()
-    {
-        Value++;
-    }
-    
-    public void Reset()
-    {
-        Value = 0;
+        public event Action<int> Changed;
+
+        public int Value
+        {
+            get => _value;
+
+            private set
+            {
+                _value = Math.Clamp(value, 0, int.MaxValue);
+                Changed?.Invoke(_value);
+
+                YG2.saves.LocationLevel = _value;
+            }
+        }
+
+        public void Update()
+        {
+            Changed?.Invoke(_value);
+        }
+
+        public void UpLevel()
+        {
+            Value++;
+        }
+
+        public void Reset()
+        {
+            Value = 0;
+        }
     }
 }

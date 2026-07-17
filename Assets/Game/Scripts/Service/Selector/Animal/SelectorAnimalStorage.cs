@@ -1,3 +1,5 @@
+using Game.Scripts.Animal.Type;
+
 namespace YG
 {
     public partial class SavesYG 

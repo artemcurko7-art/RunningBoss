@@ -1,11 +1,19 @@
+using Game.Scripts.MV.DistanceMap.Model;
+using Game.Scripts.MV.Level.LocationLevel;
+using Game.Scripts.MV.Speed;
+using Game.Scripts.PoolMono.Pool;
 using UnityEngine;
 
-public class ObstacleService : PhysicalBodyService<Obstacle>
+namespace Game.Scripts.Service.PhysicalBody.Obstacle
 {
-    public ObstacleService(ObstaclePool pool, Obstacle[] obstacles, ILocationLevel locationLevel, ISpeed speed, IDistanceMap distanceMap, Transform player, float delay) 
-        : base(pool, locationLevel, speed, distanceMap, player, delay)
+    public class ObstacleService : PhysicalBodyService<PoolMono.ObjectPool.Obstacle.Obstacle>
     {
-        pool.SetPrefabs(obstacles);
-        SetPositionY(0.5f);
+        public ObstacleService(ObstaclePool pool, PoolMono.ObjectPool.Obstacle.Obstacle[] obstacles, ILocationLevel locationLevel, ISpeed speed,
+            IDistanceMap distanceMap, Transform player, float delay)
+            : base(pool, locationLevel, speed, distanceMap, player, delay)
+        {
+            pool.SetPrefabs(obstacles);
+            SetPositionY(0.5f);
+        }
     }
 }

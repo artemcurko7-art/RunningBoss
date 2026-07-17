@@ -1,18 +1,25 @@
-public class BackgroundMusicGamePaused : GamePausedSubscriber
-{
-    private readonly BackgroundMusicService _service;
-    
-    public BackgroundMusicGamePaused(IGame game, BackgroundMusicService service)
-        : base(game)
-    {
-        _service = service;
-    }
+using Game.Scripts.Menu.Game.Paused.Subscriber;
+using Game.Scripts.Sound.Music;
+using Game.Scripts.Sound.Type;
 
-    protected override void OnGamePaused()
+namespace Game.Scripts.Menu.Game.Paused
+{
+    public class BackgroundMusicGamePaused : GamePausedSubscriber
     {
-        foreach (var music in _service.BackgroundMusics.Values)
-            music.Stop();
-        
-        _service.BackgroundMusics[BackgroundMusicType.Waiting].Play();
+        private readonly BackgroundMusicService _service;
+
+        public BackgroundMusicGamePaused(IGame game, BackgroundMusicService service)
+            : base(game)
+        {
+            _service = service;
+        }
+
+        protected override void OnGamePaused()
+        {
+            foreach (var music in _service.BackgroundMusics.Values)
+                music.Stop();
+
+            _service.BackgroundMusics[BackgroundMusicType.Waiting].Play();
+        }
     }
 }

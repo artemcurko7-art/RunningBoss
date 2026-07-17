@@ -1,55 +1,60 @@
+using Game.Scripts.MV.Level.GameLevel.Experience.Model;
+using Game.Scripts.Service;
 using System;
 using UnityEngine;
 using YG;
 
-public class SkillPoint : ISkillPoint, ISubscriber
+namespace Game.Scripts.MV.SkillPoint
 {
-    private readonly IGameLevelUpped _levelUpped;
-    private int _value;
-    
-    public SkillPoint(IGameLevelUpped levelUpped)
+    public class SkillPoint : ISkillPoint, ISubscriber
     {
-        _levelUpped = levelUpped;
-        Value = YG2.saves.SkillPoint;
-    }
-    
-    public event Action<int> Changed;
+        private readonly IGameLevelUpped _levelUpped;
+        private int _value;
 
-    public int Value
-    {
-        get => _value;
-
-        private set
+        public SkillPoint(IGameLevelUpped levelUpped)
         {
-            _value = Mathf.Clamp(value, 0, int.MaxValue);
-            Changed?.Invoke(Value);
-            
-            YG2.saves.SkillPoint = _value;
+            _levelUpped = levelUpped;
+            Value = YG2.saves.SkillPoint;
         }
-    }
 
-    public void Subscribe()
-    {
-        _levelUpped.Upped += OnLevelUpped;
-    }
+        public event Action<int> Changed;
 
-    public void Unsubscribe()
-    {
-        _levelUpped.Upped -= OnLevelUpped;
-    }
+        public int Value
+        {
+            get => _value;
 
-    public void Update()
-    {
-        Changed?.Invoke(Value);
-    }
+            private set
+            {
+                _value = Mathf.Clamp(value, 0, int.MaxValue);
+                Changed?.Invoke(Value);
 
-    public void Reduce()
-    {
-        Value--;
-    }
-    
-    private void OnLevelUpped()
-    {
-        Value++;
+                YG2.saves.SkillPoint = _value;
+            }
+        }
+
+        public void Subscribe()
+        {
+            _levelUpped.Upped += OnLevelUpped;
+        }
+
+        public void Unsubscribe()
+        {
+            _levelUpped.Upped -= OnLevelUpped;
+        }
+
+        public void Update()
+        {
+            Changed?.Invoke(Value);
+        }
+
+        public void Reduce()
+        {
+            Value--;
+        }
+
+        private void OnLevelUpped()
+        {
+            Value++;
+        }
     }
 }

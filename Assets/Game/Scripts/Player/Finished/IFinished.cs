@@ -1,6 +1,9 @@
 using System;
 
-public interface IFinished
+namespace Game.Scripts.Player.Finished
 {
-    event Action Finished;
+    public interface IFinished
+    {
+        event Action Finished;
+    }
 }

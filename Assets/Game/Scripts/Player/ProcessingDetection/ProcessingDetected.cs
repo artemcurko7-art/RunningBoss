@@ -1,20 +1,25 @@
 using System;
+using Game.Scripts.Player.Killed;
+using Game.Scripts.PoolMono.ObjectPool.Unit;
 using UnityEngine;
 
-public class ProcessingDetected : MonoBehaviour, IProcessingDetected, IKilled
+namespace Game.Scripts.Player.ProcessingDetection
 {
-    public event Action<Unit> Detected;
-    public event Action Killed;
-    
-    private void OnTriggerEnter(Collider other)
+    public class ProcessingDetected : MonoBehaviour, IProcessingDetected, IKilled
     {
-        if (other.TryGetComponent(out Unit unit))
+        public event Action<Unit> Detected;
+        public event Action Killed;
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (this == null || unit.Death == null)
-                return;
-            
-            Detected?.Invoke(unit);
-            Killed?.Invoke();
+            if (other.TryGetComponent(out Unit unit))
+            {
+                if (this == null || unit.Death == null)
+                    return;
+
+                Detected?.Invoke(unit);
+                Killed?.Invoke();
+            }
         }
     }
 }

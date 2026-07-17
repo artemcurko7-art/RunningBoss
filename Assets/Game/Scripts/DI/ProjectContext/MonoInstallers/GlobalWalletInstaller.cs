@@ -1,11 +1,15 @@
+using Game.Scripts.MV.Wallet;
 using Zenject;
 
-public class GlobalWalletInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalWalletInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<Wallet>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<Wallet>()
+                .AsSingle();
+        }
     }
 }

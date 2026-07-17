@@ -1,15 +1,20 @@
+using Game.Scripts.Sound.Effects;
+using Game.Scripts.Sound.Music;
 using Zenject;
 
-public class GlobalSoundInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalSoundInstaller : MonoInstaller
     {
-        Container
-            .Bind<SoundData>()
-            .AsSingle();
-        
-        Container
-            .Bind<BackgroundMusicData>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<SoundData>()
+                .AsSingle();
+
+            Container
+                .Bind<BackgroundMusicData>()
+                .AsSingle();
+        }
     }
 }

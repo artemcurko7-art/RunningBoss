@@ -1,11 +1,15 @@
+using Game.Scripts.GameWorld;
 using Zenject;
 
-public class GlobalGameWorldInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalGameWorldInstaller : MonoInstaller
     {
-        Container
-            .Bind<GameWorldData>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<GameWorldData>()
+                .AsSingle();
+        }
     }
 }

@@ -1,19 +1,25 @@
 using System.Collections.Generic;
+using Game.Scripts.Sound.Type;
 using UnityEngine;
 using Zenject;
 
-public class SoundService 
+namespace Game.Scripts.Sound.Effects
 {
-    private readonly Dictionary<SoundType, AudioSource> _sounds = new ();
-    
-    public SoundService(SoundData data, DiContainer container)
+    public class SoundService
     {
-        foreach (var sound in data.Sounds)
+        private readonly Dictionary<SoundType, AudioSource> _sounds = new();
+
+        public SoundService(SoundData data, DiContainer container)
         {
-            AudioSource audioSource = container.InstantiatePrefabForComponent<AudioSource>(sound.Value, Vector3.zero, Quaternion.identity, null);
-            _sounds.Add(sound.Key, audioSource);
+            foreach (var sound in data.Sounds)
+            {
+                AudioSource audioSource =
+                    container.InstantiatePrefabForComponent<AudioSource>(sound.Value, Vector3.zero, Quaternion.identity,
+                        null);
+                _sounds.Add(sound.Key, audioSource);
+            }
         }
+
+        public IReadOnlyDictionary<SoundType, AudioSource> Sounds => _sounds;
     }
-    
-    public IReadOnlyDictionary<SoundType, AudioSource> Sounds => _sounds;
 }

@@ -1,11 +1,15 @@
+using Game.Scripts.MV.SkillPoint;
 using Zenject;
 
-public class GlobalSkillPointInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalSkillPointInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<SkillPoint>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<SkillPoint>()
+                .AsSingle();
+        }
     }
 }

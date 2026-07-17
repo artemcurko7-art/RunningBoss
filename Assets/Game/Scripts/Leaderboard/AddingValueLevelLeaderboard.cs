@@ -1,32 +1,37 @@
+using Game.Scripts.Player.Finished;
+using Game.Scripts.Service;
 using YG;
 using Zenject;
 
-public class AddingValueLevelLeaderboard : ISubscriber
+namespace Game.Scripts.Leaderboard
 {
-    private const string Name = "Level";
-    [InjectOptional] private readonly IFinished _finished;
-    private readonly LeaderboardData _data;
-    
-    public AddingValueLevelLeaderboard(IFinished finished, LeaderboardData data)
+    public class AddingValueLevelLeaderboard : ISubscriber
     {
-        _finished = finished;
-        _data = data;
-    }
-    
-    public void Subscribe()
-    {
-        _finished.Finished += OnFinished;
-    }
+        private const string Name = "Level";
+        [InjectOptional] private readonly IFinished _finished;
+        private readonly LeaderboardData _data;
 
-    public void Unsubscribe()
-    {
-        _finished.Finished -= OnFinished;
-    }
+        public AddingValueLevelLeaderboard(IFinished finished, LeaderboardData data)
+        {
+            _finished = finished;
+            _data = data;
+        }
 
-    private void OnFinished()
-    {
-        int score = (int)YG2.saves.Leaderboards[Name]++;
-        YG2.SetLeaderboard(Name, score);
-        YG2.GetLeaderboard(Name);
+        public void Subscribe()
+        {
+            _finished.Finished += OnFinished;
+        }
+
+        public void Unsubscribe()
+        {
+            _finished.Finished -= OnFinished;
+        }
+
+        private void OnFinished()
+        {
+            int score = (int)YG2.saves.Leaderboards[Name]++;
+            YG2.SetLeaderboard(Name, score);
+            YG2.GetLeaderboard(Name);
+        }
     }
 }

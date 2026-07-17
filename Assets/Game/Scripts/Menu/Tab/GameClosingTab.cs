@@ -1,23 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameClosingTab : MonoBehaviour
+namespace Game.Scripts.Menu.Tab
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private TabView _view;
-
-    private void OnEnable()
+    public class GameClosingTab : MonoBehaviour
     {
-        _button.onClick.AddListener(OnClick);
-    }
+        [SerializeField] private Button _button;
+        [SerializeField] private TabView _view;
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnClick);
+        }
 
-    private void OnClick()
-    {
-        _view.gameObject.SetActive(false);
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            _view.gameObject.SetActive(false);
+        }
     }
 }

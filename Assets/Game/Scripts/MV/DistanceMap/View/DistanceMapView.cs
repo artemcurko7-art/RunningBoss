@@ -1,22 +1,26 @@
+using Game.Scripts.MV.DistanceMap.Model;
 using UnityEngine;
 using Zenject;
 
-public abstract class DistanceMapView : MonoBehaviour
+namespace Game.Scripts.MV.DistanceMap.View
 {
-    protected IDistanceMap Model { get; private set; }
-    
-    [Inject]
-    public void Construct(IDistanceMap model)
+    public abstract class DistanceMapView : MonoBehaviour
     {
-        Model = model;
-        
-        Model.Changed += OnValueChanged;
-    }
+        protected IDistanceMap Model { get; private set; }
 
-    private void OnDestroy()
-    {
-        Model.Changed -= OnValueChanged;
-    }
+        [Inject]
+        public void Construct(IDistanceMap model)
+        {
+            Model = model;
 
-    protected abstract void OnValueChanged(float value);
+            Model.Changed += OnValueChanged;
+        }
+
+        private void OnDestroy()
+        {
+            Model.Changed -= OnValueChanged;
+        }
+
+        protected abstract void OnValueChanged(float value);
+    }
 }

@@ -3,35 +3,38 @@ using UnityEngine.UI;
 using YG;
 using Zenject;
 
-public class HandlerPurchaseSuccessAds : MonoBehaviour
+namespace Game.Scripts.Inap
 {
-    [SerializeField] private Button[] _buttons;
-
-    [Inject]
-    private void Construct()
+    public class HandlerPurchaseSuccessAds : MonoBehaviour
     {
-        YG2.onPurchaseSuccess += OnPurchaseSuccess;
+        [SerializeField] private Button[] _buttons;
 
-        if (YG2.saves.IsPaymentAds)
+        [Inject]
+        private void Construct()
+        {
+            YG2.onPurchaseSuccess += OnPurchaseSuccess;
+
+            if (YG2.saves.IsPaymentAds)
+                DisableButtons();
+        }
+
+        private void OnDestroy()
+        {
+            YG2.onPurchaseSuccess -= OnPurchaseSuccess;
+        }
+
+        private void OnPurchaseSuccess(string id)
+        {
+            YG2.saves.IsPaymentAds = true;
+
             DisableButtons();
-    }
+        }
 
-    private void OnDestroy()
-    {
-        YG2.onPurchaseSuccess -= OnPurchaseSuccess;
-    }
-
-    private void OnPurchaseSuccess(string id)
-    {
-        YG2.saves.IsPaymentAds = true;
-
-        DisableButtons();
-    }
-
-    private void DisableButtons()
-    {
-        foreach (var button in _buttons)
-            if (button != null)
-                button.interactable = false;
+        private void DisableButtons()
+        {
+            foreach (var button in _buttons)
+                if (button != null)
+                    button.interactable = false;
+        }
     }
 }

@@ -1,21 +1,26 @@
-public abstract class GameEndedSubscriber : ISubscriber
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Menu.Game.Ended.Subscriber
 {
-    private readonly IGame _game;
-    
-    public GameEndedSubscriber(IGame game)
+    public abstract class GameEndedSubscriber : ISubscriber
     {
-        _game = game;
-    }
-    
-    public virtual void Subscribe()
-    {
-        _game.Ended += OnGameEnded;
-    }
+        private readonly IGame _game;
 
-    public virtual void Unsubscribe()
-    {
-        _game.Ended -= OnGameEnded;
-    }
+        public GameEndedSubscriber(IGame game)
+        {
+            _game = game;
+        }
 
-    protected abstract void OnGameEnded();
+        public virtual void Subscribe()
+        {
+            _game.Ended += OnGameEnded;
+        }
+
+        public virtual void Unsubscribe()
+        {
+            _game.Ended -= OnGameEnded;
+        }
+
+        protected abstract void OnGameEnded();
+    }
 }

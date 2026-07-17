@@ -2,31 +2,34 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class GameLevelText : MonoBehaviour
+namespace Game.Scripts.MV.Level.GameLevel.Level
 {
-    [SerializeField] private TMP_Text _text;
-    
-    private IGameLevel _model;
-    
-    [Inject]
-    public void Construct(IGameLevel model)
+    public class GameLevelText : MonoBehaviour
     {
-        _model = model;
-    }
+        [SerializeField] private TMP_Text _text;
 
-    private void OnEnable()
-    {
-        _model.Upped += OnGameLevelText;
-        _model.Update();
-    }
+        private IGameLevel _model;
 
-    private void OnDisable()
-    {
-        _model.Upped -= OnGameLevelText;
-    }
+        [Inject]
+        public void Construct(IGameLevel model)
+        {
+            _model = model;
+        }
 
-    private void OnGameLevelText(int value)
-    {
-        _text.text = value.ToString();
+        private void OnEnable()
+        {
+            _model.Upped += OnGameLevelText;
+            _model.Update();
+        }
+
+        private void OnDisable()
+        {
+            _model.Upped -= OnGameLevelText;
+        }
+
+        private void OnGameLevelText(int value)
+        {
+            _text.text = value.ToString();
+        }
     }
 }

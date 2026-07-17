@@ -1,4 +1,9 @@
-public interface IItemViewProvider 
+using Game.Scripts.Inventory.ItemContext;
+
+namespace Game.Scripts.Provider
 {
-    public ItemView View { get; }
+    public interface IItemViewProvider
+    {
+        public ItemView View { get; }
+    }
 }

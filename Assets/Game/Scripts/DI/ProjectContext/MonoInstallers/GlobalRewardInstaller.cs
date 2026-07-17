@@ -1,11 +1,15 @@
+using Game.Scripts.MV.Progress;
 using Zenject;
 
-public class GlobalRewardInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalRewardInstaller : MonoInstaller
     {
-        Container
-            .Bind<ProgressAddingReward>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<ProgressAddingReward>()
+                .AsSingle();
+        }
     }
 }

@@ -1,21 +1,27 @@
-public abstract class ProcessingDetectionSubscriber : ISubscriber
+using Game.Scripts.PoolMono.ObjectPool.Unit;
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Player.ProcessingDetection.Subscriber
 {
-    private readonly IProcessingDetected _detected;
-    
-    public ProcessingDetectionSubscriber(IProcessingDetected detected)
+    public abstract class ProcessingDetectionSubscriber : ISubscriber
     {
-        _detected = detected;
-    }
-    
-    public void Subscribe()
-    {
-        _detected.Detected += OnDetected;
-    }
+        private readonly IProcessingDetected _detected;
 
-    public void Unsubscribe()
-    {
-        _detected.Detected -= OnDetected;
-    }
+        public ProcessingDetectionSubscriber(IProcessingDetected detected)
+        {
+            _detected = detected;
+        }
 
-    protected abstract void OnDetected(Unit unit);
+        public void Subscribe()
+        {
+            _detected.Detected += OnDetected;
+        }
+
+        public void Unsubscribe()
+        {
+            _detected.Detected -= OnDetected;
+        }
+
+        protected abstract void OnDetected(Unit unit);
+    }
 }

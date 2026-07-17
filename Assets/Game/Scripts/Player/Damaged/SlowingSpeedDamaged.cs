@@ -1,15 +1,21 @@
-public class SlowingSpeedDamaged : DamagedSubscriber
-{
-    private readonly Speed _speed;
-    
-    public SlowingSpeedDamaged(IDamaged damaged, Speed speed) 
-        : base(damaged)
-    {
-        _speed = speed;
-    }
+using Game.Scripts.MV.Speed;
+using Game.Scripts.Player.Damaged.Subscriber;
 
-    protected override void OnDamaged()
+namespace Game.Scripts.Player.Damaged
+{
+    public class SlowingSpeedDamaged : DamagedSubscriber
     {
-        _speed.Slow();
+        private readonly Speed _speed;
+
+        public SlowingSpeedDamaged(IDamaged damaged, Speed speed)
+            : base(damaged)
+        {
+            _speed = speed;
+        }
+
+        protected override void OnDamaged()
+        {
+            _speed.Slow();
+        }
     }
 }

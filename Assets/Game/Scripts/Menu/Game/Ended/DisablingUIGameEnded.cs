@@ -1,18 +1,22 @@
+using Game.Scripts.Menu.Game.Ended.Subscriber;
 using UnityEngine;
 
-public class DisablingUIGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly GameObject[] _objects;
-    
-    public DisablingUIGameEnded(IGame game, GameObject[] objects) 
-        : base(game)
+    public class DisablingUIGameEnded : GameEndedSubscriber
     {
-        _objects = objects;
-    }
+        private readonly GameObject[] _objects;
 
-    protected override void OnGameEnded()
-    {
-        foreach (var obj in _objects)
-            obj.SetActive(false);
+        public DisablingUIGameEnded(IGame game, GameObject[] objects)
+            : base(game)
+        {
+            _objects = objects;
+        }
+
+        protected override void OnGameEnded()
+        {
+            foreach (var obj in _objects)
+                obj.SetActive(false);
+        }
     }
 }

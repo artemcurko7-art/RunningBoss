@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DistanceMapBar : DistanceMapView
+namespace Game.Scripts.MV.DistanceMap.View
 {
-    [SerializeField] private Slider _slider;
-
-    protected override void OnValueChanged(float value)
+    public class DistanceMapBar : DistanceMapView
     {
-        float currentValue = Model.MaxValue - value;
-        _slider.value = currentValue / Model.MaxValue;
+        [SerializeField] private Slider _slider;
+
+        protected override void OnValueChanged(float value)
+        {
+            float currentValue = Model.MaxValue - value;
+            _slider.value = currentValue / Model.MaxValue;
+        }
     }
 }

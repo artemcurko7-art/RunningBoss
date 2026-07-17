@@ -1,17 +1,21 @@
+using Game.Scripts.Factories;
 using UnityEngine;
 
-public class CalculationDistanceMap 
+namespace Game.Scripts.MV.DistanceMap.Model
 {
-    private readonly Transform _currentPoint;
-    private readonly GameObject _point;
-
-    public CalculationDistanceMap(DistanceMapPointFactory factory, Transform currentPoint)
+    public class CalculationDistanceMap
     {
-        _currentPoint = currentPoint;
+        private readonly Transform _currentPoint;
+        private readonly GameObject _point;
 
-        _point = factory.Create();
+        public CalculationDistanceMap(DistanceMapPointFactory factory, Transform currentPoint)
+        {
+            _currentPoint = currentPoint;
+
+            _point = factory.Create();
+        }
+
+        public float GetDistance() =>
+            _point.transform.position.z - _currentPoint.transform.position.z;
     }
-
-    public float GetDistance() => 
-        _point.transform.position.z - _currentPoint.transform.position.z;
 }

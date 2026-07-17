@@ -1,7 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ToggleSwitchingLanguage : MonoBehaviour
+namespace Game.Scripts.Settings.Language
 {
-    [field: SerializeField] public Button Button { get; private set; }
+    public class ToggleSwitchingLanguage : MonoBehaviour
+    {
+        [field: SerializeField] public Button Button { get; private set; }
+    }
 }

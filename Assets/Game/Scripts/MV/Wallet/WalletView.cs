@@ -2,28 +2,31 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class WalletView : MonoBehaviour
+namespace Game.Scripts.MV.Wallet
 {
-    [SerializeField] private TMP_Text _coinText;
-
-    private IWallet _model;
-    
-    [Inject]
-    public void Construct(IWallet model)
+    public class WalletView : MonoBehaviour
     {
-        _model = model;
+        [SerializeField] private TMP_Text _coinText;
 
-        _model.CoinsChanged += OnValueChanged;
-        _model.Update();
-    }
+        private IWallet _model;
 
-    private void OnDestroy()
-    {
-        _model.CoinsChanged -= OnValueChanged;
-    }
+        [Inject]
+        public void Construct(IWallet model)
+        {
+            _model = model;
 
-    private void OnValueChanged(int amount)
-    {
-        _coinText.text = amount.ToString();
+            _model.CoinsChanged += OnValueChanged;
+            _model.Update();
+        }
+
+        private void OnDestroy()
+        {
+            _model.CoinsChanged -= OnValueChanged;
+        }
+
+        private void OnValueChanged(int amount)
+        {
+            _coinText.text = amount.ToString();
+        }
     }
 }

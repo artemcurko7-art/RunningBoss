@@ -1,6 +1,10 @@
 using System;
+using Game.Scripts.PoolMono.ObjectPool.Unit;
 
-public interface IProcessingDetected
+namespace Game.Scripts.Player.ProcessingDetection
 {
-    event Action<Unit> Detected;
+    public interface IProcessingDetected
+    {
+        event Action<Unit> Detected;
+    }
 }

@@ -1,7 +1,10 @@
 using System;
 
-public interface ISkillPoint 
+namespace Game.Scripts.MV.SkillPoint
 {
-    event Action<int> Changed;
-    void Update();
+    public interface ISkillPoint
+    {
+        event Action<int> Changed;
+        void Update();
+    }
 }

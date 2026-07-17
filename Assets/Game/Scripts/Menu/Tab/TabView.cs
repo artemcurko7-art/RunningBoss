@@ -1,3 +1,6 @@
 using UnityEngine;
 
-public class TabView : MonoBehaviour { }
+namespace Game.Scripts.Menu.Tab
+{
+    public class TabView : MonoBehaviour { }
+}

@@ -1,12 +1,16 @@
+using Game.Scripts.Effector;
 using Zenject;
 
-public class GlobalEffectorInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalEffectorInstaller : MonoInstaller
     {
-        Container
-            .Bind<EffectorData>()
-            .AsSingle()
-            .NonLazy();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<EffectorData>()
+                .AsSingle()
+                .NonLazy();
+        }
     }
 }

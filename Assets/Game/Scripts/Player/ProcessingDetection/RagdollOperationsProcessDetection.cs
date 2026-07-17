@@ -1,32 +1,38 @@
+using Game.Scripts.MV.Speed;
+using Game.Scripts.Player.ProcessingDetection.Subscriber;
+using Game.Scripts.PoolMono.ObjectPool.Unit;
 using UnityEngine;
 
-public class RagdollOperationsProcessDetection : ProcessingDetectionSubscriber
+namespace Game.Scripts.Player.ProcessingDetection
 {
-    private const int FactorForwardForce = 5;
-    private const int UpForce = 20;
-    private readonly ISpeed _speed;
-    
-    public RagdollOperationsProcessDetection(IProcessingDetected detected, ISpeed speed) 
-        : base(detected)
+    public class RagdollOperationsProcessDetection : ProcessingDetectionSubscriber
     {
-        _speed = speed;
-    }
+        private const int FactorForwardForce = 5;
+        private const int UpForce = 20;
+        private readonly ISpeed _speed;
 
-    protected override void OnDetected(Unit unit)
-    {
-        unit.Animator.enabled = false;
-        unit.Collider.enabled = false;
-        unit.Root.SetActive(false);
-        unit.Death.gameObject.SetActive(true);
-        
-        var rigidbodies = unit.transform.GetComponentsInChildren<Rigidbody>();
-        
-        float forwardForce = _speed.Value * FactorForwardForce;
-
-        foreach (var rigidbody in rigidbodies)
+        public RagdollOperationsProcessDetection(IProcessingDetected detected, ISpeed speed)
+            : base(detected)
         {
-            rigidbody.AddForce(-unit.transform.forward * forwardForce, ForceMode.Impulse);
-            rigidbody.AddForce(unit.transform.up * UpForce, ForceMode.Impulse);
+            _speed = speed;
+        }
+
+        protected override void OnDetected(Unit unit)
+        {
+            unit.Animator.enabled = false;
+            unit.Collider.enabled = false;
+            unit.Root.SetActive(false);
+            unit.Death.gameObject.SetActive(true);
+
+            var rigidbodies = unit.transform.GetComponentsInChildren<Rigidbody>();
+
+            float forwardForce = _speed.Value * FactorForwardForce;
+
+            foreach (var rigidbody in rigidbodies)
+            {
+                rigidbody.AddForce(-unit.transform.forward * forwardForce, ForceMode.Impulse);
+                rigidbody.AddForce(unit.transform.up * UpForce, ForceMode.Impulse);
+            }
         }
     }
 }

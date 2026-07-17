@@ -1,11 +1,14 @@
 using UnityEngine;
 using Zenject;
 
-public class StartedGamePaused : MonoBehaviour
+namespace Game.Scripts.Menu.Game.Paused
 {
-    [Inject]
-    public void Construct(Game game)
+    public class StartedGamePaused : MonoBehaviour
     {
-        game.OnPaused();
+        [Inject]
+        public void Construct(Game game)
+        {
+            game.OnPaused();
+        }
     }
 }

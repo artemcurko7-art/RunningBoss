@@ -1,11 +1,16 @@
-public class AnimalProvider : IAnimalProvider
+using Game.Scripts.Animal;
+
+namespace Game.Scripts.Provider
 {
-    public AnimalView AnimalView { get; private set; }
-    public Animal Animal { get; private set; }
-    
-    public void Set(AnimalView animalView, Animal animal)
+    public class AnimalProvider : IAnimalProvider
     {
-        AnimalView = animalView;
-        Animal = animal;
+        public AnimalView AnimalView { get; private set; }
+        public Animal.Animal Animal { get; private set; }
+
+        public void Set(AnimalView animalView, Animal.Animal animal)
+        {
+            AnimalView = animalView;
+            Animal = animal;
+        }
     }
 }

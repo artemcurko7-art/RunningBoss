@@ -1,5 +1,10 @@
-public interface IAnimalProvider
+using Game.Scripts.Animal;
+
+namespace Game.Scripts.Provider
 {
-    Animal Animal { get; }
-    AnimalView AnimalView { get; }
+    public interface IAnimalProvider
+    {
+        Animal.Animal Animal { get; }
+        AnimalView AnimalView { get; }
+    }
 }

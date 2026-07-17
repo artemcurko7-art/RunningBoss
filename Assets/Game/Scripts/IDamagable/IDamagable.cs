@@ -1,4 +1,7 @@
-public interface IDamagable 
+namespace Game.Scripts.IDamagable
 {
-    void TakeDamage(int damage);
+    public interface IDamagable
+    {
+        void TakeDamage(int damage);
+    }
 }

@@ -1,23 +1,26 @@
 using UnityEngine;
 using Zenject;
 
-public abstract class HealthView : MonoBehaviour
+namespace Game.Scripts.MV.Stat.Health
 {
-    protected IHealth Model;
-
-    [Inject]
-    public void Construct(IHealth model)
+    public abstract class HealthView : MonoBehaviour
     {
-        Model = model;
+        protected IHealth Model;
 
-        Model.Changed += OnValueChanged;
-        Model.Update();
+        [Inject]
+        public void Construct(IHealth model)
+        {
+            Model = model;
+
+            Model.Changed += OnValueChanged;
+            Model.Update();
+        }
+
+        private void OnDestroy()
+        {
+            Model.Changed -= OnValueChanged;
+        }
+
+        protected abstract void OnValueChanged(int value);
     }
-
-    private void OnDestroy()
-    {
-        Model.Changed -= OnValueChanged;
-    }
-
-    protected abstract void OnValueChanged(int value);
 }

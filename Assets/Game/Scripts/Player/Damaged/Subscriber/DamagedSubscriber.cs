@@ -1,21 +1,26 @@
-public abstract class DamagedSubscriber : ISubscriber
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Player.Damaged.Subscriber
 {
-    private readonly IDamaged _damaged;
-    
-    public DamagedSubscriber(IDamaged damaged)
+    public abstract class DamagedSubscriber : ISubscriber
     {
-        _damaged = damaged;
-    }
-    
-    public virtual void Subscribe()
-    {
-        _damaged.Damaged += OnDamaged;
-    }
+        private readonly IDamaged _damaged;
 
-    public virtual void Unsubscribe()
-    {
-        _damaged.Damaged -= OnDamaged;
-    }
+        public DamagedSubscriber(IDamaged damaged)
+        {
+            _damaged = damaged;
+        }
 
-    protected abstract void OnDamaged();
+        public virtual void Subscribe()
+        {
+            _damaged.Damaged += OnDamaged;
+        }
+
+        public virtual void Unsubscribe()
+        {
+            _damaged.Damaged -= OnDamaged;
+        }
+
+        protected abstract void OnDamaged();
+    }
 }

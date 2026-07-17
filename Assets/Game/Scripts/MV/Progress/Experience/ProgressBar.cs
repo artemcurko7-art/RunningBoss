@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : ProgressExperienceView
+namespace Game.Scripts.MV.Progress.Experience
 {
-    [SerializeField] private Image _filling;
-    
-    protected override void OnValueChanged(int value)
+    public class ProgressBar : ProgressExperienceView
     {
-         if (_filling == null)
-             return;
-         
-         _filling.fillAmount = (float)value / Experience.MaxValue;
+        [SerializeField] private Image _filling;
+
+        protected override void OnValueChanged(int value)
+        {
+            if (_filling == null)
+                return;
+
+            _filling.fillAmount = (float)value / Experience.MaxValue;
+        }
     }
 }

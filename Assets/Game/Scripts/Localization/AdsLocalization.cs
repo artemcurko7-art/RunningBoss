@@ -3,47 +3,50 @@ using UnityEngine;
 using YG;
 using Zenject;
 
-public class AdsLocalization : MonoBehaviour
+namespace Game.Scripts.Localization
 {
-    [SerializeField] private TMP_Text _titleText;
-    [SerializeField] private TMP_Text _descriptionText;
-    [SerializeField] private string _titleRussian;
-    [SerializeField] private string _titleEnglish;
-    [SerializeField] private string _titleTurkish;
-    [SerializeField] private string _descriptionRussian;
-    [SerializeField] private string _descriptionEnglish;
-    [SerializeField] private string _descriptionTurkish;
-
-    [Inject]
-    public void Consruct()
+    public class AdsLocalization : MonoBehaviour
     {
-        YG2.onSwitchLang += OnSwitchLanguage;
-        OnSwitchLanguage(YG2.envir.language != YG2.saves.Language ? YG2.saves.Language : YG2.envir.language);
-    }
+        [SerializeField] private TMP_Text _titleText;
+        [SerializeField] private TMP_Text _descriptionText;
+        [SerializeField] private string _titleRussian;
+        [SerializeField] private string _titleEnglish;
+        [SerializeField] private string _titleTurkish;
+        [SerializeField] private string _descriptionRussian;
+        [SerializeField] private string _descriptionEnglish;
+        [SerializeField] private string _descriptionTurkish;
 
-    private void OnDestroy()
-    {
-        YG2.onSwitchLang -= OnSwitchLanguage;
-    }
-
-    private void OnSwitchLanguage(string language)
-    {
-        switch (language)
+        [Inject]
+        public void Consruct()
         {
-            case "ru":
-                _titleText.text = _titleRussian;
-                _descriptionText.text = _descriptionRussian;
-                break;
-            
-            case "en":
-                _titleText.text = _titleEnglish;
-                _descriptionText.text = _descriptionEnglish;
-                break;
-            
-            case "tr":
-                _titleText.text = _titleTurkish;
-                _descriptionText.text = _descriptionTurkish;
-                break;
+            YG2.onSwitchLang += OnSwitchLanguage;
+            OnSwitchLanguage(YG2.envir.language != YG2.saves.Language ? YG2.saves.Language : YG2.envir.language);
+        }
+
+        private void OnDestroy()
+        {
+            YG2.onSwitchLang -= OnSwitchLanguage;
+        }
+
+        private void OnSwitchLanguage(string language)
+        {
+            switch (language)
+            {
+                case "ru":
+                    _titleText.text = _titleRussian;
+                    _descriptionText.text = _descriptionRussian;
+                    break;
+
+                case "en":
+                    _titleText.text = _titleEnglish;
+                    _descriptionText.text = _descriptionEnglish;
+                    break;
+
+                case "tr":
+                    _titleText.text = _titleTurkish;
+                    _descriptionText.text = _descriptionTurkish;
+                    break;
+            }
         }
     }
 }

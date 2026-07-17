@@ -1,9 +1,12 @@
 using System;
 
-public interface IDistanceMap 
+namespace Game.Scripts.MV.DistanceMap.Model
 {
-    event Action<float> Changed;
-    float Value { get; }
-    float CompletedValue { get; }
-    float MaxValue { get; }
+    public interface IDistanceMap
+    {
+        event Action<float> Changed;
+        float Value { get; }
+        float CompletedValue { get; }
+        float MaxValue { get; }
+    }
 }

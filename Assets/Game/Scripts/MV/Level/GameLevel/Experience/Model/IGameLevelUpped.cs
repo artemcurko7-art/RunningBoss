@@ -1,6 +1,9 @@
 using System;
 
-public interface IGameLevelUpped 
+namespace Game.Scripts.MV.Level.GameLevel.Experience.Model
 {
-    event Action Upped;
+    public interface IGameLevelUpped
+    {
+        event Action Upped;
+    }
 }

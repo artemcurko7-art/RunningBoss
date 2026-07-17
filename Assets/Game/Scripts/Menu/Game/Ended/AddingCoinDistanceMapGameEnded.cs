@@ -1,19 +1,27 @@
-public class AddingCoinDistanceMapGameEnded : GameEndedSubscriber
+using Game.Scripts.Menu.Game.Ended.Subscriber;
+using Game.Scripts.MV.DistanceMap.Model;
+using Game.Scripts.Player.Coin;
+using Game.Scripts.Player.Coin.Type;
+
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly IDistanceMap _distanceMap;
-    private readonly CoinData _data;
-    
-    public AddingCoinDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, CoinData data) 
-        : base(game)
+    public class AddingCoinDistanceMapGameEnded : GameEndedSubscriber
     {
-        _distanceMap = distanceMap;
-        _data = data;
-    }
-    
-    protected override void OnGameEnded()
-    {
-        float calculation = _distanceMap.CompletedValue * 0.2f;
-        
-        _data.Coins[CoinType.Distance].Add((int)calculation);
+        private readonly IDistanceMap _distanceMap;
+        private readonly CoinData _data;
+
+        public AddingCoinDistanceMapGameEnded(IGame game, IDistanceMap distanceMap, CoinData data)
+            : base(game)
+        {
+            _distanceMap = distanceMap;
+            _data = data;
+        }
+
+        protected override void OnGameEnded()
+        {
+            float calculation = _distanceMap.CompletedValue * 0.2f;
+
+            _data.Coins[CoinType.Distance].Add((int)calculation);
+        }
     }
 }

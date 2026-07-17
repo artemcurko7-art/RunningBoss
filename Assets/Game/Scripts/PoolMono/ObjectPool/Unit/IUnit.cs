@@ -1,4 +1,7 @@
-public interface IUnit
+namespace Game.Scripts.PoolMono.ObjectPool.Unit
 {
-    UnitDeath Death { get; }
+    public interface IUnit
+    {
+        UnitDeath Death { get; }
+    }
 }

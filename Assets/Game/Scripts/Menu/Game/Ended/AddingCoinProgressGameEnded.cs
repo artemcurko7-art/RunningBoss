@@ -1,25 +1,32 @@
+using Game.Scripts.Menu.Game.Ended.Subscriber;
+using Game.Scripts.MV.Progress.Data;
+using Game.Scripts.MV.Progress.Type;
+using Game.Scripts.Player.Coin;
 using YG;
 
-public class AddingCoinProgressGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly IProgressData _data;
-    private readonly CoinData _coinData;
-    
-    public AddingCoinProgressGameEnded(IGame game, IProgressData data, CoinData coinData) 
-        : base(game)
+    public class AddingCoinProgressGameEnded : GameEndedSubscriber
     {
-        _data = data;
-        _coinData = coinData;
-    }
-    
-    protected override void OnGameEnded()
-    {
-        ProgressType type = ProgressType.Money;
+        private readonly IProgressData _data;
+        private readonly CoinData _coinData;
 
-        foreach (var coin in _coinData.Coins.Values)
+        public AddingCoinProgressGameEnded(IGame game, IProgressData data, CoinData coinData)
+            : base(game)
         {
-            _data.Progresses[type].SetValue(coin.Value);
-            YG2.saves.ProgressStorage(_data.Progresses[type]);
+            _data = data;
+            _coinData = coinData;
+        }
+
+        protected override void OnGameEnded()
+        {
+            ProgressType type = ProgressType.Money;
+
+            foreach (var coin in _coinData.Coins.Values)
+            {
+                _data.Progresses[type].SetValue(coin.Value);
+                YG2.saves.ProgressStorage(_data.Progresses[type]);
+            }
         }
     }
 }

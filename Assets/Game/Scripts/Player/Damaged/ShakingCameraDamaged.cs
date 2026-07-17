@@ -1,20 +1,24 @@
 using DG.Tweening;
+using Game.Scripts.Player.Damaged.Subscriber;
 using UnityEngine;
 
-public class ShakingCameraDamaged : DamagedSubscriber
+namespace Game.Scripts.Player.Damaged
 {
-    private readonly Camera _mainCamera;
-    private Tween _tween;
-    
-    public ShakingCameraDamaged(IDamaged damaged, Camera mainCamera)
-        : base(damaged)
+    public class ShakingCameraDamaged : DamagedSubscriber
     {
-        _mainCamera = mainCamera;
-    }
+        private readonly Camera _mainCamera;
+        private Tween _tween;
 
-    protected override void OnDamaged()
-    {
-        _tween?.Kill(true);
-        _tween = _mainCamera.DOShakePosition(0.2f, 1);
+        public ShakingCameraDamaged(IDamaged damaged, Camera mainCamera)
+            : base(damaged)
+        {
+            _mainCamera = mainCamera;
+        }
+
+        protected override void OnDamaged()
+        {
+            _tween?.Kill(true);
+            _tween = _mainCamera.DOShakePosition(0.2f, 1);
+        }
     }
 }

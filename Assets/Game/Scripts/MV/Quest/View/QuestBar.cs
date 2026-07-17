@@ -1,15 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class QuestBar : QuestExperienceView
+namespace Game.Scripts.MV.Quest.View
 {
-    [SerializeField] private Image _filling;
-    
-    protected override void OnValueChanged(int value)
+    public class QuestBar : QuestExperienceView
     {
-        if (_filling == null)
-            return;
+        [SerializeField] private Image _filling;
 
-        _filling.fillAmount = (float)value / Quest.MaxValue;
+        protected override void OnValueChanged(int value)
+        {
+            if (_filling == null)
+                return;
+
+            _filling.fillAmount = (float)value / Quest.MaxValue;
+        }
     }
 }

@@ -1,5 +1,8 @@
-public interface ISelectorItemService 
+namespace Game.Scripts.Service.Selector
 {
-    void OnClickRight();
-    void OnClickLeft();
+    public interface ISelectorItemService
+    {
+        void OnClickRight();
+        void OnClickLeft();
+    }
 }

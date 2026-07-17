@@ -1,7 +1,10 @@
-public class HardQuestData : QuestData
+namespace Game.Scripts.MV.Quest.QuestData
 {
-    public HardQuestData()
+    public class HardQuestData : QuestData
     {
-        LoadConfigs("Config/Quest/Hard");
+        public HardQuestData()
+        {
+            LoadConfigs("Config/Quest/Hard");
+        }
     }
 }

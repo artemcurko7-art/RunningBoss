@@ -1,9 +1,14 @@
-public static class GamePaused 
-{
-    public static GamePausedType Type { get; private set; }
+using Game.Scripts.Menu.Game.Paused.Type;
 
-    public static void Set(GamePausedType type)
+namespace Game.Scripts.Menu.Game.Paused
+{
+    public static class GamePaused
     {
-        Type = type;
+        public static GamePausedType Type { get; private set; }
+
+        public static void Set(GamePausedType type)
+        {
+            Type = type;
+        }
     }
 }

@@ -2,34 +2,37 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ProgressRewardText : MonoBehaviour
+namespace Game.Scripts.MV.Progress.Reward
 {
-    [SerializeField] private TMP_Text _rewardText;
-
-    private IProgressReward _reward;
-    
-    public void Initialize(IProgressReward reward)
+    public class ProgressRewardText : MonoBehaviour
     {
-        _reward = reward;
+        [SerializeField] private TMP_Text _rewardText;
 
-        _reward.Rewarded += OnRewarded;
-    }
+        private IProgressReward _reward;
 
-    private void OnDestroy()
-    {
-        _reward.Rewarded -= OnRewarded;
-    }
+        public void Initialize(IProgressReward reward)
+        {
+            _reward = reward;
 
-    private void OnRewarded(List<int> values)
-    {
-        int reward = 0;
-        
-        foreach (var value in values)
-            reward += value;
-        
-        _rewardText.text = reward.ToString();
-        
-        if (reward == 0)
-            _rewardText.text = _reward.Value.ToString();
+            _reward.Rewarded += OnRewarded;
+        }
+
+        private void OnDestroy()
+        {
+            _reward.Rewarded -= OnRewarded;
+        }
+
+        private void OnRewarded(List<int> values)
+        {
+            int reward = 0;
+
+            foreach (var value in values)
+                reward += value;
+
+            _rewardText.text = reward.ToString();
+
+            if (reward == 0)
+                _rewardText.text = _reward.Value.ToString();
+        }
     }
 }

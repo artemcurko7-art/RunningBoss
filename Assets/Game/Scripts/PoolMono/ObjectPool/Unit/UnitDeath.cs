@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class UnitDeath : MonoBehaviour
+namespace Game.Scripts.PoolMono.ObjectPool.Unit
 {
-    [field: SerializeField] public Transform Hips { get; private set; }
+    public class UnitDeath : MonoBehaviour
+    {
+        [field: SerializeField] public Transform Hips { get; private set; }
+    }
 }

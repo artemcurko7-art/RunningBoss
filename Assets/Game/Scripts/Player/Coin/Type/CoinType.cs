@@ -1,8 +1,11 @@
-public enum CoinType 
+namespace Game.Scripts.Player.Coin.Type
 {
-    None,
-    Killed,
-    Finished,
-    LevelUpped,
-    Distance,
+    public enum CoinType
+    {
+        None,
+        Killed,
+        Finished,
+        LevelUpped,
+        Distance,
+    }
 }

@@ -1,14 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Game.Scripts.Sound.Type;
 using UnityEngine;
 using Zenject;
 
-public class MenuBackgroundMusic : MonoBehaviour
+namespace Game.Scripts.Sound.Music
 {
-    [Inject]
-    public void Construct(BackgroundMusicService service)
+    public class MenuBackgroundMusic : MonoBehaviour
     {
-        service.BackgroundMusics[BackgroundMusicType.Menu].Play();
+        [Inject]
+        public void Construct(BackgroundMusicService service)
+        {
+            service.BackgroundMusics[BackgroundMusicType.Menu].Play();
+        }
     }
 }

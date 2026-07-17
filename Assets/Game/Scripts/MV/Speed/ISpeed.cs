@@ -1,7 +1,10 @@
 using System;
 
-public interface ISpeed
+namespace Game.Scripts.MV.Speed
 {
-    event Action<float> Changed;
-    float Value { get; }
+    public interface ISpeed
+    {
+        event Action<float> Changed;
+        float Value { get; }
+    }
 }

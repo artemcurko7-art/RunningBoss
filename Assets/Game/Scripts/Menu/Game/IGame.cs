@@ -1,8 +1,11 @@
 using System;
 
-public interface IGame
+namespace Game.Scripts.Menu.Game
 {
-    event Action Paused;
-    event Action Resumed;
-    event Action Ended;
+    public interface IGame
+    {
+        event Action Paused;
+        event Action Resumed;
+        event Action Ended;
+    }
 }

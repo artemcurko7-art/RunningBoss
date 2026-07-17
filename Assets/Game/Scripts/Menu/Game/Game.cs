@@ -1,23 +1,26 @@
 using System;
 
-public class Game : IGame
+namespace Game.Scripts.Menu.Game
 {
-    public event Action Paused;
-    public event Action Resumed;
-    public event Action Ended;
-    
-    public void OnPaused()
+    public class Game : IGame
     {
-        Paused?.Invoke();
-    }
+        public event Action Paused;
+        public event Action Resumed;
+        public event Action Ended;
 
-    public void OnResumed()
-    {
-        Resumed?.Invoke();
-    }
+        public void OnPaused()
+        {
+            Paused?.Invoke();
+        }
 
-    public void OnEnded()
-    {
-        Ended?.Invoke();
+        public void OnResumed()
+        {
+            Resumed?.Invoke();
+        }
+
+        public void OnEnded()
+        {
+            Ended?.Invoke();
+        }
     }
 }

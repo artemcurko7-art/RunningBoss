@@ -1,3 +1,5 @@
+using Game.Scripts.MV.Progress;
+using Game.Scripts.MV.Progress.Type;
 using System.Collections.Generic;
 
 namespace YG

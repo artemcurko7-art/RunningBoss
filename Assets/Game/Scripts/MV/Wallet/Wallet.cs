@@ -1,48 +1,51 @@
 using System;
 using YG;
 
-public class Wallet : IWallet
+namespace Game.Scripts.MV.Wallet
 {
-    private int _coin;
-    
-    public Wallet()
+    public class Wallet : IWallet
     {
-        _coin = YG2.saves.Coin;
-    }
-    
-    public event Action<int> CoinsChanged;
-    
-    public int Coin
-    {
-        get => _coin;
+        private int _coin;
 
-        private set
+        public Wallet()
         {
-            _coin = Math.Clamp(value, 0, int.MaxValue);
-            CoinsChanged?.Invoke(_coin);
-            
-            YG2.saves.Coin = _coin;
+            _coin = YG2.saves.Coin;
         }
-    }
 
-    public void Update()
-    {
-        CoinsChanged?.Invoke(_coin);
-    }
+        public event Action<int> CoinsChanged;
 
-    public void AddCoin(int amount)
-    {
-        if (amount < 0)
-            throw new InvalidOperationException(nameof(amount));
+        public int Coin
+        {
+            get => _coin;
 
-        Coin += amount;
-    }
+            private set
+            {
+                _coin = Math.Clamp(value, 0, int.MaxValue);
+                CoinsChanged?.Invoke(_coin);
 
-    public void RemoveCoin(int amount)
-    {
-        if (amount < 0)
-            throw new InvalidOperationException(nameof(amount));
+                YG2.saves.Coin = _coin;
+            }
+        }
 
-        Coin -= amount;
+        public void Update()
+        {
+            CoinsChanged?.Invoke(_coin);
+        }
+
+        public void AddCoin(int amount)
+        {
+            if (amount < 0)
+                throw new InvalidOperationException(nameof(amount));
+
+            Coin += amount;
+        }
+
+        public void RemoveCoin(int amount)
+        {
+            if (amount < 0)
+                throw new InvalidOperationException(nameof(amount));
+
+            Coin -= amount;
+        }
     }
 }

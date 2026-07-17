@@ -1,41 +1,46 @@
 using System;
+using Game.Scripts.MV.Level.GameLevel.Experience.Model;
+using Game.Scripts.Service;
 using YG;
 
-public class GameLevel : IGameLevel, ISubscriber
+namespace Game.Scripts.MV.Level.GameLevel.Level
 {
-    private readonly IGameLevelUpped _levelUpped;
-    
-    public GameLevel(IGameLevelUpped levelUpped)
+    public class GameLevel : IGameLevel, ISubscriber
     {
-        _levelUpped = levelUpped;
+        private readonly IGameLevelUpped _levelUpped;
 
-        Value = YG2.saves.GameLevel;
-    }
-    
-    public event Action<int> Upped;
-    
-    public int Value { get; private set; }
-    
-    public void Subscribe()
-    {
-        _levelUpped.Upped += OnUpped;
-    }
+        public GameLevel(IGameLevelUpped levelUpped)
+        {
+            _levelUpped = levelUpped;
 
-    public void Unsubscribe()
-    {
-        _levelUpped.Upped -= OnUpped;
-    }
+            Value = YG2.saves.GameLevel;
+        }
 
-    public void Update()
-    {
-        Upped?.Invoke(Value);
-    }
-    
-    private void OnUpped()
-    {
-        Value++;
-        Upped?.Invoke(Value);
-        
-        YG2.saves.GameLevel = Value;
+        public event Action<int> Upped;
+
+        public int Value { get; private set; }
+
+        public void Subscribe()
+        {
+            _levelUpped.Upped += OnUpped;
+        }
+
+        public void Unsubscribe()
+        {
+            _levelUpped.Upped -= OnUpped;
+        }
+
+        public void Update()
+        {
+            Upped?.Invoke(Value);
+        }
+
+        private void OnUpped()
+        {
+            Value++;
+            Upped?.Invoke(Value);
+
+            YG2.saves.GameLevel = Value;
+        }
     }
 }

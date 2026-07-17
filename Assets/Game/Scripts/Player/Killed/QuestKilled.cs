@@ -1,25 +1,31 @@
+using Game.Scripts.MV.Quest.QuestData;
+using Game.Scripts.MV.Quest.Type;
+using Game.Scripts.Player.Killed.Subscriber;
 using YG;
 
-public class QuestKilled : KilledSubscriber
+namespace Game.Scripts.Player.Killed
 {
-    private readonly QuestData[] _dates;
-    
-    public QuestKilled(IKilled killed, QuestData[] dates) 
-        : base(killed)
+    public class QuestKilled : KilledSubscriber
     {
-        _dates = dates;
-    }
+        private readonly QuestData[] _dates;
 
-    protected override void OnKilled()
-    {
-        QuestType type = QuestType.Killed;
-        
-        foreach (var data in _dates)
+        public QuestKilled(IKilled killed, QuestData[] dates)
+            : base(killed)
         {
-            if (data.Quests.ContainsKey(type))
+            _dates = dates;
+        }
+
+        protected override void OnKilled()
+        {
+            QuestType type = QuestType.Killed;
+
+            foreach (var data in _dates)
             {
-                data.Quests[type].Add(1);
-                YG2.saves.QuestStorage(data.Quests[type]);
+                if (data.Quests.ContainsKey(type))
+                {
+                    data.Quests[type].Add(1);
+                    YG2.saves.QuestStorage(data.Quests[type]);
+                }
             }
         }
     }

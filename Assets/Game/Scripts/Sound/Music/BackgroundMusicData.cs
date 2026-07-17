@@ -1,26 +1,31 @@
-using System;
 using System.Collections.Generic;
+using System;
+using Game.Scripts.Configs;
+using Game.Scripts.Sound.Type;
 using UnityEngine;
 
-public class BackgroundMusicData  
+namespace Game.Scripts.Sound.Music
 {
-    private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new ();
-    
-    public BackgroundMusicData()
+    public class BackgroundMusicData
     {
-        var configs = Resources.LoadAll<BackgroundMusicConfig>("Config/BackgroundMusic");
-        
-        foreach (var config in configs)
-        {
-            if (config.Type == BackgroundMusicType.None)
-                throw new InvalidOperationException($"Not type: {config.Type}");
-            
-            if (_backgroundMusics.ContainsKey(config.Type))
-                throw new InvalidOperationException($"There is already such a key: {config.Type}");
-            
-            _backgroundMusics.Add(config.Type, config.AudioSource);
-        }
-    }
+        private readonly Dictionary<BackgroundMusicType, AudioSource> _backgroundMusics = new();
 
-    public IReadOnlyDictionary<BackgroundMusicType, AudioSource> BackgroundMusics => _backgroundMusics;
+        public BackgroundMusicData()
+        {
+            var configs = Resources.LoadAll<BackgroundMusicConfig>("Config/BackgroundMusic");
+
+            foreach (var config in configs)
+            {
+                if (config.Type == BackgroundMusicType.None)
+                    throw new InvalidOperationException($"Not type: {config.Type}");
+
+                if (_backgroundMusics.ContainsKey(config.Type))
+                    throw new InvalidOperationException($"There is already such a key: {config.Type}");
+
+                _backgroundMusics.Add(config.Type, config.AudioSource);
+            }
+        }
+
+        public IReadOnlyDictionary<BackgroundMusicType, AudioSource> BackgroundMusics => _backgroundMusics;
+    }
 }

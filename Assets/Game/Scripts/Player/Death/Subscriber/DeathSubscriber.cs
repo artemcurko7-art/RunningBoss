@@ -1,21 +1,26 @@
-public abstract class DeathSubscriber : ISubscriber
+using Game.Scripts.Service;
+
+namespace Game.Scripts.Player.Death.Subscriber
 {
-    private readonly IDeath _death;
-    
-    public DeathSubscriber(IDeath death)
+    public abstract class DeathSubscriber : ISubscriber
     {
-        _death = death;
-    }
+        private readonly IDeath _death;
 
-    public void Subscribe()
-    {
-        _death.Died += OnDied;
-    }
+        public DeathSubscriber(IDeath death)
+        {
+            _death = death;
+        }
 
-    public void Unsubscribe()
-    {
-        _death.Died -= OnDied;
-    }
+        public void Subscribe()
+        {
+            _death.Died += OnDied;
+        }
 
-    protected abstract void OnDied();
+        public void Unsubscribe()
+        {
+            _death.Died -= OnDied;
+        }
+
+        protected abstract void OnDied();
+    }
 }

@@ -1,18 +1,21 @@
 using System;
 
-public class Coin
+namespace Game.Scripts.Player.Coin
 {
-    private int _value;
-
-    public int Value
+    public class Coin
     {
-        get => _value;
+        private int _value;
 
-        private set => _value = Math.Clamp(value, 0, int.MaxValue);
-    }
+        public int Value
+        {
+            get => _value;
 
-    public void Add(int amount)
-    {
-        Value += amount;
+            private set => _value = Math.Clamp(value, 0, int.MaxValue);
+        }
+
+        public void Add(int amount)
+        {
+            Value += amount;
+        }
     }
 }

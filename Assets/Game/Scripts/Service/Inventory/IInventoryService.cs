@@ -1,6 +1,10 @@
 using System.Collections.Generic;
+using Game.Scripts.Inventory.ItemContext;
 
-public interface IInventoryService 
+namespace Game.Scripts.Service.Inventory
 {
-    IReadOnlyList<ItemView> FilledItemViews { get; }
+    public interface IInventoryService
+    {
+        IReadOnlyList<ItemView> FilledItemViews { get; }
+    }
 }

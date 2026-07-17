@@ -2,22 +2,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public abstract class VisibleSelectorButton : MonoBehaviour
+namespace Game.Scripts.Service.Selector.Animal.Visible
 {
-    [field: SerializeField] protected Button Button { get; private set; }
-    
-    protected IAnimalSelectedButton Selected { get; private set; }
-    
-    [Inject]
-    public virtual void Construct(IAnimalSelectedButton selected)
+    public abstract class VisibleSelectorButton : MonoBehaviour
     {
-        Selected = selected;
+        [field: SerializeField] protected Button Button { get; private set; }
+
+        protected IAnimalSelectedButton Selected { get; private set; }
+
+        [Inject]
+        public virtual void Construct(IAnimalSelectedButton selected)
+        {
+            Selected = selected;
+        }
+
+        protected void OnSelected(bool isValue)
+        {
+            Button.interactable = isValue == false;
+        }
+
+        protected abstract void OnDestroy();
     }
-    
-    protected void OnSelected(bool isValue)
-    {
-        Button.interactable = isValue == false;
-    }
-    
-    protected abstract void OnDestroy();
 }

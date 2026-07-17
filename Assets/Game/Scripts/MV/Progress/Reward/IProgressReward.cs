@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
 
-public interface IProgressReward
+namespace Game.Scripts.MV.Progress.Reward
 {
-    event Action<List<int>> Rewarded;
-    List<int> Rewards { get; }
-    int Value { get; }
-    int GetValueRemoved();
+    public interface IProgressReward
+    {
+        event Action<List<int>> Rewarded;
+        List<int> Rewards { get; }
+        int Value { get; }
+        int GetValueRemoved();
+    }
 }

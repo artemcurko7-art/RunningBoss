@@ -1,34 +1,39 @@
+using Game.Scripts.MV.Progress.Level;
+using Game.Scripts.MV.Progress.Type;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressRewardAllCompleted : MonoBehaviour
+namespace Game.Scripts.MV.Progress.Reward
 {
-    [SerializeField] private GameObject _allCompleted;
-
-    private ProgressType _type;
-    private ProgressLevel _level;
-    private IProgressReward _reward;
-    
-    public void Initialize(ProgressType type, ProgressLevel level, IProgressReward reward)
+    public class ProgressRewardAllCompleted : MonoBehaviour
     {
-        _type = type;
-        _level = level;
-        _reward = reward;
+        [SerializeField] private GameObject _allCompleted;
 
-        _reward.Rewarded += OnRewarded;
-    }
+        private ProgressType _type;
+        private ProgressLevel _level;
+        private IProgressReward _reward;
 
-    private void OnDestroy()
-    {
-        _reward.Rewarded -= OnRewarded;
-    }
+        public void Initialize(ProgressType type, ProgressLevel level, IProgressReward reward)
+        {
+            _type = type;
+            _level = level;
+            _reward = reward;
 
-    private void OnRewarded(IReadOnlyList<int> rewards)
-    {
-        if (_allCompleted == null)
-            return;
-        
-        if (_level.Value == _level.MaxValue && rewards.Count == 0)
-            _allCompleted.SetActive(true);
+            _reward.Rewarded += OnRewarded;
+        }
+
+        private void OnDestroy()
+        {
+            _reward.Rewarded -= OnRewarded;
+        }
+
+        private void OnRewarded(IReadOnlyList<int> rewards)
+        {
+            if (_allCompleted == null)
+                return;
+
+            if (_level.Value == _level.MaxValue && rewards.Count == 0)
+                _allCompleted.SetActive(true);
+        }
     }
 }

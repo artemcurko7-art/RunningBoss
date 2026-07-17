@@ -4,48 +4,51 @@ using UnityEngine.UI;
 using YG;
 using Zenject;
 
-public class QuestRewardAdsButton : MonoBehaviour
+namespace Game.Scripts.MV.Quest
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private GameObject _completed;
-    [SerializeField] private GameObject _allCompleted;
-    [SerializeField] private GameObject _ads;
-
-    private Wallet _wallet;
-    private Quest _quest;
-
-    [Inject]
-    public void Construct(Wallet wallet)
+    public class QuestRewardAdsButton : MonoBehaviour
     {
-        _wallet = wallet;
-    }
-    
-    public void Initialize(Quest quest)
-    {
-        _quest = quest;
-        
-        _button.onClick.AddListener(OnClick);
-    }
+        [SerializeField] private Button _button;
+        [SerializeField] private GameObject _completed;
+        [SerializeField] private GameObject _allCompleted;
+        [SerializeField] private GameObject _ads;
 
-    private void OnDestroy()
-    {
-        if (_button == null)
-            return;
-        
-        _button.onClick.RemoveListener(OnClick);
-    }
+        private Wallet.Wallet _wallet;
+        private Quest _quest;
 
-    private void OnClick()
-    {
-        YG2.RewardedAdvShow(String.Empty, () =>
+        [Inject]
+        public void Construct(Wallet.Wallet wallet)
         {
-            _wallet.AddCoin(_quest.Reward);
-            _quest.SetValue(int.MaxValue);
-            _quest.SetReward(0);
-            _completed.SetActive(false);
-            _ads.SetActive(false);
-            _allCompleted.SetActive(true);
-            YG2.saves.QuestStorage(_quest);
-        });
+            _wallet = wallet;
+        }
+
+        public void Initialize(Quest quest)
+        {
+            _quest = quest;
+
+            _button.onClick.AddListener(OnClick);
+        }
+
+        private void OnDestroy()
+        {
+            if (_button == null)
+                return;
+
+            _button.onClick.RemoveListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            YG2.RewardedAdvShow(String.Empty, () =>
+            {
+                _wallet.AddCoin(_quest.Reward);
+                _quest.SetValue(int.MaxValue);
+                _quest.SetReward(0);
+                _completed.SetActive(false);
+                _ads.SetActive(false);
+                _allCompleted.SetActive(true);
+                YG2.saves.QuestStorage(_quest);
+            });
+        }
     }
 }

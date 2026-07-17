@@ -1,15 +1,18 @@
-public class RightVisibleSelectorButton : VisibleSelectorButton
+namespace Game.Scripts.Service.Selector.Animal.Visible
 {
-    public override void Construct(IAnimalSelectedButton selected)
+    public class RightVisibleSelectorButton : VisibleSelectorButton
     {
-        base.Construct(selected);
-        
-        Selected.RightSelected += OnSelected;
-        Selected.Update();
-    }
+        public override void Construct(IAnimalSelectedButton selected)
+        {
+            base.Construct(selected);
 
-    protected override void OnDestroy()
-    {
-        Selected.RightSelected -= OnSelected;
+            Selected.RightSelected += OnSelected;
+            Selected.Update();
+        }
+
+        protected override void OnDestroy()
+        {
+            Selected.RightSelected -= OnSelected;
+        }
     }
 }

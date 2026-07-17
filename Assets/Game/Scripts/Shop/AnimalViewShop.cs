@@ -1,35 +1,42 @@
+using Game.Scripts.Animal.Type;
+using Game.Scripts.Localization;
+using Game.Scripts.Service;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
 using Zenject;
 
-public class AnimalViewShop : MonoBehaviour
+namespace Game.Scripts.Shop
 {
-    [SerializeField] private Image _icon;
-    [SerializeField] private PrefabLocalization _nameLocalization;
-    [SerializeField] private TMP_Text _priceText;
-    
-    private AnimalService _animalService;
-    
-    [field: SerializeField] public GameObject Purchased { get; private set; }
-    
-    public AnimalType Type { get; private set; }
-    public int Price { get; private set; }
-    
-    [Inject]
-    public void Construct(AnimalService animalService)
+    public class AnimalViewShop : MonoBehaviour
     {
-        _animalService = animalService;
-    }
+        [SerializeField] private Image _icon;
+        [SerializeField] private PrefabLocalization _nameLocalization;
+        [SerializeField] private TMP_Text _priceText;
 
-    public void Initialize(AnimalType type, Sprite icon, string nameRussian, string nameEnglish, string nameTurkish, int price)
-    {
-        Type = type;
-        _icon.sprite = icon;
-        _nameLocalization.Initialize(YG2.envir.language, nameRussian, nameEnglish, nameTurkish);
-        Price = price;
-        _priceText.text = price.ToString();
-        transform.localScale = Vector3.one;
+        private AnimalService _animalService;
+
+        [field: SerializeField] public GameObject Purchased { get; private set; }
+
+        public AnimalType Type { get; private set; }
+        public int Price { get; private set; }
+
+        [Inject]
+        public void Construct(AnimalService animalService)
+        {
+            _animalService = animalService;
+        }
+
+        public void Initialize(AnimalType type, Sprite icon, string nameRussian, string nameEnglish, string nameTurkish,
+            int price)
+        {
+            Type = type;
+            _icon.sprite = icon;
+            _nameLocalization.Initialize(YG2.envir.language, nameRussian, nameEnglish, nameTurkish);
+            Price = price;
+            _priceText.text = price.ToString();
+            transform.localScale = Vector3.one;
+        }
     }
 }

@@ -1,8 +1,12 @@
 using System;
+using Game.Scripts.Animal;
 
-public interface IAnimalSelected 
+namespace Game.Scripts.Service.Selector.Animal
 {
-    event Action<AnimalView> Selected;
-    event Action<AnimalView> Created;
-    void Update();
+    public interface IAnimalSelected
+    {
+        event Action<AnimalView> Selected;
+        event Action<AnimalView> Created;
+        void Update();
+    }
 }

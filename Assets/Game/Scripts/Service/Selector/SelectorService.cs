@@ -1,5 +1,8 @@
-public abstract class SelectorService : ISelectorService
+namespace Game.Scripts.Service.Selector
 {
-    public abstract void OnClickRight();
-    public abstract void OnClickLeft();
+    public abstract class SelectorService : ISelectorService
+    {
+        public abstract void OnClickRight();
+        public abstract void OnClickLeft();
+    }
 }

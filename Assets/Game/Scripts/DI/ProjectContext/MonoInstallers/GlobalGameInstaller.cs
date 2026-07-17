@@ -1,11 +1,15 @@
+using Game.Scripts.Menu.Game;
 using Zenject;
 
-public class GlobalGameInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalGameInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<Game>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<Menu.Game.Game>()
+                .AsSingle();
+        }
     }
 }

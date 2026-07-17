@@ -2,27 +2,30 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-public class GamePointText : MonoBehaviour
+namespace Game.Scripts.MV.GamePoint
 {
-    [SerializeField] private TMP_Text _text;
-    
-    private IGamePoint _gamePoint;
-    
-    [Inject]
-    public void Construct(IGamePoint gamePoint)
+    public class GamePointText : MonoBehaviour
     {
-        _gamePoint = gamePoint;
-        
-        _gamePoint.Changed += OnValueChanged;
-    }
+        [SerializeField] private TMP_Text _text;
 
-    private void OnDestroy()
-    {
-        _gamePoint.Changed -= OnValueChanged;
-    }
+        private IGamePoint _gamePoint;
 
-    private void OnValueChanged(int value)
-    {
-        _text.text = value.ToString();
+        [Inject]
+        public void Construct(IGamePoint gamePoint)
+        {
+            _gamePoint = gamePoint;
+
+            _gamePoint.Changed += OnValueChanged;
+        }
+
+        private void OnDestroy()
+        {
+            _gamePoint.Changed -= OnValueChanged;
+        }
+
+        private void OnValueChanged(int value)
+        {
+            _text.text = value.ToString();
+        }
     }
 }

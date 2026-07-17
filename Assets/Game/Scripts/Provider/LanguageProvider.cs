@@ -1,14 +1,17 @@
-public class LanguageProvider
+namespace Game.Scripts.Provider
 {
-    public bool IsAuto { get; private set; } = true;
-    
-    public void EnableAuto()
+    public class LanguageProvider
     {
-        IsAuto = true;
-    }
+        public bool IsAuto { get; private set; } = true;
 
-    public void DisableAuto()
-    {
-        IsAuto = false;
+        public void EnableAuto()
+        {
+            IsAuto = true;
+        }
+
+        public void DisableAuto()
+        {
+            IsAuto = false;
+        }
     }
 }

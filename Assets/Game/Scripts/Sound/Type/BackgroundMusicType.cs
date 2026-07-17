@@ -1,8 +1,11 @@
-public enum BackgroundMusicType 
+namespace Game.Scripts.Sound.Type
 {
-    None,
-    Menu,
-    Waiting,
-    Gameplay,
-    GameEnded,
+    public enum BackgroundMusicType
+    {
+        None,
+        Menu,
+        Waiting,
+        Gameplay,
+        GameEnded,
+    }
 }

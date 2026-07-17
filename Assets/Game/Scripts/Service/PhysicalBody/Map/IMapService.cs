@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 
-public interface IMapService 
+namespace Game.Scripts.Service.PhysicalBody.Map
 {
-    IReadOnlyList<Map> Maps { get; }
+    public interface IMapService
+    {
+        IReadOnlyList<PoolMono.ObjectPool.Map.Map> Maps { get; }
+    }
 }

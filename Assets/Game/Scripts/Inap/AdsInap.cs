@@ -1,14 +1,17 @@
 using UnityEngine;
 using YG;
 
-public class AdsInap : MonoBehaviour
+namespace Game.Scripts.Inap
 {
-    [SerializeField] private PurchaseYG _purchasesYG;
-    
-    public string ID { get; private set; }
-
-    private void Start()
+    public class AdsInap : MonoBehaviour
     {
-        ID = _purchasesYG.name;
+        [SerializeField] private PurchaseYG _purchasesYG;
+
+        public string ID { get; private set; }
+
+        private void Start()
+        {
+            ID = _purchasesYG.name;
+        }
     }
 }

@@ -1,37 +1,44 @@
+using Game.Scripts.Animation;
+using Game.Scripts.Player.Death;
+using Game.Scripts.Player.Finished;
+using Game.Scripts.Service;
 using UnityEngine;
 
-public class ChangingAnimationAnimalViewGameEnded : ISubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly IFinished _finished;
-    private readonly IDeath _death;
-    private readonly Animator _animator;
-    
-    public ChangingAnimationAnimalViewGameEnded(IFinished finished, IDeath death, Animator animator)
+    public class ChangingAnimationAnimalViewGameEnded : ISubscriber
     {
-        _finished = finished;
-        _death = death;
-        _animator = animator;
-    }
+        private readonly IFinished _finished;
+        private readonly IDeath _death;
+        private readonly Animator _animator;
 
-    public void Subscribe()
-    {
-        _finished.Finished += OnFinished;
-        _death.Died += OnDeath;
-    }
+        public ChangingAnimationAnimalViewGameEnded(IFinished finished, IDeath death, Animator animator)
+        {
+            _finished = finished;
+            _death = death;
+            _animator = animator;
+        }
 
-    public void Unsubscribe()
-    {
-        _finished.Finished -= OnFinished;
-        _death.Died -= OnDeath;
-    }
+        public void Subscribe()
+        {
+            _finished.Finished += OnFinished;
+            _death.Died += OnDeath;
+        }
 
-    private void OnFinished()
-    {
-        _animator.SetBool(PlayerAnimatorData.Params.IsRun, false);
-    }
+        public void Unsubscribe()
+        {
+            _finished.Finished -= OnFinished;
+            _death.Died -= OnDeath;
+        }
 
-    private void OnDeath()
-    {
-        _animator.SetTrigger(PlayerAnimatorData.Params.Death);
+        private void OnFinished()
+        {
+            _animator.SetBool(PlayerAnimatorData.Params.IsRun, false);
+        }
+
+        private void OnDeath()
+        {
+            _animator.SetTrigger(PlayerAnimatorData.Params.Death);
+        }
     }
 }

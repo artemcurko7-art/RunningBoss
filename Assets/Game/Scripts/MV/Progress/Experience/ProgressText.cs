@@ -1,14 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class ProgressText : ProgressExperienceView
+namespace Game.Scripts.MV.Progress.Experience
 {
-    [SerializeField] private TMP_Text _valueText;
-    [SerializeField] private TMP_Text _maxValueText;
-    
-    protected override void OnValueChanged(int value)
+    public class ProgressText : ProgressExperienceView
     {
-        _valueText.text = value.ToString();
-        _maxValueText.text = Experience.MaxValue.ToString();
+        [SerializeField] private TMP_Text _valueText;
+        [SerializeField] private TMP_Text _maxValueText;
+
+        protected override void OnValueChanged(int value)
+        {
+            _valueText.text = value.ToString();
+            _maxValueText.text = Experience.MaxValue.ToString();
+        }
     }
 }

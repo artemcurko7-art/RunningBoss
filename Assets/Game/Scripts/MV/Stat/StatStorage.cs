@@ -1,3 +1,6 @@
+using Game.Scripts.Animal.Type;
+using Game.Scripts.MV.Stat;
+using Game.Scripts.MVC.Stat.Type;
 using System.Collections.Generic;
 
 namespace YG

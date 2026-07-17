@@ -1,20 +1,25 @@
-public class AddingCoinProgress 
-{
-    private readonly Wallet _wallet;
-    private readonly ProgressAddingReward _reward;
-    
-    public AddingCoinProgress(Wallet wallet, ProgressAddingReward reward)
-    {
-        _wallet = wallet;
-        _reward = reward;
-    }
+using Game.Scripts.MV.Progress.Type;
 
-    public void Add(ProgressType type, int reward)
+namespace Game.Scripts.MV.Progress
+{
+    public class AddingCoinProgress
     {
-        if (_reward.ReceivedData[type] == false)
+        private readonly Wallet.Wallet _wallet;
+        private readonly ProgressAddingReward _reward;
+
+        public AddingCoinProgress(Wallet.Wallet wallet, ProgressAddingReward reward)
         {
-            _wallet.AddCoin(reward);
-            _reward.Receive(type);
+            _wallet = wallet;
+            _reward = reward;
+        }
+
+        public void Add(ProgressType type, int reward)
+        {
+            if (_reward.ReceivedData[type] == false)
+            {
+                _wallet.AddCoin(reward);
+                _reward.Receive(type);
+            }
         }
     }
 }

@@ -1,15 +1,20 @@
+using Game.Scripts.MV.Level.GameLevel.Level;
+using Game.Scripts.MV.Level.LocationLevel;
 using Zenject;
 
-public class GlobalLevelInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalLevelInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesTo<GameLevel>()
-            .AsSingle();
-        
-        Container
-            .BindInterfacesAndSelfTo<LocationLevel>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesTo<GameLevel>()
+                .AsSingle();
+
+            Container
+                .BindInterfacesAndSelfTo<LocationLevel>()
+                .AsSingle();
+        }
     }
 }

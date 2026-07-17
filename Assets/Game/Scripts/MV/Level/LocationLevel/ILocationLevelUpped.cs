@@ -1,4 +1,7 @@
-public interface ILocationLevelUpped
+namespace Game.Scripts.MV.Level.LocationLevel
 {
-    void UpLevel();
+    public interface ILocationLevelUpped
+    {
+        void UpLevel();
+    }
 }

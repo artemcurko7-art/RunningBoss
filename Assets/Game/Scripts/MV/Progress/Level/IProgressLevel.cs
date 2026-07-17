@@ -1,7 +1,10 @@
 using System;
 
-public interface IProgressLevel
+namespace Game.Scripts.MV.Progress.Level
 {
-    event Action<int> Upped;
-    int Value { get; }
+    public interface IProgressLevel
+    {
+        event Action<int> Upped;
+        int Value { get; }
+    }
 }

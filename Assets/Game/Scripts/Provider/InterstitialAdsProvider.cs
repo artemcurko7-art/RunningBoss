@@ -1,15 +1,18 @@
 using YG;
 
-public class InterstitialAdsProvider
+namespace Game.Scripts.Provider
 {
-    public void RaiseValue()
+    public class InterstitialAdsProvider
     {
-        YG2.saves.InterstitialAdsCount++;
-
-        if (YG2.saves.InterstitialAdsCount == 5 && YG2.saves.IsPaymentAds == false)
+        public void RaiseValue()
         {
-            YG2.InterstitialAdvShow();
-            YG2.saves.InterstitialAdsCount = 0;
+            YG2.saves.InterstitialAdsCount++;
+
+            if (YG2.saves.InterstitialAdsCount == 5 && YG2.saves.IsPaymentAds == false)
+            {
+                YG2.InterstitialAdvShow();
+                YG2.saves.InterstitialAdsCount = 0;
+            }
         }
     }
 }

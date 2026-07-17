@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class AnimalShadow : MonoBehaviour
+namespace Game.Scripts.Animal
 {
-    public Animator Animator { get; private set; }
-    
-    private void Awake()
+    public class AnimalShadow : MonoBehaviour
     {
-        Animator = GetComponent<Animator>();
+        public Animator Animator { get; private set; }
+
+        private void Awake()
+        {
+            Animator = GetComponent<Animator>();
+        }
     }
 }

@@ -1,19 +1,24 @@
-public class PausedGameEnded : ISubscriber
-{
-    private readonly Game _game;
-    
-    public PausedGameEnded(Game game)
-    {
-        _game = game;
-    }
-    
-    public void Subscribe()
-    {
-        _game.Ended += _game.OnPaused;
-    }
+using Game.Scripts.Service;
 
-    public void Unsubscribe()
+namespace Game.Scripts.Menu.Game.Ended
+{
+    public class PausedGameEnded : ISubscriber
     {
-        _game.Ended -= _game.OnPaused;
+        private readonly Game _game;
+
+        public PausedGameEnded(Game game)
+        {
+            _game = game;
+        }
+
+        public void Subscribe()
+        {
+            _game.Ended += _game.OnPaused;
+        }
+
+        public void Unsubscribe()
+        {
+            _game.Ended -= _game.OnPaused;
+        }
     }
 }

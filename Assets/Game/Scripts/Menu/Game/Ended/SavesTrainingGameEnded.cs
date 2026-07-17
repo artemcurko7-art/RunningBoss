@@ -1,14 +1,20 @@
+using Game.Scripts.Menu.Game.Ended.Subscriber;
 using YG;
 
-public class SavesTrainingGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly IGame _game;
-    
-    public SavesTrainingGameEnded(IGame game) 
-        : base(game) { }
-
-    protected override void OnGameEnded()
+    public class SavesTrainingGameEnded : GameEndedSubscriber
     {
-        YG2.saves.IsSavesTraining = true;
+        private readonly IGame _game;
+
+        public SavesTrainingGameEnded(IGame game)
+            : base(game)
+        {
+        }
+
+        protected override void OnGameEnded()
+        {
+            YG2.saves.IsSavesTraining = true;
+        }
     }
 }

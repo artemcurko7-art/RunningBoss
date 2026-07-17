@@ -1,12 +1,16 @@
+using Game.Scripts.PoolMono.ObjectPool.Map;
 using UnityEngine;
 
-public class ZoneAddingToMapPool : MonoBehaviour
+namespace Game.Scripts.PoolMono
 {
-    private void OnCollisionEnter(Collision other)
+    public class ZoneAddingToMapPool : MonoBehaviour
     {
-        if (other.transform.TryGetComponent(out Map map))
+        private void OnCollisionEnter(Collision other)
         {
-            map.OnDisabled();
+            if (other.transform.TryGetComponent(out Map map))
+            {
+                map.OnDisabled();
+            }
         }
     }
 }

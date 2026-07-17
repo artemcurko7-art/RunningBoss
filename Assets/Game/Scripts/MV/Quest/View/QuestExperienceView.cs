@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public abstract class QuestExperienceView : MonoBehaviour
+namespace Game.Scripts.MV.Quest.View
 {
-    protected IQuest Quest { get; private set; }
-    
-    public void Initialize(IQuest quest)
+    public abstract class QuestExperienceView : MonoBehaviour
     {
-        Quest = quest;
-        
-        Quest.Changed += OnValueChanged;
-    }
+        protected IQuest Quest { get; private set; }
 
-    private void OnDestroy()
-    {
-        Quest.Changed -= OnValueChanged;
-    }
+        public void Initialize(IQuest quest)
+        {
+            Quest = quest;
 
-    protected abstract void OnValueChanged(int value);
+            Quest.Changed += OnValueChanged;
+        }
+
+        private void OnDestroy()
+        {
+            Quest.Changed -= OnValueChanged;
+        }
+
+        protected abstract void OnValueChanged(int value);
+    }
 }

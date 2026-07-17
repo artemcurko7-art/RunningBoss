@@ -1,42 +1,48 @@
+using Game.Scripts.Animation;
+using Game.Scripts.Menu.Game.Paused.Type;
+using Game.Scripts.Menu.Tab;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class GamePausedButton : MonoBehaviour
+namespace Game.Scripts.Menu.Game.Paused
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private TabView _tabView;
-    [SerializeField] private GameObject[] _disablings;
-    
-    private Game _game;
-    private Animator _animator;
-    
-    [Inject]
-    public void Construct(Game game, Animator animator)
+    public class GamePausedButton : MonoBehaviour
     {
-        _game = game;
-        _animator = animator;
-    }
+        [SerializeField] private Button _button;
+        [SerializeField] private TabView _tabView;
+        [SerializeField] private GameObject[] _disablings;
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnClick);
-    }
+        private Game _game;
+        private Animator _animator;
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
+        [Inject]
+        public void Construct(Game game, Animator animator)
+        {
+            _game = game;
+            _animator = animator;
+        }
 
-    private void OnClick()
-    {
-        _game.OnPaused();
-        _tabView.gameObject.SetActive(true);
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnClick);
+        }
 
-        foreach (var obj in _disablings)
-            obj.SetActive(false);
-        
-        _animator.SetBool(PlayerAnimatorData.Params.IsRun, false);
-        GamePaused.Set(GamePausedType.Pause);
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnClick);
+        }
+
+        private void OnClick()
+        {
+            _game.OnPaused();
+            _tabView.gameObject.SetActive(true);
+
+            foreach (var obj in _disablings)
+                obj.SetActive(false);
+
+            _animator.SetBool(PlayerAnimatorData.Params.IsRun, false);
+            GamePaused.Set(GamePausedType.Pause);
+        }
     }
 }

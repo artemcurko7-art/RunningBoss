@@ -1,9 +1,12 @@
-public enum ProgressType 
+namespace Game.Scripts.MV.Progress.Type
 {
-    None,
-    Killed,
-    Death,
-    Distance,
-    Money,
-    CompletedLevel,
+    public enum ProgressType
+    {
+        None,
+        Killed,
+        Death,
+        Distance,
+        Money,
+        CompletedLevel,
+    }
 }

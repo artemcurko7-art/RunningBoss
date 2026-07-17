@@ -2,12 +2,15 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBar : HealthView
+namespace Game.Scripts.MV.Stat.Health
 {
-    [SerializeField] private Image _filling;
-
-    protected override void OnValueChanged(int value)
+    public class HealthBar : HealthView
     {
-        _filling.DOFillAmount((float)value / Model.MaxValue, 0.3f);
+        [SerializeField] private Image _filling;
+
+        protected override void OnValueChanged(int value)
+        {
+            _filling.DOFillAmount((float)value / Model.MaxValue, 0.3f);
+        }
     }
 }

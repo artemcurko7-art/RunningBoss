@@ -1,15 +1,18 @@
 using UnityEngine;
 using Zenject;
 
-public class SkyboxGameWorld : MonoBehaviour
+namespace Game.Scripts.GameWorld
 {
-    [Inject]
-    public void Construct(GameWorld gameWorld)
+    public class SkyboxGameWorld : MonoBehaviour
     {
-        RenderSettings.skybox = gameWorld.Config.Skybox;
-        RenderSettings.ambientIntensity = gameWorld.Config.SkyboxIntensityMultiplier;
-        RenderSettings.fogColor = gameWorld.Config.FogColor;
-        RenderSettings.fogMode = gameWorld.Config.FogMode;
-        RenderSettings.fogDensity = gameWorld.Config.FogDensity;
+        [Inject]
+        public void Construct(GameWorldProvider gameWorldProvider)
+        {
+            RenderSettings.skybox = gameWorldProvider.Config.Skybox;
+            RenderSettings.ambientIntensity = gameWorldProvider.Config.SkyboxIntensityMultiplier;
+            RenderSettings.fogColor = gameWorldProvider.Config.FogColor;
+            RenderSettings.fogMode = gameWorldProvider.Config.FogMode;
+            RenderSettings.fogDensity = gameWorldProvider.Config.FogDensity;
+        }
     }
 }

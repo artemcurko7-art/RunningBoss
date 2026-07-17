@@ -1,34 +1,42 @@
+using Game.Scripts.Animal.Type;
+using Game.Scripts.Configs;
+using Game.Scripts.MVC.Stat.Type;
+using Game.Scripts.Player.Damaged;
+using Game.Scripts.Player.Death;
 using System;
 using YG;
 
-public class Health : Stat, IHealth, IDeath, IDamaged
+namespace Game.Scripts.MV.Stat.Health
 {
-    public Health(AnimalType animalType, ImprovementConfig improvementConfig, int value) 
-        : base(animalType, improvementConfig, value)
+    public class Health : Stat, IHealth, IDeath, IDamaged
     {
-        YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Health, this);
-        
-        MaxValue = Value;
-    }
-    
-    public event Action Damaged;
-    public event Action Died;
+        public Health(AnimalType animalType, ImprovementConfig improvementConfig, int value)
+            : base(animalType, improvementConfig, value)
+        {
+            YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Health, this);
 
-    public int MaxValue { get; private set; }
-    
-    public void TakeDamage(int damage)
-    {
-        Reduce(damage);
-        Damaged?.Invoke();
+            MaxValue = Value;
+        }
 
-        if (Value <= 0)
-            Died?.Invoke();
-    }
+        public event Action Damaged;
+        public event Action Died;
 
-    public override void Up()
-    {
-        base.Up();
-        MaxValue = Value;
-        YG2.saves.WriteAnimalStatStorageData(AnimalType, StatType.Health, Value, Level);
+        public int MaxValue { get; private set; }
+
+        public void TakeDamage(int damage)
+        {
+            Reduce(damage);
+            Damaged?.Invoke();
+
+            if (Value <= 0)
+                Died?.Invoke();
+        }
+
+        public override void Up()
+        {
+            base.Up();
+            MaxValue = Value;
+            YG2.saves.WriteAnimalStatStorageData(AnimalType, StatType.Health, Value, Level);
+        }
     }
 }

@@ -1,6 +1,9 @@
 using System;
 
-public interface IGamePoint
+namespace Game.Scripts.MV.GamePoint
 {
-    event Action<int> Changed;
+    public interface IGamePoint
+    {
+        event Action<int> Changed;
+    }
 }

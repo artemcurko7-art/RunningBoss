@@ -1,17 +1,23 @@
+using Game.Scripts.Animal.Type;
+using Game.Scripts.Configs;
+using Game.Scripts.MVC.Stat.Type;
 using YG;
 
-public class Armor : Stat
+namespace Game.Scripts.MV.Stat.Armor
 {
-    public Armor(AnimalType animalType, ImprovementConfig improvementConfig, int value)
-        : base(animalType, improvementConfig, value)
+    public class Armor : Stat
     {
-        YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Armor, this);
-    }
+        public Armor(AnimalType animalType, ImprovementConfig improvementConfig, int value)
+            : base(animalType, improvementConfig, value)
+        {
+            YG2.saves.ReadAnimalStatStorageData(AnimalType, StatType.Armor, this);
+        }
 
-    public override void Up()
-    {
-        base.Up();
-        
-        YG2.saves.WriteAnimalStatStorageData(AnimalType, StatType.Armor, Value, Level);
+        public override void Up()
+        {
+            base.Up();
+
+            YG2.saves.WriteAnimalStatStorageData(AnimalType, StatType.Armor, Value, Level);
+        }
     }
 }

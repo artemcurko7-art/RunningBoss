@@ -1,8 +1,11 @@
 using System;
 
-public interface IGameLevel
+namespace Game.Scripts.MV.Level.GameLevel.Level
 {
-    event Action<int> Upped;
-    int Value { get; }
-    void Update();
+    public interface IGameLevel
+    {
+        event Action<int> Upped;
+        int Value { get; }
+        void Update();
+    }
 }

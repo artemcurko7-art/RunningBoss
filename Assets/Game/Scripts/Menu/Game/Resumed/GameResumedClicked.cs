@@ -1,40 +1,44 @@
+using Game.Scripts.Animation;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class GameResumedClicked : MonoBehaviour
+namespace Game.Scripts.Menu.Game.Resumed
 {
-    [SerializeField] private Image[] _preStarteds;
-    [SerializeField] private GameObject[] _objects;
-    [SerializeField] private Image _image;
-    
-    private Game _game;
-    private Animator _animator;
-    
-    [Inject]
-    public void Construct(Game game, Animator animator)
+    public class GameResumedClicked : MonoBehaviour
     {
-        _game = game;
-        _animator = animator;
-    }
+        [SerializeField] private Image[] _preStarteds;
+        [SerializeField] private GameObject[] _objects;
+        [SerializeField] private Image _image;
 
-    public void OnGameResumed()
-    {
-        _game.OnResumed();
-        
-        foreach (var obj in _preStarteds)
+        private Game _game;
+        private Animator _animator;
+
+        [Inject]
+        public void Construct(Game game, Animator animator)
         {
-            obj.color = new Color(obj.color.r, obj.color.g, obj.color.b, 0);
-
-            for (int i = 0; i < obj.transform.childCount; i++)
-                obj.transform.GetChild(i).gameObject.SetActive(false);
+            _game = game;
+            _animator = animator;
         }
-        
-        _image.enabled = false;
 
-        foreach (var obj in _objects)
-            obj.SetActive(true);
-        
-        _animator.SetBool(PlayerAnimatorData.Params.IsRun, true);
+        public void OnGameResumed()
+        {
+            _game.OnResumed();
+
+            foreach (var obj in _preStarteds)
+            {
+                obj.color = new Color(obj.color.r, obj.color.g, obj.color.b, 0);
+
+                for (int i = 0; i < obj.transform.childCount; i++)
+                    obj.transform.GetChild(i).gameObject.SetActive(false);
+            }
+
+            _image.enabled = false;
+
+            foreach (var obj in _objects)
+                obj.SetActive(true);
+
+            _animator.SetBool(PlayerAnimatorData.Params.IsRun, true);
+        }
     }
 }

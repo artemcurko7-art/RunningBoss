@@ -1,24 +1,27 @@
 using UnityEngine;
 using Zenject;
 
-public class ClosingTab : Tab
+namespace Game.Scripts.Menu.Tab
 {
-    private Transform _currentHierarchy;
-
-    [Inject]
-    public void Construct()
+    public class ClosingTab : Tab
     {
-        _currentHierarchy = View.transform.parent;
-    }
+        private Transform _currentHierarchy;
 
-    protected override void OnClick()
-    {
-        if (Service != null)
-            Service.Enable();
+        [Inject]
+        public void Construct()
+        {
+            _currentHierarchy = View.transform.parent;
+        }
 
-        View.gameObject.SetActive(false);
-        View.transform.SetParent(_currentHierarchy);
-        
-        AudioSource.Play();
+        protected override void OnClick()
+        {
+            if (Service != null)
+                Service.Enable();
+
+            View.gameObject.SetActive(false);
+            View.transform.SetParent(_currentHierarchy);
+
+            AudioSource.Play();
+        }
     }
 }

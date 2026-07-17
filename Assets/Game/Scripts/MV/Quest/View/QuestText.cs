@@ -1,14 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class QuestText : QuestExperienceView
+namespace Game.Scripts.MV.Quest.View
 {
-    [SerializeField] private TMP_Text _valueText;
-    [SerializeField] private TMP_Text _maxValueText;
-    
-    protected override void OnValueChanged(int value)
+    public class QuestText : QuestExperienceView
     {
-        _valueText.text = value.ToString();
-        _maxValueText.text = Quest.MaxValue.ToString();
+        [SerializeField] private TMP_Text _valueText;
+        [SerializeField] private TMP_Text _maxValueText;
+
+        protected override void OnValueChanged(int value)
+        {
+            _valueText.text = value.ToString();
+            _maxValueText.text = Quest.MaxValue.ToString();
+        }
     }
 }

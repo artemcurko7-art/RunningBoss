@@ -1,3 +1,4 @@
+using Game.Scripts.Animal.Type;
 using System.Collections.Generic;
 
 namespace YG

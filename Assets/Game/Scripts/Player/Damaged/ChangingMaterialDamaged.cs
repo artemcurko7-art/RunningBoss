@@ -1,49 +1,54 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using System.Threading;
+using Game.Scripts.Animal;
+using Game.Scripts.Player.Damaged.Subscriber;
 using UnityEngine;
 
-public class ChangingMaterialDamaged : DamagedSubscriber
+namespace Game.Scripts.Player.Damaged
 {
-    private readonly AnimalView _animalView;
-    private readonly Material _material;
-    private readonly Material _currentMaterial;
-    private CancellationTokenSource _cancellationTokenSource;
-
-    public ChangingMaterialDamaged(IDamaged damaged, AnimalView animalView, Material material)
-        : base(damaged)
+    public class ChangingMaterialDamaged : DamagedSubscriber
     {
-        _animalView = animalView;
-        _material = material;
-        _currentMaterial = _animalView.SkinnedMeshRenderer.material;
-    }
-    
-    public override void Subscribe()
-    {
-        base.Subscribe();
-        _cancellationTokenSource = new CancellationTokenSource();
-    }
+        private readonly AnimalView _animalView;
+        private readonly Material _material;
+        private readonly Material _currentMaterial;
+        private CancellationTokenSource _cancellationTokenSource;
 
-    public override void Unsubscribe()
-    {
-        base.Unsubscribe();
-        _cancellationTokenSource.Cancel();
-    }
+        public ChangingMaterialDamaged(IDamaged damaged, AnimalView animalView, Material material)
+            : base(damaged)
+        {
+            _animalView = animalView;
+            _material = material;
+            _currentMaterial = _animalView.SkinnedMeshRenderer.material;
+        }
 
-    protected override void OnDamaged()
-    {
-        RunAsync(_cancellationTokenSource.Token).Forget();
-    }
-    
-    private async UniTaskVoid RunAsync(CancellationToken token)
-    {
-        _animalView.SkinnedMeshRenderer.material.DOColor(Color.red, 0.2f);
-        
-        await UniTask.WaitForSeconds(0.3f, cancellationToken: token);
+        public override void Subscribe()
+        {
+            base.Subscribe();
+            _cancellationTokenSource = new CancellationTokenSource();
+        }
 
-        if (token.IsCancellationRequested)
-            return;
+        public override void Unsubscribe()
+        {
+            base.Unsubscribe();
+            _cancellationTokenSource.Cancel();
+        }
 
-        _animalView.SkinnedMeshRenderer.material.DOColor(Color.white, 0.2f);
+        protected override void OnDamaged()
+        {
+            RunAsync(_cancellationTokenSource.Token).Forget();
+        }
+
+        private async UniTaskVoid RunAsync(CancellationToken token)
+        {
+            _animalView.SkinnedMeshRenderer.material.DOColor(Color.red, 0.2f);
+
+            await UniTask.WaitForSeconds(0.3f, cancellationToken: token);
+
+            if (token.IsCancellationRequested)
+                return;
+
+            _animalView.SkinnedMeshRenderer.material.DOColor(Color.white, 0.2f);
+        }
     }
 }

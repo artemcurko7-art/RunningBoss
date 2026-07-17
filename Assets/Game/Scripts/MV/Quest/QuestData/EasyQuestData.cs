@@ -1,7 +1,10 @@
-public class EasyQuestData : QuestData
+namespace Game.Scripts.MV.Quest.QuestData
 {
-    public EasyQuestData()
+    public class EasyQuestData : QuestData
     {
-        LoadConfigs("Config/Quest/Easy");
+        public EasyQuestData()
+        {
+            LoadConfigs("Config/Quest/Easy");
+        }
     }
 }

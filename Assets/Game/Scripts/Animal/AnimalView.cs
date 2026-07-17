@@ -1,20 +1,23 @@
 using UnityEngine;
 
-public class AnimalView : MonoBehaviour
+namespace Game.Scripts.Animal
 {
-    [SerializeField] private Transform _pointSpawnEffector;
-    
-    [field: SerializeField] public AnimalShadow Shadow { get; private set; }
-    [field: SerializeField] public Animator Animator { get; private set; }
-    [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
-    [field: SerializeField] public Transform ItemContainer { get; private set; }
-    
-    public Animal Animal { get; private set; }
-    public Transform Effector => _pointSpawnEffector;
-    public Transform Current => transform;
-
-    public void Initialize(Animal animal)
+    public class AnimalView : MonoBehaviour
     {
-        Animal = animal;
+        [SerializeField] private Transform _pointSpawnEffector;
+    
+        [field: SerializeField] public AnimalShadow Shadow { get; private set; }
+        [field: SerializeField] public Animator Animator { get; private set; }
+        [field: SerializeField] public SkinnedMeshRenderer SkinnedMeshRenderer { get; private set; }
+        [field: SerializeField] public Transform ItemContainer { get; private set; }
+    
+        public Animal Animal { get; private set; }
+        public Transform Effector => _pointSpawnEffector;
+        public Transform Current => transform;
+
+        public void Initialize(Animal animal)
+        {
+            Animal = animal;
+        }
     }
 }

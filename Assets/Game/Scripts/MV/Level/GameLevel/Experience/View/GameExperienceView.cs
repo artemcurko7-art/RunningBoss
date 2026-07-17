@@ -1,26 +1,30 @@
+using Game.Scripts.MV.Level.GameLevel.Experience.Model;
 using UnityEngine;
 using Zenject;
 
-public abstract class GameExperienceView : MonoBehaviour
+namespace Game.Scripts.MV.Level.GameLevel.Experience.View
 {
-    private IGameExperience _model;
-    
-    [Inject]
-    public void Construct(IGameExperience model)
+    public abstract class GameExperienceView : MonoBehaviour
     {
-        _model = model;
-    }
+        private IGameExperience _model;
 
-    private void OnEnable()
-    {
-        _model.ValueChanged += OnValueChanged;
-        _model.Update();
-    }
+        [Inject]
+        public void Construct(IGameExperience model)
+        {
+            _model = model;
+        }
 
-    private void OnDisable()
-    {
-        _model.ValueChanged -= OnValueChanged;
-    }
+        private void OnEnable()
+        {
+            _model.ValueChanged += OnValueChanged;
+            _model.Update();
+        }
 
-    protected abstract void OnValueChanged(int value, int maxValue);
+        private void OnDisable()
+        {
+            _model.ValueChanged -= OnValueChanged;
+        }
+
+        protected abstract void OnValueChanged(int value, int maxValue);
+    }
 }

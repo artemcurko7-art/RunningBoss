@@ -1,12 +1,21 @@
-public class GameplayGameResumed : GameResumedSubscriber
+using Game.Scripts.Menu.Game.Paused;
+using Game.Scripts.Menu.Game.Paused.Type;
+using Game.Scripts.Menu.Game.Resumed.Subscriber;
+
+namespace Game.Scripts.Menu.Game.Resumed
 {
-    private readonly IGame _game;
-
-    public GameplayGameResumed(IGame game) 
-        : base(game) { }
-
-    protected override void OnGameResumed()
+    public class GameplayGameResumed : GameResumedSubscriber
     {
-        GamePaused.Set(GamePausedType.Play);
+        private readonly IGame _game;
+
+        public GameplayGameResumed(IGame game)
+            : base(game)
+        {
+        }
+
+        protected override void OnGameResumed()
+        {
+            GamePaused.Set(GamePausedType.Play);
+        }
     }
 }

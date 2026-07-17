@@ -1,14 +1,17 @@
 using UnityEngine;
 
-public class HandlerChangingLayer 
+namespace Game.Scripts.Menu.Game.Ended.AnimalView
 {
-    public void Handle(AnimalView animalView, string layer)
+    public class HandlerChangingLayer
     {
-        animalView.gameObject.layer = LayerMask.NameToLayer(layer);
-        
-        Renderer[] renderers = animalView.GetComponentsInChildren<Renderer>();
-        
-        foreach (var render in renderers)
-            render.gameObject.layer = LayerMask.NameToLayer(layer);
+        public void Handle(Animal.AnimalView animalView, string layer)
+        {
+            animalView.gameObject.layer = LayerMask.NameToLayer(layer);
+
+            Renderer[] renderers = animalView.GetComponentsInChildren<Renderer>();
+
+            foreach (var render in renderers)
+                render.gameObject.layer = LayerMask.NameToLayer(layer);
+        }
     }
 }

@@ -1,9 +1,12 @@
 using UnityEngine;
- 
-public class MoverForward 
+
+namespace Game.Scripts.Player.Movement
 {
-    public void Move(Rigidbody rigidbody, Vector3 direction, float speed)
+    public class MoverForward
     {
-        rigidbody.position += direction * (speed * Time.deltaTime);
+        public void Move(Rigidbody rigidbody, Vector3 direction, float speed)
+        {
+            rigidbody.position += direction * (speed * Time.deltaTime);
+        }
     }
 }

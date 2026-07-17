@@ -1,9 +1,12 @@
-public enum EffectorType
+namespace Game.Scripts.Effector.Type
 {
-    None,
-    Boom,
-    Death,
-    BloodBurst,
-    RunFirework,
-    ShootFirework,
+    public enum EffectorType
+    {
+        None,
+        Boom,
+        Death,
+        BloodBurst,
+        RunFirework,
+        ShootFirework,
+    }
 }

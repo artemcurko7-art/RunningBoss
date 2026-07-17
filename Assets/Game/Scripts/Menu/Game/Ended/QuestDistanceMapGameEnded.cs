@@ -1,27 +1,34 @@
+using Game.Scripts.Menu.Game.Ended.Subscriber;
+using Game.Scripts.MV.DistanceMap.Model;
+using Game.Scripts.MV.Quest.QuestData;
+using Game.Scripts.MV.Quest.Type;
 using YG;
 
-public class QuestDistanceMapGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly QuestData[] _dates;
-    private readonly IDistanceMap _distanceMap;
-    
-    public QuestDistanceMapGameEnded(IGame game, QuestData[] dates, IDistanceMap distanceMap) 
-        : base(game)
+    public class QuestDistanceMapGameEnded : GameEndedSubscriber
     {
-        _dates = dates;
-        _distanceMap = distanceMap;
-    }
-    
-    protected override void OnGameEnded()
-    {
-        QuestType type = QuestType.Distance;
-        
-        foreach (var data in _dates)
+        private readonly QuestData[] _dates;
+        private readonly IDistanceMap _distanceMap;
+
+        public QuestDistanceMapGameEnded(IGame game, QuestData[] dates, IDistanceMap distanceMap)
+            : base(game)
         {
-            if (data.Quests.ContainsKey(type))
+            _dates = dates;
+            _distanceMap = distanceMap;
+        }
+
+        protected override void OnGameEnded()
+        {
+            QuestType type = QuestType.Distance;
+
+            foreach (var data in _dates)
             {
-                data.Quests[type].Add((int)_distanceMap.CompletedValue);
-                YG2.saves.QuestStorage(data.Quests[type]);
+                if (data.Quests.ContainsKey(type))
+                {
+                    data.Quests[type].Add((int)_distanceMap.CompletedValue);
+                    YG2.saves.QuestStorage(data.Quests[type]);
+                }
             }
         }
     }

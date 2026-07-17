@@ -1,9 +1,12 @@
-public enum QuestType 
+namespace Game.Scripts.MV.Quest.Type
 {
-    None,
-    Killed,
-    Distance,
-    Money,
-    LevelNotDeath,
-    CompletedLevel,
+    public enum QuestType
+    {
+        None,
+        Killed,
+        Distance,
+        Money,
+        LevelNotDeath,
+        CompletedLevel,
+    }
 }

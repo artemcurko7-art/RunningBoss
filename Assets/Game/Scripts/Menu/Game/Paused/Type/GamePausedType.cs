@@ -1,5 +1,8 @@
-public enum GamePausedType 
+namespace Game.Scripts.Menu.Game.Paused.Type
 {
-    Play,
-    Pause,
+    public enum GamePausedType
+    {
+        Play,
+        Pause,
+    }
 }

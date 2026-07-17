@@ -1,6 +1,10 @@
 using System.Collections.Generic;
+using Game.Scripts.Player.Coin.Type;
 
-public interface ICoinData 
+namespace Game.Scripts.Player.Coin
 {
-    IReadOnlyDictionary<CoinType, Coin> Coins { get; }
+    public interface ICoinData
+    {
+        IReadOnlyDictionary<CoinType, Coin> Coins { get; }
+    }
 }

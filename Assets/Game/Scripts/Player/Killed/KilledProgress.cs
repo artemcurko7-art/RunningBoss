@@ -1,20 +1,26 @@
+using Game.Scripts.MV.Progress.Data;
+using Game.Scripts.MV.Progress.Type;
+using Game.Scripts.Player.Killed.Subscriber;
 using YG;
 
-public class KilledProgress : KilledSubscriber
+namespace Game.Scripts.Player.Killed
 {
-    private readonly IProgressData _data;
-    
-    public KilledProgress(IKilled killed, IProgressData data) 
-        : base(killed)
+    public class KilledProgress : KilledSubscriber
     {
-        _data = data;
-    }
+        private readonly IProgressData _data;
 
-    protected override void OnKilled()
-    {
-        ProgressType type = ProgressType.Killed;
-        
-        _data.Progresses[type].SetValue(1);
-        YG2.saves.ProgressStorage(_data.Progresses[type]);
+        public KilledProgress(IKilled killed, IProgressData data)
+            : base(killed)
+        {
+            _data = data;
+        }
+
+        protected override void OnKilled()
+        {
+            ProgressType type = ProgressType.Killed;
+
+            _data.Progresses[type].SetValue(1);
+            YG2.saves.ProgressStorage(_data.Progresses[type]);
+        }
     }
 }

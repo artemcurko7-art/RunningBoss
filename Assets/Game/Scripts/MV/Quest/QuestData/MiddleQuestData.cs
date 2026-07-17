@@ -1,7 +1,10 @@
-public class MiddleQuestData : QuestData
+namespace Game.Scripts.MV.Quest.QuestData
 {
-    public MiddleQuestData()
+    public class MiddleQuestData : QuestData
     {
-        LoadConfigs("Config/Quest/Middle");
+        public MiddleQuestData()
+        {
+            LoadConfigs("Config/Quest/Middle");
+        }
     }
 }

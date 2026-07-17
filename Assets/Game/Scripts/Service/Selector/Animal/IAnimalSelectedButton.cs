@@ -1,8 +1,11 @@
 using System;
 
-public interface IAnimalSelectedButton
+namespace Game.Scripts.Service.Selector.Animal
 {
-    event Action<bool> LeftSelected;
-    event Action<bool> RightSelected;
-    void Update();
+    public interface IAnimalSelectedButton
+    {
+        event Action<bool> LeftSelected;
+        event Action<bool> RightSelected;
+        void Update();
+    }
 }

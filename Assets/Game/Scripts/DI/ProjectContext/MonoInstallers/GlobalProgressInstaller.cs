@@ -1,11 +1,15 @@
+using Game.Scripts.MV.Progress.Data;
 using Zenject;
 
-public class GlobalProgressInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalProgressInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<ProgressData>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<ProgressData>()
+                .AsSingle();
+        }
     }
 }

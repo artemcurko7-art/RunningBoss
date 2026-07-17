@@ -1,17 +1,22 @@
+using Game.Scripts.Animation;
+using Game.Scripts.Player.Killed.Subscriber;
 using UnityEngine;
 
-public class PlayerAnimationKilled : KilledSubscriber
+namespace Game.Scripts.Player.Killed
 {
-    private readonly Animator _animator;
-    
-    public PlayerAnimationKilled(IKilled killed, Animator animator) 
-        : base(killed)
+    public class PlayerAnimationKilled : KilledSubscriber
     {
-        _animator = animator;
-    }
-    
-    protected override void OnKilled()
-    {
-        _animator.SetTrigger(PlayerAnimatorData.Params.Attack);
+        private readonly Animator _animator;
+
+        public PlayerAnimationKilled(IKilled killed, Animator animator)
+            : base(killed)
+        {
+            _animator = animator;
+        }
+
+        protected override void OnKilled()
+        {
+            _animator.SetTrigger(PlayerAnimatorData.Params.Attack);
+        }
     }
 }

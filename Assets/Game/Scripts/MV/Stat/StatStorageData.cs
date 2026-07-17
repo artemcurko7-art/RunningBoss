@@ -1,8 +1,11 @@
 using System;
 
-[Serializable]
-public class StatStorageData
+namespace Game.Scripts.MV.Stat
 {
-    public int Value;
-    public int Level;
+    [Serializable]
+    public class StatStorageData
+    {
+        public int Value;
+        public int Level;
+    }
 }

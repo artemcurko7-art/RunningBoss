@@ -1,3 +1,4 @@
+using Game.Scripts.Inventory.Type;
 using System.Collections.Generic;
 
 namespace YG

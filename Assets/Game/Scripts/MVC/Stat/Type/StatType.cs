@@ -1,7 +1,10 @@
-public enum StatType 
+namespace Game.Scripts.MVC.Stat.Type
 {
-    None,
-    Health,
-    Armor,
-    Dexterity,
+    public enum StatType
+    {
+        None,
+        Health,
+        Armor,
+        Dexterity,
+    }
 }

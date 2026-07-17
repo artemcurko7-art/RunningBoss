@@ -1,36 +1,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressLevelIcon : MonoBehaviour
+namespace Game.Scripts.MV.Progress.Level
 {
-    [SerializeField] private Image[] _fillings;
-    [SerializeField] private Sprite _levelIcon;
-
-    private IProgressLevel _level;
-    
-    public void Initialize(IProgressLevel level)
+    public class ProgressLevelIcon : MonoBehaviour
     {
-        _level = level;
-        
-        _level.Upped += OnLevelUpped;
+        [SerializeField] private Image[] _fillings;
+        [SerializeField] private Sprite _levelIcon;
 
-        for (int i = 0; i < _level.Value; i++)
-            _fillings[i].sprite = _levelIcon;
-    }
+        private IProgressLevel _level;
 
-    private void OnDestroy()
-    {
-        _level.Upped -= OnLevelUpped;
-    }
+        public void Initialize(IProgressLevel level)
+        {
+            _level = level;
 
-    private void OnLevelUpped(int currentLevel)
-    {
-        if (_level.Value == 0)
-            return;
+            _level.Upped += OnLevelUpped;
 
-        if (_fillings[currentLevel - 1] == null)
-            return; 
+            for (int i = 0; i < _level.Value; i++)
+                _fillings[i].sprite = _levelIcon;
+        }
 
-        _fillings[currentLevel - 1].sprite = _levelIcon;
+        private void OnDestroy()
+        {
+            _level.Upped -= OnLevelUpped;
+        }
+
+        private void OnLevelUpped(int currentLevel)
+        {
+            if (_level.Value == 0)
+                return;
+
+            if (_fillings[currentLevel - 1] == null)
+                return;
+
+            _fillings[currentLevel - 1].sprite = _levelIcon;
+        }
     }
 }

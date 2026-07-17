@@ -1,7 +1,10 @@
 using System;
 
-public interface IWallet 
+namespace Game.Scripts.MV.Wallet
 {
-    event Action<int> CoinsChanged;
-    void Update();
+    public interface IWallet
+    {
+        event Action<int> CoinsChanged;
+        void Update();
+    }
 }

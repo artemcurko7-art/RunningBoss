@@ -1,17 +1,20 @@
-public enum AnimalType 
+namespace Game.Scripts.Animal.Type
 {
-    None,
-    Sheep,
-    Anteater,
-    Beaver,
-    Pig,
-    Boar,
-    Deer,
-    Buffalo,
-    Gorilla,
-    Elephant,
-    Bear,
-    Rhino,
-    Tiger,
-    Crocodile,
+    public enum AnimalType
+    {
+        None,
+        Sheep,
+        Anteater,
+        Beaver,
+        Pig,
+        Boar,
+        Deer,
+        Buffalo,
+        Gorilla,
+        Elephant,
+        Bear,
+        Rhino,
+        Tiger,
+        Crocodile,
+    }
 }

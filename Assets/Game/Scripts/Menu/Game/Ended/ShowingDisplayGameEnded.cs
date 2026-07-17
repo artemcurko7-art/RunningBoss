@@ -1,59 +1,66 @@
-using System.Threading;
 using Cysharp.Threading.Tasks;
+using Game.Scripts.Menu.Game.Ended.Subscriber;
+using Game.Scripts.MV.Level.GameLevel.Experience.Model;
+using Game.Scripts.Player.LevelUpped;
+using System.Threading;
 
-public class ShowingDisplayGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private const float Cooldown = 1f;
-    private readonly IGameLevelUpped _levelUpped;
-    private readonly DisplayGameEnded _display;
-    private readonly DisplayLevelUpped _displayLevelUpped;
-    private CancellationTokenSource _cancellationTokenSource;
-    private bool _isUpped;
-    
-    public ShowingDisplayGameEnded(IGame game, IGameLevelUpped levelUpped, DisplayGameEnded display, DisplayLevelUpped displayLevelUpped) 
-        : base(game)
+    public class ShowingDisplayGameEnded : GameEndedSubscriber
     {
-        _levelUpped = levelUpped;
-        _display = display;
-        _displayLevelUpped = displayLevelUpped;
-    }
+        private const float Cooldown = 1f;
+        private readonly IGameLevelUpped _levelUpped;
+        private readonly DisplayGameEnded _display;
+        private readonly DisplayLevelUpped _displayLevelUpped;
+        private CancellationTokenSource _cancellationTokenSource;
+        private bool _isUpped;
 
-    public override void Subscribe()
-    {
-        base.Subscribe();
-        _levelUpped.Upped += OnUpped;
-        
-        _cancellationTokenSource = new CancellationTokenSource();
-    }
+        public ShowingDisplayGameEnded(IGame game, IGameLevelUpped levelUpped, DisplayGameEnded display,
+            DisplayLevelUpped displayLevelUpped)
+            : base(game)
+        {
+            _levelUpped = levelUpped;
+            _display = display;
+            _displayLevelUpped = displayLevelUpped;
+        }
 
-    public override void Unsubscribe()
-    {
-        base.Unsubscribe();
-        _levelUpped.Upped -= OnUpped;
-        
-        _cancellationTokenSource.Cancel();
-    }
+        public override void Subscribe()
+        {
+            base.Subscribe();
+            _levelUpped.Upped += OnUpped;
 
-    protected override void OnGameEnded()
-    {
-        RunAsync(_cancellationTokenSource.Token).Forget();
-    }
+            _cancellationTokenSource = new CancellationTokenSource();
+        }
 
-    private async UniTaskVoid RunAsync(CancellationToken token)
-    {
-        await UniTask.WaitForSeconds(Cooldown, cancellationToken: token);
+        public override void Unsubscribe()
+        {
+            base.Unsubscribe();
+            _levelUpped.Upped -= OnUpped;
 
-        _display.gameObject.SetActive(true);
-        
-        if (_isUpped)
-            _displayLevelUpped.gameObject.SetActive(true);
-            
-        if (token.IsCancellationRequested)
-            return;
-    }
+            _cancellationTokenSource.Cancel();
+        }
 
-    private void OnUpped()
-    {
-       _isUpped = true; 
+        protected override void OnGameEnded()
+        {
+            RunAsync(_cancellationTokenSource.Token).Forget();
+        }
+
+        private async UniTaskVoid RunAsync(CancellationToken token)
+        {
+            await UniTask.WaitForSeconds(Cooldown, cancellationToken: token);
+
+            _display.gameObject.SetActive(true);
+
+            if (_isUpped)
+                _displayLevelUpped.gameObject.SetActive(true);
+
+            if (token.IsCancellationRequested)
+                return;
+        }
+
+        private void OnUpped()
+        {
+            _isUpped = true;
+        }
     }
 }

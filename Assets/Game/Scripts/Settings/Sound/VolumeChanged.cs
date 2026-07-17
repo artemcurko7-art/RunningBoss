@@ -1,19 +1,22 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class VolumeChanged : MonoBehaviour
+namespace Game.Scripts.Settings.Sound
 {
-    [field: SerializeField] protected Slider Slider { get; private set; }
-
-    private void OnEnable()
+    public abstract class VolumeChanged : MonoBehaviour
     {
-        Slider.onValueChanged.AddListener(OnValueChanged);
-    }
+        [field: SerializeField] protected Slider Slider { get; private set; }
 
-    private void OnDisable()
-    {
-        Slider.onValueChanged.RemoveListener(OnValueChanged);
-    }
+        private void OnEnable()
+        {
+            Slider.onValueChanged.AddListener(OnValueChanged);
+        }
 
-    protected abstract void OnValueChanged(float value);
+        private void OnDisable()
+        {
+            Slider.onValueChanged.RemoveListener(OnValueChanged);
+        }
+
+        protected abstract void OnValueChanged(float value);
+    }
 }

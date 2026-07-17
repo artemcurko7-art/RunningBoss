@@ -1,14 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class GameExperienceText : GameExperienceView
+namespace Game.Scripts.MV.Level.GameLevel.Experience.View
 {
-    [SerializeField] private TMP_Text _valueText;
-    [SerializeField] private TMP_Text _maxValueText;
-    
-    protected override void OnValueChanged(int value, int maxValue)
+    public class GameExperienceText : GameExperienceView
     {
-        _valueText.text = value.ToString();
-        _maxValueText.text = maxValue.ToString();
+        [SerializeField] private TMP_Text _valueText;
+        [SerializeField] private TMP_Text _maxValueText;
+
+        protected override void OnValueChanged(int value, int maxValue)
+        {
+            _valueText.text = value.ToString();
+            _maxValueText.text = maxValue.ToString();
+        }
     }
 }

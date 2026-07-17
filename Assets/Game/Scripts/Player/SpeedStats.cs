@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class SpeedStats : MonoBehaviour
+namespace Game.Scripts.Player
 {
-    [field: SerializeField] public float DefaultValue;
-    [field: SerializeField] public float RaiseValue;
-    [field: SerializeField] public float Delay;
+    public class SpeedStats : MonoBehaviour
+    {
+        [field: SerializeField] public float DefaultValue;
+        [field: SerializeField] public float RaiseValue;
+        [field: SerializeField] public float Delay;
+    }
 }

@@ -1,21 +1,27 @@
-public class DeathGameEnded : ISubscriber
-{
-    private readonly Game _game;
-    private readonly IDeath _death;
-    
-    public DeathGameEnded(Game game, IDeath death)
-    {
-        _game = game;
-        _death = death;
-    }
-    
-    public void Subscribe()
-    {
-        _death.Died += _game.OnEnded;
-    }
+using Game.Scripts.Player.Death;
+using Game.Scripts.Service;
 
-    public void Unsubscribe()
+namespace Game.Scripts.Menu.Game.Ended
+{
+    public class DeathGameEnded : ISubscriber
     {
-        _death.Died -= _game.OnEnded;
+        private readonly Game _game;
+        private readonly IDeath _death;
+
+        public DeathGameEnded(Game game, IDeath death)
+        {
+            _game = game;
+            _death = death;
+        }
+
+        public void Subscribe()
+        {
+            _death.Died += _game.OnEnded;
+        }
+
+        public void Unsubscribe()
+        {
+            _death.Died -= _game.OnEnded;
+        }
     }
 }

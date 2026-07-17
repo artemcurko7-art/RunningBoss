@@ -1,34 +1,38 @@
+using Game.Scripts.Provider;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Zenject;
 
-public class TransitionScene : MonoBehaviour
+namespace Game.Scripts.Menu.TransitionScene
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private string LoadingScene;
+    public class TransitionScene : MonoBehaviour
+    {
+        [SerializeField] private Button _button;
+        [SerializeField] private string LoadingScene;
 
-    private InterstitialAdsProvider _adsProvider;
+        private InterstitialAdsProvider _adsProvider;
     
-    [Inject]
-    public void Construct(InterstitialAdsProvider adsProvider)
-    {
-        _adsProvider = adsProvider;
-    }
+        [Inject]
+        public void Construct(InterstitialAdsProvider adsProvider)
+        {
+            _adsProvider = adsProvider;
+        }
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnClick);
-    }
+        private void OnEnable()
+        {
+            _button.onClick.AddListener(OnClick);
+        }
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnClick);
-    }
+        private void OnDisable()
+        {
+            _button.onClick.RemoveListener(OnClick);
+        }
 
-    private void OnClick()
-    {
-        SceneManager.LoadScene(LoadingScene);
-        _adsProvider.RaiseValue();
-    } 
+        private void OnClick()
+        {
+            SceneManager.LoadScene(LoadingScene);
+            _adsProvider.RaiseValue();
+        } 
+    }
 }

@@ -1,6 +1,9 @@
 using System;
 
-public interface IDamaged 
+namespace Game.Scripts.Player.Damaged
 {
-    public event Action Damaged;
+    public interface IDamaged
+    {
+        public event Action Damaged;
+    }
 }

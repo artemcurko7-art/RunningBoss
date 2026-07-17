@@ -1,18 +1,25 @@
-public class StatsController
+using Game.Scripts.Animal;
+using Game.Scripts.MV.SkillPoint;
+using Game.Scripts.MVC.Stat.Type;
+
+namespace Game.Scripts.MVC.Stat
 {
-    private readonly SkillPoint _skillPoint;
-
-    public StatsController(SkillPoint skillPoint)
+    public class StatsController
     {
-        _skillPoint = skillPoint;
-    }
+        private readonly SkillPoint _skillPoint;
 
-    public void ProcessHandler(StatType type, AnimalView animalView)
-    {
-        if (_skillPoint.Value > 0)
+        public StatsController(SkillPoint skillPoint)
         {
-            animalView.Animal.Stats[type].Up();
-            _skillPoint.Reduce(); 
+            _skillPoint = skillPoint;
+        }
+
+        public void ProcessHandler(StatType type, AnimalView animalView)
+        {
+            if (_skillPoint.Value > 0)
+            {
+                animalView.Animal.Stats[type].Up();
+                _skillPoint.Reduce();
+            }
         }
     }
 }

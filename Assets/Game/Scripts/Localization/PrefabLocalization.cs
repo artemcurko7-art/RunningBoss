@@ -3,49 +3,52 @@ using UnityEngine;
 using YG;
 using Zenject;
 
-public class PrefabLocalization : MonoBehaviour
+namespace Game.Scripts.Localization
 {
-    [SerializeField] private TMP_Text _text;
-    
-    private string _russian;
-    private string _english;
-    private string _turkish;
-    
-    [Inject]
-    public void Construct()
+    public class PrefabLocalization : MonoBehaviour
     {
-        YG2.onSwitchLang += OnChangeLanguage;
-    }
-    
-    public void Initialize(string language, string russian, string english, string turkish)
-    {
-        _russian = russian;
-        _english = english;
-        _turkish = turkish;
-        
-        switch (language)
-        {
-            case "ru":
-                _text.text = russian;
-                break;
-            
-            case "en":
-                _text.text = english;
-                break;
-            
-            case "tr":
-                _text.text = turkish;
-                break;
-        }
-    }
+        [SerializeField] private TMP_Text _text;
 
-    private void OnDestroy()
-    {
-        YG2.onSwitchLang -= OnChangeLanguage;
-    }
-    
-    private void OnChangeLanguage(string language)
-    {
-        Initialize(language, _russian, _english, _turkish);
+        private string _russian;
+        private string _english;
+        private string _turkish;
+
+        [Inject]
+        public void Construct()
+        {
+            YG2.onSwitchLang += OnChangeLanguage;
+        }
+
+        public void Initialize(string language, string russian, string english, string turkish)
+        {
+            _russian = russian;
+            _english = english;
+            _turkish = turkish;
+
+            switch (language)
+            {
+                case "ru":
+                    _text.text = russian;
+                    break;
+
+                case "en":
+                    _text.text = english;
+                    break;
+
+                case "tr":
+                    _text.text = turkish;
+                    break;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            YG2.onSwitchLang -= OnChangeLanguage;
+        }
+
+        private void OnChangeLanguage(string language)
+        {
+            Initialize(language, _russian, _english, _turkish);
+        }
     }
 }

@@ -1,11 +1,15 @@
+using Game.Scripts.Service.Inventory.ItemContext;
 using Zenject;
 
-public class GlobalServiceInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalServiceInstaller : MonoInstaller
     {
-        Container
-            .Bind<ItemViewService>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .Bind<ItemViewService>()
+                .AsSingle();
+        }
     }
 }

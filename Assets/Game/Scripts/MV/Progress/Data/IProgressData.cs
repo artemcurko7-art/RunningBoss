@@ -1,6 +1,10 @@
+using Game.Scripts.MV.Progress.Type;
 using System.Collections.Generic;
 
-public interface IProgressData
+namespace Game.Scripts.MV.Progress.Data
 {
-    IReadOnlyDictionary<ProgressType, Progress> Progresses { get; }
+    public interface IProgressData
+    {
+        IReadOnlyDictionary<ProgressType, Progress> Progresses { get; }
+    }
 }

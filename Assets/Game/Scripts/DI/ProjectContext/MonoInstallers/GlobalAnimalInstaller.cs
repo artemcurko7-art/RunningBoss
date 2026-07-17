@@ -1,11 +1,15 @@
+using Game.Scripts.Animal.Data;
 using Zenject;
 
-public class GlobalAnimalInstaller : MonoInstaller
+namespace Game.Scripts.DI.ProjectContext.MonoInstallers
 {
-    public override void InstallBindings()
+    public class GlobalAnimalInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesAndSelfTo<AnimalData>()
-            .AsSingle();
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesAndSelfTo<AnimalData>()
+                .AsSingle();
+        }
     }
 }

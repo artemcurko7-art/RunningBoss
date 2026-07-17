@@ -1,15 +1,21 @@
-public class RaisingLocationLevelFinished : FinishedSubscriber
+using Game.Scripts.MV.Level.LocationLevel;
+using Game.Scripts.Player.Finished.Subscriber;
+
+namespace Game.Scripts.Player.Finished
 {
-    private readonly ILocationLevelUpped _upped;
-
-    public RaisingLocationLevelFinished(IFinished finished, ILocationLevelUpped upped) 
-        : base(finished)
+    public class RaisingLocationLevelFinished : FinishedSubscriber
     {
-        _upped = upped;
-    }
+        private readonly ILocationLevelUpped _upped;
 
-    protected override void OnFinished()
-    {
-        _upped.UpLevel();
+        public RaisingLocationLevelFinished(IFinished finished, ILocationLevelUpped upped)
+            : base(finished)
+        {
+            _upped = upped;
+        }
+
+        protected override void OnFinished()
+        {
+            _upped.UpLevel();
+        }
     }
 }

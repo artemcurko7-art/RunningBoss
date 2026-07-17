@@ -1,25 +1,31 @@
+using Game.Scripts.Menu.Game.Ended.Subscriber;
+using Game.Scripts.MV.Quest.QuestData;
+using Game.Scripts.MV.Quest.Type;
 using YG;
 
-public class QuestLevelCompletedGameEnded : GameEndedSubscriber
+namespace Game.Scripts.Menu.Game.Ended
 {
-    private readonly QuestData[] _dates;
-    
-    public QuestLevelCompletedGameEnded(IGame game, QuestData[] dates) 
-        : base(game)
+    public class QuestLevelCompletedGameEnded : GameEndedSubscriber
     {
-        _dates = dates;
-    }
+        private readonly QuestData[] _dates;
 
-    protected override void OnGameEnded()
-    {
-        const QuestType type = QuestType.CompletedLevel;
-
-        foreach (var data in _dates)
+        public QuestLevelCompletedGameEnded(IGame game, QuestData[] dates)
+            : base(game)
         {
-            if (data.Quests.ContainsKey(type))
+            _dates = dates;
+        }
+
+        protected override void OnGameEnded()
+        {
+            const QuestType type = QuestType.CompletedLevel;
+
+            foreach (var data in _dates)
             {
-                data.Quests[type].Add(1);
-                YG2.saves.QuestStorage(data.Quests[type]);
+                if (data.Quests.ContainsKey(type))
+                {
+                    data.Quests[type].Add(1);
+                    YG2.saves.QuestStorage(data.Quests[type]);
+                }
             }
         }
     }
